@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<language>
+  <id>Qml</id>
+  <name>QML</name>
+  <description>Qt Modeling Language (Qt Quick declarative UI)</description>
+</language>

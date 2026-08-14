@@ -1,0 +1,13 @@
+﻿<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<%==SIM:Set:private=private==%><%==SIM:Set:protected=protected==%><%==SIM:Set:package= ==%><%==SIM:Set:public=public==%>
+<%==SIM:UserInput:IndentationSize=Number("Indentation size",4)==%>
+<%==SIM:UserInput:IndentationChar=Choice("Indentation char",Space,Tab)==%>
+<%==SIM:If:Eq(IndentationChar,"Tab")==%><%==SIM:SetTabIndent==%><%==SIM:Else==%><%==SIM:SetSpaceIndent==%><%==SIM:EndIf==%><%==SIM:IndentSize(IndentationSize)==%>
+
+<%==SIM:IfNot:IsEmpty(Coalesce(Element.Documentation("Description"),Element.Documentation))==%>
+description: <%==SIM:Coalesce(Element.Documentation("Description"),Element.Documentation)==%><%==SIM:Line==%>
+<%==SIM:EndIf==%>
+type: null
+
+<%==SIM:Line==%>

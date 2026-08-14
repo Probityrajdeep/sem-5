@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<typeset name="Visual Basic .NET" description="" version="2.0" prefix="VbNet" language="VbNet">
+  <parameters>
+    <parameter id="nullable" name="Nullable" code="?" meaning="Nullable" template="Nullable(Of {{Type}})" description="" kind="Flag" />
+  </parameters>
+  <types>
+    <type name="Boolean" description="" tid="boolean">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="Byte" description="" tid="u-integer8">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="SByte" description="" tid="s-integer8">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="Char" description="" tid="char">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="Short" description="" tid="s-integer16">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="UShort" description="" tid="u-integer16">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="Integer" description="" tid="s-integer32">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="UInteger" description="" tid="u-integer32">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="Long" description="" tid="s-integer64">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="ULong" description="" tid="u-integer64">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="Single" description="" tid="s-real32">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="Double" description="" tid="s-real64">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="Decimal" description="" tid="s-decimal128">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="Date" description="" tid="datetime">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="Object" description="" tid="object" nullable="true">
+    </type>
+    <type name="String" description="" tid="string" nullable="true">
+    </type>
+
+	<type id="VbNet.List" tid="array" name="List" description="" template="{{Name}}(Of {{?}})" generic="true" />
+	<type id="VbNet.IEnumerable" tid="" name="IEnumerable" description="" template="{{Name}}(Of {{?}})" generic="true" />
+	<type id="VbNet.Dictionary" tid="" name="Dictionary" description="" template="{{Name}}(Of {{?}},{{?}})" generic="true" />
+  </types>
+</typeset>

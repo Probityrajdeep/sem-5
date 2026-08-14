@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<types name="SQLITE" description="" version="1.0" prefix="Sqlite" language="Sqlite">
+  <type name="INTEGER" description="" tid="s-integer32">
+  </type>
+  <type name="TEXT" description="" tid="string">
+  </type>  
+  <type name="REAL" description="" tid="s-real32">
+  </type>
+  <type name="NUMERIC" description="" tid="s-real64">
+  </type>
+  <type name="BLOB" description="" tid="binary">
+  </type>
+
+  <type name="INT" description="" tid="s-integer32">    
+  </type>  
+  <type name="TINYINT" description="" tid="s-integer32">
+  </type>
+  <type name="SMALLINT" description="" tid="s-integer32">
+  </type>
+  <type name="MEDIUMINT" description="" tid="s-integer32">
+  </type>
+  <type name="BIGINT" description="" tid="s-integer32">
+  </type>
+  <type name="UNSIGNED BIG INT" description="" tid="s-integer32">
+  </type>
+  <type name="INT2" description="" tid="s-integer32">
+  </type>
+  <type name="INT8" description="" tid="s-integer32">
+  </type>
+
+  <type name="CHARACTER" description="" tid="string" default-size="20">
+  </type>
+  <type name="VARCHAR" description="" tid="string" default-size="255">
+  </type>
+  <type name="VARYING CHARACTER" description="" tid="string" default-size="255">
+  </type>
+  <type name="NCHAR" description="" tid="string" default-size="55">
+  </type>
+  <type name="NATIVE CHARACTER" description="" tid="string" default-size="70">
+  </type>
+  <type name="NVARCHAR" description="" tid="string" default-size="100">
+  </type>  
+  <type name="CLOB" description="" tid="string">
+  </type>
+  
+  <type name="DOUBLE" description="" tid="s-real64">
+  </type>
+  <type name="DOUBLE PRECISION" description="" tid="s-real64">
+  </type>
+  <type name="FLOAT" description="" tid="s-real64">
+  </type>
+  
+  <type name="DECIMAL" description="" tid="s-decimal128" default-size="10,5">
+  </type>
+  <type name="BOOLEAN" description="" tid="boolean">
+  </type>
+  <type name="DATE" description="" tid="datetime">
+  </type>
+  <type name="DATETIME" description="" tid="datetime">
+  </type>
+</types>

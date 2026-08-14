@@ -1,0 +1,8 @@
+﻿<types name="Json" description="Json types" prefix="Json" version="1.0"  language="Json">
+    <type tid="object" name="object" description="" />
+    <type tid="null" name="null" description="" />    
+    <type tid="boolean" name="boolean" description="" />
+    <type tid="number" name="number" description="" />    
+    <type tid="array" name="array" description="" />
+    <type tid="string" name="string" description="" />
+</types>

@@ -1,0 +1,16 @@
+<sim-template version="1.0">
+  <meta>
+    <name>Open API</name>
+    <description></description>
+    <type>SourceCode</type>
+    <language>OpenApi</language>
+  </meta>
+  <files defaultName="{Name}.yaml">
+    <file name="ApiSpecification.yaml" outputName="{Diagram.Name}.yaml" type="Diagram">
+      <settings>
+        <setting name="DefaultType" value="Object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+    </file>
+  </files>
+</sim-template>

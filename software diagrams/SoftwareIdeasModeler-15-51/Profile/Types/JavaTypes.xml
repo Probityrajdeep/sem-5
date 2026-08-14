@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<types name="Java" description="" version="1.0" prefix="Java" language="Java">
+  <type name="boolean" description="" tid="boolean">
+  </type>
+  <type name="byte" description="" tid="u-integer8">
+  </type>  
+  <type name="char" description="" tid="char">
+  </type>
+  <type name="short" description="" tid="s-integer16">
+  </type>  
+  <type name="int" description="" tid="s-integer32">
+  </type>  
+  <type name="long" description="" tid="s-integer64">
+  </type>  
+  <type name="float" description="" tid="s-real32">
+  </type>
+  <type name="double" description="" tid="s-real64">
+  </type>  
+  <type name="Date" description="" tid="datetime">
+  </type>
+  <type name="object" description="" tid="object">
+  </type>
+  <type name="String" description="" tid="string">
+  </type>
+
+  <type id="Java.List" tid="array" name="List" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.ArrayList" tid="array" name="ArrayList" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.LinkedList" tid="array" name="LinkedList" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.Set" tid="" name="Set" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.HashSet" tid="" name="HashSet" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.LinkedHashSet" tid="" name="LinkedHashSet" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.TreeSet" tid="" name="TreeSet" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.Map" tid="" name="Map" description="" template="{{Name}}&lt;{{?}},{{?}}&gt;" generic="true" />
+  <type id="Java.HashMap" tid="" name="HashMap" description="" template="{{Name}}&lt;{{?}},{{?}}&gt;" generic="true" />
+  <type id="Java.LinkedHashMap" tid="" name="LinkedHashMap" description="" template="{{Name}}&lt;{{?}},{{?}}&gt;" generic="true" />
+  <type id="Java.TreeMap" tid="" name="TreeMap" description="" template="{{Name}}&lt;{{?}},{{?}}&gt;" generic="true" />
+  <type id="Java.Queue" tid="" name="Queue" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.Deque" tid="" name="Deque" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.LinkedList" tid="" name="LinkedList" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.Optional" tid="" name="Optional" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.Future" tid="" name="Future" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.Stream" tid="" name="Stream" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+  <type id="Java.Callable" tid="" name="Callable" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+</types>

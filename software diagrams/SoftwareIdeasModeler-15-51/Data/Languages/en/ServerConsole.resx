@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <metadata name="languageId">
+    <value>en</value>
+  </metadata>
+  <metadata name="languageName">
+    <value>English</value>
+  </metadata>
+  <metadata name="languageLocalName">
+    <value>English</value>
+  </metadata>
+  <metadata name="author">
+    <value>Dušan Rodina</value>
+  </metadata>
+  <metadata name="creationDate">
+    <value />
+  </metadata>
+  <metadata name="info">
+    <value />
+  </metadata>
+  
+  <data name="LoginForm.Form.Title" xml:space="preserve">
+    <value>Login to Server</value>
+  </data>
+  <data name="LoginForm.Form.Login" xml:space="preserve">
+    <value>&amp;Login:</value>
+  </data>
+  <data name="LoginForm.Form.Password" xml:space="preserve">
+    <value>&amp;Password:</value>
+  </data>
+  <data name="LoginForm.Form.LoginButton" xml:space="preserve">
+    <value>Log&amp;in</value>
+  </data>
+  
+  <data name="Global.Strings.NonRegisteredText" xml:space="preserve">
+    <value>Server has not a valid license - users will be not able to log in</value>
+  </data>
+  
+  <data name="Global.ActionType.All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Global.ActionType.LoginToServerConsole" xml:space="preserve">
+    <value>Login to Server Console</value>
+  </data>  
+  <data name="Global.ActionType.AddUser" xml:space="preserve">
+    <value>Add User</value>
+  </data>
+  <data name="Global.ActionType.EditUser" xml:space="preserve">
+    <value>Edit User</value>
+  </data>
+  <data name="Global.ActionType.DeleteUser" xml:space="preserve">
+    <value>Delete User</value>
+  </data>
+  <data name="Global.ActionType.RestoreUser" xml:space="preserve">
+    <value>Restore User</value>
+  </data>
+  <data name="Global.ActionType.LockUser" xml:space="preserve">
+    <value>Lock User</value>
+  </data>
+  <data name="Global.ActionType.UnlockUser" xml:space="preserve">
+    <value>Unlock User</value>
+  </data>  
+  <data name="Global.ActionType.ListActiveUsers" xml:space="preserve">
+    <value>List Active Users</value>
+  </data>
+  <data name="Global.ActionType.ListAllActiveUsers" xml:space="preserve">
+    <value>List All Active Users</value>
+  </data>
+  <data name="Global.ActionType.ListUsers" xml:space="preserve">
+    <value>List Users</value>
+  </data>
+  <data name="Global.ActionType.ListUserGroups" xml:space="preserve">
+    <value>List User Groups</value>
+  </data>
+  <data name="Global.ActionType.InsertLicense" xml:space="preserve">
+    <value>Insert License</value>
+  </data>
+  <data name="Global.ActionType.InsertMainServerLicense" xml:space="preserve">
+    <value>Insert Main Server License</value>
+  </data>
+  <data name="Global.ActionType.ListLicenseKeys" xml:space="preserve">
+    <value>List License Keys</value>
+  </data>
+  <data name="Global.ActionType.RemoveLicense" xml:space="preserve">
+    <value>Remove License</value>
+  </data>
+  <data name="Global.ActionType.ViewLicenses" xml:space="preserve">
+    <value>View License Files</value>
+  </data>
+  <data name="Global.ActionType.AssignLicenseToUser" xml:space="preserve">
+    <value>Assign License To User</value>
+  </data>
+  <data name="Global.ActionType.ListLogs" xml:space="preserve">
+    <value>List Logs</value>
+  </data>
+  <data name="Global.ActionType.ListLocks" xml:space="preserve">
+    <value>List Locks</value>
+  </data>
+  <data name="Global.ActionType.InitializeServer" xml:space="preserve">
+    <value>Initialize Server</value>
+  </data>
+  <data name="Global.ActionType.ResetServerToDefaults" xml:space="preserve">
+    <value>Reset Server To Defaults</value>
+  </data>
+  <data name="Global.ActionType.ShutDownServer" xml:space="preserve">
+    <value>Shut Down Server</value>
+  </data>
+  <data name="Global.ActionType.SendMessage" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="Global.ActionType.GlobalTasks" xml:space="preserve">
+    <value>Global Tasks</value>
+  </data>
+  <data name="Global.ActionType.GlobalTasksNewProject" xml:space="preserve">
+    <value>Global Tasks - New Project</value>
+  </data>
+  <data name="Global.ActionType.ListSolutions" xml:space="preserve">
+    <value>List Solutions</value>
+  </data>
+  <data name="Global.ActionType.AddSolution" xml:space="preserve">
+    <value>Add Solution</value>
+  </data>
+  <data name="Global.ActionType.SetSolutionInfo" xml:space="preserve">
+    <value>Set Solution Info</value>
+  </data>
+  <data name="Global.ActionType.DeleteSolution" xml:space="preserve">
+    <value>Delete Solution</value>
+  </data>
+  <data name="Global.ActionType.RestoreSolution" xml:space="preserve">
+    <value>Restore Solution</value>
+  </data>
+  <data name="Global.ActionType.LockFile" xml:space="preserve">
+    <value>Lock File</value>
+  </data>
+  
+
+  <data name="ServerManagementForm.Form.Title" xml:space="preserve">
+    <value>Server Management</value>
+  </data>
+  <data name="ServerManagementForm.Form.File" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <data name="ServerManagementForm.Form.ExportData" xml:space="preserve">
+    <value>&amp;Export Data</value>
+  </data>
+  <data name="ServerManagementForm.Form.Exit" xml:space="preserve">
+    <value>E&amp;xit</value>
+  </data>
+  <data name="ServerManagementForm.Form.Server" xml:space="preserve">
+    <value>&amp;Server</value>
+  </data>
+  <data name="ServerManagementForm.Form.SetServerLicense" xml:space="preserve">
+    <value>&amp;Set Main Server License</value>
+  </data>
+  <data name="ServerManagementForm.Form.RestartServer" xml:space="preserve">
+    <value>&amp;Restart Server</value>
+  </data>
+  <data name="ServerManagementForm.Form.ResetToDefaults" xml:space="preserve">
+    <value>Reset To &amp;Defaults</value>
+  </data>
+  <data name="ServerManagementForm.Form.Help" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="ServerManagementForm.Form.About" xml:space="preserve">
+    <value>&amp;About</value>
+  </data>
+  
+  <data name="ServerManagementForm.Form.Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="ServerManagementForm.Form.Repository" xml:space="preserve">
+    <value>Repository</value>
+  </data>
+  <data name="ServerManagementForm.Form.Locks" xml:space="preserve">
+    <value>Locks</value>
+  </data>
+  <data name="ServerManagementForm.Form.Logs" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="ServerManagementForm.Form.Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="ServerManagementForm.Form.Licenses" xml:space="preserve">
+    <value>Licenses</value>
+  </data>
+
+  <data name="UserForm.Form.Title" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="UserForm.Form.General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="UserForm.Form.Rights" xml:space="preserve">
+    <value>Rights</value>
+  </data>
+  <data name="UserForm.Form.License" xml:space="preserve">
+    <value>&amp;License:</value>
+  </data>
+  <data name="UserForm.Form.Name" xml:space="preserve">
+    <value>&amp;Name:</value>
+  </data>
+  <data name="UserForm.Form.Description" xml:space="preserve">
+    <value>&amp;Description:</value>
+  </data>
+  <data name="UserForm.Form.Login" xml:space="preserve">
+    <value>Log&amp;in:</value>
+  </data>
+  <data name="UserForm.Form.ChangePassword" xml:space="preserve">
+    <value>&amp;Change Password:</value>
+  </data>
+  
+  <data name="UsersView.Control.Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="UsersView.Control.Id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="UsersView.Control.Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="UsersView.Control.Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="UsersView.Control.Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="UsersView.Control.CreationDate" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="UsersView.Control.LastLoginDate" xml:space="preserve">
+    <value>Last Login Date</value>
+  </data>
+  <data name="UsersView.Control.IsLockedOut" xml:space="preserve">
+    <value>Is Locked Out</value>
+  </data>
+  <data name="UsersView.Control.AddUser" xml:space="preserve">
+    <value>Add User</value>
+  </data>
+  <data name="UsersView.Control.EditUser" xml:space="preserve">
+    <value>Edit User</value>
+  </data>
+  <data name="UsersView.Control.DeleteUser" xml:space="preserve">
+    <value>Delete User</value>
+  </data>
+  <data name="UsersView.Control.LockUser" xml:space="preserve">
+    <value>Lock User</value>
+  </data>
+  <data name="UsersView.Control.UnlockUser" xml:space="preserve">
+    <value>Unlock User</value>
+  </data>
+
+  <data name="LogView.Control.Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="LogView.Control.Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="LogView.Control.Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="LogView.Control.User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="LogView.Control.Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="LogView.Control.CreationDate" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+
+  <data name="LocksView.Control.Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="LocksView.Control.Object" xml:space="preserve">
+    <value>Object</value>
+  </data>
+  <data name="LocksView.Control.Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>  
+  <data name="LocksView.Control.Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="LocksView.Control.CreationDate" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+
+
+  <data name="RepositoryBrowserControl.Control.NewSolution" xml:space="preserve">
+    <value>New Solution</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.NewFolder" xml:space="preserve">
+    <value>New Folder</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.GoUp" xml:space="preserve">
+    <value>Go Up</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.Root" xml:space="preserve">
+    <value>Root</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.Trash" xml:space="preserve">
+    <value>Trash</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.Restore" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.Go" xml:space="preserve">
+    <value>Go</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.CreationDate" xml:space="preserve">
+    <value>Creation Date</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.CreationUser" xml:space="preserve">
+    <value>Creation User</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.ChangeDate" xml:space="preserve">
+    <value>Change Date</value>
+  </data>
+  <data name="RepositoryBrowserControl.Control.Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="RepositoryItemProperties.Form.Title" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="RepositoryItemProperties.Form.General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="RepositoryItemProperties.Form.Rights" xml:space="preserve">
+    <value>Rights</value>
+  </data>
+  <data name="RepositoryItemProperties.Form.Name" xml:space="preserve">
+    <value>&amp;Name:</value>
+  </data>
+  <data name="RepositoryItemProperties.Form.CreationUser" xml:space="preserve">
+    <value>&amp;Creation user:</value>
+  </data>
+  <data name="RepositoryItemProperties.Form.CreationDate" xml:space="preserve">
+    <value>&amp;Creation date:</value>
+  </data>
+  <data name="RepositoryItemProperties.Form.ChangeUser" xml:space="preserve">
+    <value>&amp;Change user:</value>
+  </data>
+  <data name="RepositoryItemProperties.Form.ChangeDate" xml:space="preserve">
+    <value>&amp;Change date:</value>
+  </data>
+  <data name="RepositoryItemProperties.Form.Description" xml:space="preserve">
+    <value>&amp;Description:</value>
+  </data>
+  <data name="UserRightsControl.Control.AddUserOrGroup" xml:space="preserve">
+    <value>Add User/Group</value>
+  </data>
+  <data name="UserRightsControl.Control.Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="UserRightsControl.Control.Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="UserRightsControl.Control.Read" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="UserRightsControl.Control.Write" xml:space="preserve">
+    <value>Write</value>
+  </data>
+  <data name="UserRightsControl.Control.List" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="UserRightsControl.Control.Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="UserOrGroupPicker.Form.Title" xml:space="preserve">
+    <value>Choose User or Group</value>
+  </data>
+  <data name="UserOrGroupPicker.Form.Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="UserOrGroupPicker.Form.Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+
+  <data name="Global.Messages.DeleteUser" xml:space="preserve">
+    <value>Do you really want to delete the user '&lt;?&gt;'?</value>
+  </data>
+  <data name="Global.Messages.DeleteUser.title" xml:space="preserve">
+    <value>Delete User</value>
+  </data>
+
+  <data name="Global.Messages.LockUser" xml:space="preserve">
+    <value>Do you really want to lock the user '&lt;?&gt;'?</value>
+  </data>
+  <data name="Global.Messages.LockUser.title" xml:space="preserve">
+    <value>Lock User</value>
+  </data>
+
+  <data name="Global.Messages.MissingLicenseKey" xml:space="preserve">
+    <value>License key must be filled. If you do not have a free license key, the new user cannot be added.</value>
+  </data>
+  <data name="Global.Messages.MissingLicenseKey.title" xml:space="preserve">
+    <value>Missing License Key</value>
+  </data>
+
+  <data name="Global.Messages.ResetServerToDefaults" xml:space="preserve">
+    <value>Do you really want to reset the server to the default state? All data will be permanently deleted.</value>
+  </data>
+  <data name="Global.Messages.ResetServerToDefaults.title" xml:space="preserve">
+    <value>Reset Server To Defaults</value>
+  </data>
+
+  <data name="Global.Messages.ResetServerToDefaultsIsNotAllowed" xml:space="preserve">
+    <value>You are not allowed to reset the server to defaults.</value>
+  </data>
+  <data name="Global.Messages.ResetServerToDefaultsIsNotAllowed.title" xml:space="preserve">
+    <value>Reset Server To Defaults Not Allowed</value>
+  </data>
+
+  <data name="Global.Messages.InsertLicenseIsNotAllowed" xml:space="preserve">
+    <value>You are not allowed to insert the license key file to the server.</value>
+  </data>
+  <data name="Global.Messages.InsertLicenseIsNotAllowed.title" xml:space="preserve">
+    <value>Insert License Key Not Allowed</value>
+  </data>
+
+  <data name="Global.Messages.ServerConsoleAccessNotAllowed" xml:space="preserve">
+    <value>You are not allowed to access the server console.</value>
+  </data>
+  <data name="Global.Messages.ServerConsoleAccessNotAllowed.title" xml:space="preserve">
+    <value>Server Console Access Not Allowed</value>
+  </data>  
+
+  <data name="Global.Messages.MissingUserName" xml:space="preserve">
+    <value>User name must be filled.</value>
+  </data>
+  <data name="Global.Messages.MissingUserName.title" xml:space="preserve">
+    <value>Missing User Name</value>
+  </data>
+
+  <data name="Global.Messages.MissingUserLogin" xml:space="preserve">
+    <value>User login must be filled.</value>
+  </data>
+  <data name="Global.Messages.MissingUserLogin.title" xml:space="preserve">
+    <value>Missing User Login</value>
+  </data>
+
+  <data name="Global.Messages.UserLoginAlreadyExists" xml:space="preserve">
+    <value>The user login '&lt;?&gt;' is already used. Please choose another login for this user.</value>
+  </data>
+  <data name="Global.Messages.UserLoginAlreadyExists.title" xml:space="preserve">
+    <value>User Login Exists</value>
+  </data>
+
+  <data name="Global.Messages.DeleteSolutionFromServerRepository" xml:space="preserve">
+    <value>Do you really want to delete the solution '&lt;?&gt;' from the repository?</value>
+  </data>
+  <data name="Global.Messages.DeleteSolutionFromServerRepository.title" xml:space="preserve">
+    <value>Delete Solution</value>
+  </data>
+
+  <data name="Global.Messages.LicenseIsNotValid" xml:space="preserve">
+    <value>The file does not contain a valid Software Ideas Server license.</value>
+  </data>
+  <data name="Global.Messages.LicenseIsNotValid.title" xml:space="preserve">
+    <value>Invalid License</value>
+  </data>  
+
+
+  <data name="DeleteOldMessagesForm.Form.Title" xml:space="preserve">
+    <value>Delete Old Messages</value>
+  </data>
+  <data name="DeleteOldMessagesForm.Form.DeleteMessagesOlderThan" xml:space="preserve">
+    <value>&amp;Delete messages older than:</value>
+  </data>
+  
+  <data name="MessagesView.Control.Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="MessagesView.Control.DeleteOldMessages" xml:space="preserve">
+    <value>Delete Old Messages</value>
+  </data>
+  <data name="MessagesView.Control.User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="MessagesView.Control.MessageCount" xml:space="preserve">
+    <value>Message Count</value>
+  </data>
+  <data name="MessagesView.Control.LastMessageSent" xml:space="preserve">
+    <value>Last Message Sent</value>
+  </data>
+
+
+  <data name="LicensesView.Control.Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="LicensesView.Control.Licenses" xml:space="preserve">
+    <value>Licenses</value>
+  </data>
+  <data name="LicensesView.Control.InsertedDate" xml:space="preserve">
+    <value>Inserted Date</value>
+  </data>
+  <data name="LicensesView.Control.ValidFrom" xml:space="preserve">
+    <value>Valid From</value>
+  </data>
+  <data name="LicensesView.Control.ValidTo" xml:space="preserve">
+    <value>Valid To</value>
+  </data>  
+  <data name="LicensesView.Control.InsertLicense" xml:space="preserve">
+    <value>Insert License</value>
+  </data>
+  <data name="LicensesView.Control.RemoveLicense" xml:space="preserve">
+    <value>Remove License</value>
+  </data>
+
+  <data name="Global.Messages.RemoveLicense" xml:space="preserve">
+    <value>Do you really want to delete the license '&lt;?&gt;'?</value>
+  </data>
+  <data name="Global.Messages.RemoveLicense.title" xml:space="preserve">
+    <value>Remove License</value>
+  </data>
+
+  <data name="ServerManagementForm.Form.Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="ServerManagementForm.Form.RepositoryPath" xml:space="preserve">
+    <value>Repository Path</value>
+  </data>
+  <data name="ServerManagementForm.Form.LogPath" xml:space="preserve">
+    <value>Log Path</value>
+  </data>
+
+  <data name="ServerManagementForm.Form.MainServerLicenseSet" xml:space="preserve">
+    <value>License successfully set for the server.</value>
+  </data>
+  <data name="ServerManagementForm.Form.ServerHasBeenRestarted" xml:space="preserve">
+    <value>Server has been successfully restarted.</value>
+  </data>
+  <data name="ServerManagementForm.Form.ConnectingToServer" xml:space="preserve">
+    <value>Connecting to the server...</value>
+  </data>
+  <data name="ServerManagementForm.Form.ConnectedToServer" xml:space="preserve">
+    <value>Successfully connected and logged in to the server.</value>
+  </data>
+</root>

@@ -1,0 +1,139 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>  
+
+<%==SIM:If:Element.OfType(ui-panel)==%>
+	<%==SIM:Include(Panel.xaml,Element,False)==%><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-toolbar)==%>
+	<%==SIM:Include(Toolbar.xaml,Element,False)==%><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-button)==%>
+	<Button x:Name="<%==SIM:Element.SafeName==%>" Text="<%==SIM:Element.OriginalName==%>" <%==SIM:FullElementStyle(Element)==%> <%==SIM:ElementLayout(Element)==%>>
+	<%==SIM:ElementBackground(Element,"Button")==%>
+	</Button><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-check-box)==%>
+	<%==SIM:BorderStart(Element,True,True)==%>
+	<HorizontalStackLayout>            
+		<CheckBox x:Name="<%==SIM:Element.SafeName==%>"
+		<%==SIM:IfNot:Element.HasDefaultStyle==%>
+		<%==SIM:If:Element.Style.Background.IsSolid==%><%==SIM:Space==%>BackgroundColor="<%==SIM:Element.Style.Background.Color.HexA==%>"<%==SIM:EndIf==%>
+		<%==SIM:EndIf==%>
+		>
+		<%==SIM:ElementBackground(Element,"CheckBox")==%>
+		</CheckBox><%==SIM:Line==%>
+		<Label Text="<%==SIM:Element.Name==%>"
+			<%==SIM:IfNot:Element.HasDefaultStyle==%>
+			<%==SIM:If:Element.Style.Background.IsSolid==%><%==SIM:Space==%>BackgroundColor="<%==SIM:Element.Style.Background.Color.HexA==%>"<%==SIM:EndIf==%>
+			<%==SIM:Space==%>TextColor="<%==SIM:Element.Style.NameTextStyle.Color.HexA==%>"
+			<%==SIM:Space==%>Padding="<%==SIM:Element.Style.Padding.Left==%>,<%==SIM:Element.Style.Padding.Top==%>,<%==SIM:Element.Style.Padding.Right==%>,<%==SIM:Element.Style.Padding.Bottom==%>"
+			<%==SIM:Space==%>HorizontalTextAlignment="<%==SIM:Switch(Element.Style.NameTextStyle.HorizontalAlignment,"Near","Start","Center","Center","Far","End")==%>"
+			<%==SIM:Space==%>VerticalTextAlignment="<%==SIM:Switch(Element.Style.NameTextStyle.VerticalAlignment,"Near","Start","Center","Center","Far","End")==%>"
+			<%==SIM:EndIf==%>
+		><%==SIM:Line==%>			
+			<%==SIM:ElementBackground(Element,"Label")==%>
+		</Label><%==SIM:Line==%>
+	</HorizontalStackLayout>
+	<%==SIM:Set:InsideBorder=True==%>
+	</Border>
+<%==SIM:ElseIf:Element.OfType(ui-radio-button)==%>
+	<RadioButton x:Name="<%==SIM:Element.SafeName==%>" Content="<%==SIM:Element.OriginalName==%>" <%==SIM:FullElementStyle(Element)==%> <%==SIM:ElementLayout(Element)==%>>
+	<%==SIM:ElementBackground(Element,"RadioButton")==%>
+	</RadioButton><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-label)==%>
+	<%==SIM:BorderStart(Element,False,True)==%>
+	<Label x:Name="<%==SIM:Element.SafeName==%>" Text="<%==SIM:Element.OriginalName==%>" <%==SIM:ElementLayout(Element)==%>
+	<%==SIM:IfNot:Element.HasDefaultStyle==%>
+	<%==SIM:If:Element.Style.Background.IsSolid==%><%==SIM:Space==%>BackgroundColor="<%==SIM:Element.Style.Background.Color.HexA==%>"<%==SIM:EndIf==%>
+	<%==SIM:Space==%>TextColor="<%==SIM:Element.Style.NameTextStyle.Color.HexA==%>"
+	<%==SIM:Space==%>Padding="<%==SIM:Element.Style.Padding.Left==%>,<%==SIM:Element.Style.Padding.Top==%>,<%==SIM:Element.Style.Padding.Right==%>,<%==SIM:Element.Style.Padding.Bottom==%>"
+	<%==SIM:IfNot:InsideBorder==%>
+	<%==SIM:Space==%>HorizontalTextAlignment="<%==SIM:Switch(Element.Style.NameTextStyle.HorizontalAlignment,"Near","Start","Center","Center","Far","End")==%>"
+	<%==SIM:Space==%>VerticalTextAlignment="<%==SIM:Switch(Element.Style.NameTextStyle.VerticalAlignment,"Near","Start","Center","Center","Far","End")==%>"
+	<%==SIM:EndIf==%>
+	<%==SIM:EndIf==%>
+	>
+	<%==SIM:ElementBackground(Element,"Label")==%>
+	</Label><%==SIM:Line==%>
+	<%==SIM:BorderEnd(Element)==%>
+<%==SIM:ElseIf:Element.OfType(image)==%>
+	<%==SIM:BorderStart(Element)==%>
+	<Image x:Name="<%==SIM:Element.SafeName==%>" Source="" <%==SIM:ElementLayout(Element)==%>>
+	</Image><%==SIM:Line==%>
+	<%==SIM:BorderEnd(Element)==%>
+<%==SIM:ElseIf:Element.OfType(ui-text-box)==%>
+	<%==SIM:BorderStart(Element)==%>
+	<Entry x:Name="<%==SIM:Element.SafeName==%>" Text="<%==SIM:Element.OriginalName==%>" IsPassword="<%==SIM:Element.ShowPasswordDots==%>" <%==SIM:ElementLayout(Element)==%>
+	<%==SIM:IfNot:Element.HasDefaultStyle==%>
+	<%==SIM:Space==%>HorizontalTextAlignment="<%==SIM:Switch(Element.Style.NameTextStyle.HorizontalAlignment,"Near","Start","Center","Center","Far","End")==%>"
+	<%==SIM:Space==%>VerticalTextAlignment="<%==SIM:Switch(Element.Style.NameTextStyle.VerticalAlignment,"Near","Start","Center","Center","Far","End")==%>"
+	<%==SIM:EndIf==%>
+	>
+	<%==SIM:ElementBackground(Element,"Entry")==%>
+	</Entry><%==SIM:Line==%>
+	<%==SIM:BorderEnd(Element)==%>
+<%==SIM:ElseIf:Element.OfType(ui-multi-line)==%>
+	<%==SIM:BorderStart(Element)==%>
+	<Editor x:Name="<%==SIM:Element.SafeName==%>" Text="<%==SIM:Element.OriginalName==%>" <%==SIM:ElementLayout(Element)==%>
+	<%==SIM:IfNot:Element.HasDefaultStyle==%>
+	<%==SIM:Space==%>HorizontalTextAlignment="<%==SIM:Switch(Element.Style.NameTextStyle.HorizontalAlignment,"Near","Start","Center","Center","Far","End")==%>"
+	<%==SIM:Space==%>VerticalTextAlignment="<%==SIM:Switch(Element.Style.NameTextStyle.VerticalAlignment,"Near","Start","Center","Center","Far","End")==%>"
+	<%==SIM:EndIf==%>
+	>
+	<%==SIM:ElementBackground(Element,"Editor")==%>
+	</Editor><%==SIM:Line==%>
+	<%==SIM:BorderEnd(Element)==%>
+<%==SIM:ElseIf:Element.OfType(ui-combo-box)==%>
+	<%==SIM:BorderStart(Element)==%>
+	<Picker x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:ElementLayout(Element)==%>
+	<%==SIM:IfNot:Element.HasDefaultStyle==%>
+	<%==SIM:Space==%>HorizontalTextAlignment="<%==SIM:Switch(Element.Style.NameTextStyle.HorizontalAlignment,"Near","Start","Center","Center","Far","End")==%>"
+	<%==SIM:Space==%>VerticalTextAlignment="<%==SIM:Switch(Element.Style.NameTextStyle.VerticalAlignment,"Near","Start","Center","Center","Far","End")==%>"
+	<%==SIM:EndIf==%>
+	>
+	<%==SIM:ElementBackground(Element,"Picker")==%>
+	</Picker><%==SIM:Line==%>
+	<%==SIM:BorderEnd(Element)==%>
+<%==SIM:ElseIf:Element.OfType(ui-list-box)==%>
+	<%==SIM:BorderStart(Element)==%>
+	<ListView x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:ElementLayout(Element)==%>><%==SIM:StartBlock==%><%==SIM:Line==%>
+		<%==SIM:If:GT(Element.Items.Count,0)==%>
+		<ListView.ItemsSource><%==SIM:StartBlock==%><%==SIM:Line==%>
+			<x:Array Type="{x:Type x:String}"><%==SIM:StartBlock==%><%==SIM:Line==%>
+			<%==SIM:ForEach:Element.Items==%>
+				<x:String><%==SIM:Item==%></x:String><%==SIM:Line==%>				
+			<%==SIM:EndFor==%>
+			<%==SIM:EndBlock==%><%==SIM:Line==%>
+			</x:Array>
+			<%==SIM:EndBlock==%><%==SIM:Line==%>
+		</ListView.ItemsSource>
+		<%==SIM:EndBlock==%><%==SIM:Line==%>
+		<%==SIM:ElementBackground(Element,"ListView")==%>
+		<%==SIM:EndIf==%>
+	</ListView><%==SIM:Line==%>
+	<%==SIM:BorderEnd(Element)==%>
+<%==SIM:ElseIf:Element.OfType(ui-date-picker)==%>
+	<%==SIM:BorderStart(Element)==%>
+	<DatePicker x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:ElementLayout(Element)==%>>
+	<%==SIM:ElementBackground(Element,"DatePicker")==%>
+	</DatePicker><%==SIM:Line==%>
+	<%==SIM:BorderEnd(Element)==%>
+<%==SIM:ElseIf:Element.OfType(ui-group-box)==%>
+	<Frame x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:FullElementStyle(Element)==%>><%==SIM:StartBlock==%><%==SIM:Line==% <%==SIM:ElementLayout(Element)==%>>
+	<Frame.Content><%==SIM:StartBlock==%><%==SIM:Line==%>
+	<%==SIM:Include(Panel.xaml,Element,False)==%><%==SIM:Line==%>
+	<%==SIM:EndBlock==%><%==SIM:Line==%>
+	</Frame.Content>
+	<%==SIM:EndBlock==%><%==SIM:Line==%>
+	<%==SIM:ElementBackground(Element,"Frame")==%>
+	</Frame><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-track-bar)==%>
+	<%==SIM:BorderStart(Element)==%>
+	<Slider x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:ElementLayout(Element)==%>>
+	<%==SIM:ElementBackground(Element,"Slider")==%>
+	</Slider><%==SIM:Line==%>
+	<%==SIM:BorderEnd(Element)==%>
+<%==SIM:ElseIf:Element.OfType(ui-progress-bar)==%>
+	<%==SIM:BorderStart(Element)==%>
+	<ProgressBar x:Name="<%==SIM:Element.SafeName==%>" Progress="<%==SIM:Element.ProgressValue==%>" <%==SIM:ElementLayout(Element)==%>>
+	<%==SIM:ElementBackground(Element,"ProgressBar")==%>
+	</ProgressBar><%==SIM:Line==%>
+	<%==SIM:BorderEnd(Element)==%>
+<%==SIM:EndIf==%>

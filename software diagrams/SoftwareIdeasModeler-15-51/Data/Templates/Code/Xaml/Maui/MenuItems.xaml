@@ -1,0 +1,17 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<%==SIM:ForEach:Element.Items(NestedItem)==%>
+<%==SIM:If:Eq(NestedItem.Name,"-")==%>
+    <MenuFlyoutItem Text="-" /><%==SIM:Line==%>
+<%==SIM:Else==%>
+	<%==SIM:If:Eq(NestedItem.Items.Count,0)==%>
+		<MenuFlyoutItem Text="<%==SIM:NestedItem.Name==%>" /><%==SIM:Line==%>
+	<%==SIM:Else==%>
+		<MenuFlyoutSubItem Text="<%==SIM:NestedItem.Name==%>">
+		<%==SIM:StartBlock==%><%==SIM:Line==%>
+		  <%==SIM:Include(MenuItems.xaml,NestedItem,False)==%>
+		<%==SIM:EndBlock==%><%==SIM:Line==%>
+		</MenuFlyoutSubItem><%==SIM:Line==%>
+	<%==SIM:EndIf==%>	
+<%==SIM:EndIf==%>
+<%==SIM:EndFor==%>

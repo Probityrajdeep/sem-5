@@ -1,0 +1,56 @@
+<sim-template version="1.0">
+  <meta>
+    <name>Default</name>
+    <description></description>
+    <type>SourceCode</type>
+    <language>Dart</language>
+  </meta>
+  <files defaultName="{Name}.dart">
+    <file name="Class.dart" outputName="{Element.Name}.dart" type="AbstractElement">
+      <settings>
+        <setting name="DefaultType" value="object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+      <stereotypes>
+        <stereotype name="interface" condition="without" />
+        <stereotype name="enum" condition="without" />
+        <stereotype name="enumeration" condition="without" />
+        <stereotype name="struct" condition="without" />
+        <stereotype name="structure" condition="without" />
+        <stereotype name="mixin" condition="without" />
+        <stereotype name="*" />
+      </stereotypes>
+      <types>
+        <type name="class" />
+      </types>
+    </file>
+    <file name="Mixin.dart" outputName="{Element.Name}.dart" type="AbstractElement">
+      <settings>
+        <setting name="DefaultType" value="object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+      <stereotypes>
+        <stereotype name="mixin" />        
+      </stereotypes>
+    </file>
+    <file name="Enum.dart" outputName="{Element.Name}.dart" type="AbstractElement">
+      <settings>
+        <setting name="DefaultType" value="object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+      <stereotypes>
+        <stereotype name="enum" />
+        <stereotype name="enumeration" />
+      </stereotypes>
+    </file>
+    <file name="Class.dart" outputName="{Element.Name}.dart" type="AbstractElement">
+      <settings>
+        <setting name="DefaultType" value="object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+      <stereotypes>
+        <stereotype name="interface" />
+      </stereotypes>
+    </file>
+  </files>
+</sim-template>

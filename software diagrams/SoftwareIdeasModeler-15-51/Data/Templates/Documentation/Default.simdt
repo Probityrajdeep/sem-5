@@ -1,0 +1,785 @@
+﻿<documentation-template-script id="2670e255588c4fd6b5f791cf97238e93" name="Default" creation-date="02/07/2023 11:47:52" order-index="0">
+  <named-texts />
+  <script>
+Template:FlowEvents(FlowEvents)
+    StartNumberedList
+    ForEach(FlowEvent):FlowEvents
+        SetParagraphNumbering("ListMultiLevel")
+        SetParagraphNumberingLevel(1)
+        SetParagraphLeftIndent(10)
+        SetParagraphFirstLineIndent(0)
+        AddText(FlowEvent.Name)
+        AddText(" ")
+        AddText(ChangeTextStyle(FlowEvent.Description, "Body"))
+        
+        ForEach:FlowEvent.SubEvents
+            AddNewParagraph
+            ContinueNumberedList
+            SetParagraphNumbering("ListMultiLevel")
+            SetParagraphNumberingLevel(2)
+            SetParagraphLeftIndent(15)
+            SetParagraphFirstLineIndent(5)
+            AddText(SubEvent.Name)
+            AddText(" ")
+            AddText(ChangeTextStyle(SubEvent.Description, "Body"))
+            
+            ForEach:SubEvent.SubEvents(SubEvent2)
+                AddNewParagraph
+                SetParagraphNumbering("ListMultiLevel")
+                SetParagraphNumberingLevel(3)
+                SetParagraphLeftIndent(25)
+                SetParagraphFirstLineIndent(10)
+                AddText(SubEvent2.Name)
+                AddText(" ")
+                AddText(ChangeTextStyle(SubEvent2.Description, "Body"))
+                
+                ForEach:SubEvent2.SubEvents(SubEvent3)
+                    AddNewParagraph
+                    SetParagraphNumbering("ListMultiLevel")
+                    SetParagraphNumberingLevel(4)
+                    SetParagraphLeftIndent(35)
+                    SetParagraphFirstLineIndent(15)
+                    AddText(SubEvent3.Name)
+                    AddText(" ")
+                    AddText(ChangeTextStyle(SubEvent3.Description, "Body"))
+                    
+                    ForEach:SubEvent3.SubEvents(SubEvent4)
+                        AddNewParagraph
+                        SetParagraphNumbering("ListMultiLevel")
+                        SetParagraphNumberingLevel(5)
+                        SetParagraphLeftIndent(45)
+                        SetParagraphFirstLineIndent(20)
+                        AddText(SubEvent4.Name)
+                        AddText(" ")
+                        AddText(ChangeTextStyle(SubEvent4.Description, "Body"))
+                    EndFor
+                EndFor
+            EndFor
+        EndFor
+        
+        IfNot:IsLastItem
+            AddNewParagraph
+            ContinueNumberedList
+        EndIf
+    EndFor
+EndTemplate
+Template:SpecialRequirements(SpecialRequirements)
+    StartNumberedList
+    ForEach(Requirement):SpecialRequirements
+        SetParagraphyStyle("Body")
+        SetParagraphNumbering("ListMultiLevel")
+        SetParagraphNumberingLevel(1)
+        SetParagraphLeftIndent(10)
+        SetParagraphFirstLineIndent(0)
+        AddText(ChangeTextStyle(Requirement.CustomID, "Body"))
+        AddText(ChangeTextStyle(" - ", "Body"))
+        AddText(ChangeTextStyle(Requirement.Description, "Body"))
+        
+        IfNot:IsLastItem
+            AddNewParagraph
+            ContinueNumberedList
+        EndIf
+    EndFor
+EndTemplate
+Template:OpenIssues(OpenIssues)
+    StartNumberedList
+    ForEach(OpenIssue):OpenIssues
+        SetParagraphyStyle("Body")
+        SetParagraphNumbering("ListMultiLevel")
+        SetParagraphNumberingLevel(1)
+        SetParagraphLeftIndent(10)
+        SetParagraphFirstLineIndent(0)        
+        AddText(ChangeTextStyle(OpenIssue.CustomID, "Body"))
+        AddText(ChangeTextStyle(" - ", "Body"))
+        AddText(ChangeTextStyle(OpenIssue.Description, "Body"))
+        
+        IfNot:IsLastItem
+            AddNewParagraph
+            ContinueNumberedList
+        EndIf
+    EndFor
+EndTemplate
+Template:FolderTemplate(Folder)
+    
+    AddNewParagraph
+    SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+    SetParagraphLeftIndent(10)
+    SetParagraphNumbering("HeadingMultiLevel")
+    AddText(" ")
+    AddText(Folder.Name)
+    SetParagraphHeading(HeadingLevel)
+    
+    // Folder description
+    AddNewParagraph
+    SetParagraphStyle("Body")
+    AddText(ChangeTextStyle(Folder.Documentation, "Body"))
+    
+    // Documents
+    Set:HeadingLevel=Inc(HeadingLevel)
+    Optional:Documents
+        ForEach:Folder.Documents
+            AddNewParagraph
+            SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+            SetParagraphLeftIndent(10)
+            SetParagraphNumbering("HeadingMultiLevel")
+            AddText(" ")
+            AddText(Document.Name)
+            SetParagraphHeading(HeadingLevel)
+            AddNewParagraph
+            
+            AddText(Document.Content)
+        EndFor
+    EndOptional
+    Set:HeadingLevel=Dec(HeadingLevel)
+    
+    // Diagrams
+    Set:HeadingLevel=Inc(HeadingLevel)
+    ForEach:Folder.Diagrams
+        If:GT(Diagram.Elements.Count,0)
+            AddNewParagraph
+            SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+            SetParagraphLeftIndent(10)
+            SetParagraphNumbering("HeadingMultiLevel")
+            AddText(" ")
+            AddText(Diagram.Name)
+            SetParagraphHeading(HeadingLevel)
+            
+            Set:HeadingLevel=Inc(HeadingLevel)
+            
+            // Diagram description
+            AddNewParagraph
+            SetParagraphStyle("Body")
+            AddText(ChangeTextStyle(Diagram.Documentation, "Body"))
+            
+            // Diagram tagged values
+            Optional:DiagramTaggedValues("Diagram tagged values")
+                ForEach:Diagram.TaggedValues
+                    StartBulletedList
+                    AddNewParagraph
+                    AddText(TaggedValue.Name)
+                    AddText(": ")
+                    AddText(TaggedValue.Value)
+                EndFor
+            EndOptional
+            
+            If:Eq(Diagram.TypeName, "requirements")     // Requirements Diagram
+                AddTable(4,1,DocumentBodyWidth, Mm(5))
+                SetTableStyle("Table")
+                SetTableColumnSize(0,0.1)
+                SetTableColumnSize(1,0.3)
+                SetTableColumnSize(2,0.15)                
+                SetTableColumnSize(3,0.45)
+                AddText("ID")
+                GoToNextTableCell
+                AddText("Name")
+                GoToNextTableCell
+                AddText("Priority")
+                GoToNextTableCell
+                AddText("Description")
+                
+                ForEach:Diagram.Requirements
+                    AddNewTableRow
+                    AddText(Requirement.ID)
+                    GoToNextTableCell
+                    AddText(Requirement.Name)
+                    GoToNextTableCell
+                    AddText(Requirement.Priority)
+                    GoToNextTableCell
+                    AddText(Requirement.Description)
+                EndFor
+                EndTable
+                
+            Else            // Other diagrams
+                
+                // Diagram image
+                AddNewParagraph
+                SetParagraphStyle("Body")
+                SetCenterAlignment
+                AddImage(Diagram.Image,DocumentBodyWidth)
+                
+                // Diagram elements table
+                AddNewParagraph
+                SetLeftAlignment
+                AddTable(3,1,DocumentBodyWidth, Mm(5))
+                SetTableStyle("Table")
+                AddText("Name")
+                GoToNextTableCell
+                AddText("ID")
+                GoToNextTableCell
+                AddText("Type")
+                ForEach:Diagram.Elements
+                    IfNot:IsEmpty(Element.Name)
+                        AddNewTableRow                        
+                        AddText(Element.Name)
+                        GoToNextTableCell
+                        AddText(Element.CustomID)
+                        GoToNextTableCell                        
+                        AddText(Element.ElementTypeName)
+                    EndIf
+                EndFor
+                EndTable
+                
+                // Elements
+                ForEach:Diagram.Elements
+                    If:Or(Element.HasDocumentation,Element.HasAttributes,Element.HasOperations,Equals(Element.ElementType,"state"),Equals(Element.ElementType,"use-case"),Equals(Element.ElementType,"enumeration"))
+                        AddNewParagraph
+                        SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+                        
+                        SetParagraphLeftIndent(15)
+                        SetParagraphNumbering("HeadingMultiLevel")
+                        AddText(" ")
+                        AddText(Element.Name)
+                        SetParagraphHeading(HeadingLevel)
+                        
+                        Set:HeadingLevel=Inc(HeadingLevel)
+                        
+                        // Element description
+                        AddNewParagraph
+                        SetParagraphStyle("Body")
+                        AddText(ChangeTextStyle(Element.Documentation, "Body"))
+                        
+                        // Element tagged values
+                        Optional:ElementTaggedValues("Element tagged values")
+                            ForEach:Element.TaggedValues
+                                StartBulletedList
+                                AddNewParagraph
+                                AddText(TaggedValue.Name)
+                                AddText(": ")
+                                AddText(TaggedValue.Value)
+                            EndFor
+                        EndOptional
+                        
+                        // Attributes
+                        Optional:Attributes
+                            If:Element.HasAttributes
+                                AddNewParagraph
+                                SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+                                AddText("Attributes")
+                                
+                                AddNewParagraph
+                                SetParagraphStyle("Body")
+                                If:Equals(Element.ElementType,"erd-entity")
+                                    AddTable(5,1,DocumentBodyWidth, Mm(5))
+                                    SetTableStyle("Table")
+                                    SetTableColumnSize(0,0.1)
+                                    SetTableColumnSize(1,0.3)
+                                    SetTableColumnSize(2,0.15)
+                                    SetTableColumnSize(3,0.1)
+                                    SetTableColumnSize(4,0.35)
+                                    AddText("Key")
+                                    GoToNextTableCell
+                                    AddText("Name")
+                                    GoToNextTableCell
+                                    AddText("Type")
+                                    GoToNextTableCell
+                                    AddText("Size")
+                                    GoToNextTableCell
+                                    AddText("Description")
+                                    ForEach:Element.Attributes
+                                        AddNewTableRow
+                                        If:Attribute.IsPrimaryKey
+                                            AddText("PK")
+                                        EndIf
+                                        If:Attribute.IsForeignKey
+                                            If:Attribute.IsPrimaryKey
+                                                AddText(",")
+                                            EndIf
+                                            AddText("FK")
+                                        EndIf
+                                        GoToNextTableCell
+                                        AddText(Attribute.Name)
+                                        GoToNextTableCell
+                                        AddText(Attribute.OriginalType.Name)
+                                        GoToNextTableCell
+                                        AddText(Attribute.TypeLength)
+                                        GoToNextTableCell
+                                        AddTextLine(Attribute.Description)
+                                        AddText(ChangeTextStyle(Attribute.Documentation, "Body"))
+                                    EndFor
+                                    EndTable
+                                Else
+                                    AddTable(1,1,DocumentBodyWidth, Mm(5))
+                                    SetTableStyle("Table")                                    
+                                    AddText("Name")
+                                    
+                                    AddNewTableColumn
+                                    AddText("Type")
+                                    
+                                    Optional:AttributeMultiplicity("Multiplicity")
+                                        AddNewTableColumn
+                                        AddText("Multiplicity")
+                                    EndOptional
+                                    
+                                    AddNewTableColumn
+                                    AddText("Description")
+                                    
+                                    Optional:TaggedValues("Tagged values")
+                                        AddNewTableColumn
+                                        AddText("Tagged Values")
+                                    EndOptional
+                                    
+                                    ForEach:Element.Attributes
+                                        AddNewTableRow
+                                        AddText(Attribute.Name)
+                                        GoToNextTableCell
+                                        AddText(Attribute.OriginalType.Name)
+                                        
+                                        Optional:AttributeMultiplicity
+                                            GoToNextTableCell
+                                            AddText(Attribute.Multiplicity)
+                                        EndOptional
+                                        
+                                        GoToNextTableCell
+                                        AddTextLine(Attribute.Description)
+                                        AddText(ChangeTextStyle(Attribute.Documentation, "Body"))
+                                        
+                                        Optional:TaggedValues
+                                            GoToNextTableCell
+                                            ForEach:Attribute.TaggedValues
+                                                AddText(TaggedValue.Name)
+                                                AddText(" = ")
+                                                AddText(TaggedValue.Value)
+                                                AddText(", ")
+                                            EndFor
+                                        EndOptional
+                                    EndFor
+                                    EndTable
+                                EndIf
+                            EndIf
+                        EndOptional
+                        
+                        // Data
+                        If:Element.HasData
+                            AddNewParagraph
+                            SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+                            AddText("Data")
+                            
+                            AddNewParagraph
+                            SetParagraphStyle("Body")
+                            AddTable(Element.Attributes.Count,1,DocumentBodyWidth, Mm(5))
+                            SetTableStyle("Table")
+                            ForEach:Element.Attributes
+                                AddText(Attribute.Name)
+                                IfNot:IsLastItem
+                                    GoToNextTableCell                                    
+                                EndIf
+                            EndFor
+                            ForEach:Element.DataRows
+                                AddNewTableRow                                
+                                ForEach:DataRow.Values
+                                    AddText(Value)
+                                    IfNot:IsLastItem
+                                        GoToNextTableCell                                        
+                                    EndIf
+                                EndFor
+                            EndFor
+                            EndTable
+                        EndIf
+                        
+                        // Enumeration items
+                        If:GT(Element.EnumerationItems.Count,0)
+                            AddNewParagraph
+                            SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+                            AddText("Items")
+                            
+                            AddNewParagraph
+                            SetParagraphStyle("Body")
+                            
+                            AddTable(3,1,DocumentBodyWidth, Mm(5))
+                            SetTableStyle("Table")
+                            SetTableColumnSize(0,0.2)
+                            SetTableColumnSize(1,0.3)
+                            SetTableColumnSize(2,0.5)
+                            AddText("Name")
+                            GoToNextTableCell                            
+                            AddText("Value")
+                            GoToNextTableCell
+                            AddText("Description")
+                            ForEach:Element.EnumerationItems
+                                AddNewTableRow
+                                AddText(EnumerationItem.Name)
+                                GoToNextTableCell
+                                AddText(EnumerationItem.Value)
+                                GoToNextTableCell
+                                AddText(ChangeTextStyle(EnumerationItem.Documentation, "Body"))
+                            EndFor
+                            EndTable
+                        EndIf
+                        
+                        // Operations
+                        Optional:Operations
+                            If:Element.HasOperations
+                            
+                                Set:HeadingLevel=Inc(HeadingLevel)
+                                ForEach:Element.Operations
+                                    AddNewParagraph
+                                    SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+                                    AddText(Operation.Name)
+                                    
+                                    If:Operation.HasReturnType
+                                        AddNewParagraph
+                                        SetParagraphStyle("Body")
+                                        SwitchBold()
+                                        AddText("Return type: ")
+                                        SwitchBold()
+                                        AddText(Operation.OriginalReturnType.Name)
+                                    EndIf
+                                    
+                                    AddNewParagraph
+                                    SetParagraphStyle("Body")
+                                    AddText(Operation.Documentation)
+                                    
+                                    Optional:OperationTaggedValues("Tagged values")
+                                        ForEach:Operation.TaggedValues
+                                            StartBulletedList
+                                            AddNewParagraph
+                                            AddText(TaggedValue.Name)
+                                            AddText(": ")
+                                            AddText(TaggedValue.Value)
+                                        EndFor
+                                    EndOptional
+                                    
+                                    
+                                    If:GreaterThan(Operation.Parameters.Count,0)
+                                      Set:HeadingLevel=Inc(HeadingLevel)
+                                        AddNewParagraph
+                                        SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+                                        AddText("Parameters")
+                                        
+                                        AddNewParagraph
+                                        SetParagraphStyle("Body")
+                                        AddTable(4,1,DocumentBodyWidth, Mm(5))
+                                        SetTableStyle("Table")
+                                        AddText("Name")
+                                        GoToNextTableCell
+                                        AddText("Type")
+                                        GoToNextTableCell
+                                        AddText("Default Value")
+                                        GoToNextTableCell
+                                        AddText("Description")
+                                        ForEach:Operation.Parameters
+                                            AddNewTableRow
+                                            AddText(Parameter.Name)
+                                            GoToNextTableCell
+                                            AddText(Parameter.OriginalType.Name)
+                                            GoToNextTableCell
+                                            AddText(Parameter.DefaultValue)
+                                            GoToNextTableCell
+                                            AddText(ChangeTextStyle(Parameter.Documentation, "Body"))
+                                        EndFor
+                                        EndTable
+                                        Set:HeadingLevel=Dec(HeadingLevel)
+                                    EndIf
+                                EndFor
+                                Set:HeadingLevel=Dec(HeadingLevel)
+                                
+                            EndIf
+                        EndOptional
+                        
+                        // Actions
+                        If:Equals(Element.ElementType,"state")
+                            AddNewParagraph
+                            SetParagraphStyle("Body")
+                            AddTable(2,3,DocumentBodyWidth, Mm(5))
+                            SetTableColumnSize(0,0.3)
+                            SetTableColumnSize(1,0.7)
+                            SetTableStyle("Simple")
+                            
+                            AddText("From")
+                            GoToNextTableCell
+                            ForEach:Element.InRelations
+                                If:Eq(Relation.From.ElementType,"state")
+                                    AddText(Relation.From.Name)
+                                    AddText(", ")
+                                EndIf
+                            EndFor
+                            GoToNextTableCell
+                            AddText("To")
+                            GoToNextTableCell
+                            ForEach:Element.OutRelations
+                                If:Eq(Relation.To.ElementType,"state")
+                                    AddText(Relation.To.Name)
+                                    AddText(", ")
+                                EndIf
+                            EndFor
+                            GoToNextTableCell
+                            AddText("State Invariant")
+                            GoToNextTableCell
+                            AddText(Element.StateInvariant)
+                            
+                            ForEach:Element.Actions
+                                AddNewTableRow
+                                AddText(Action.Name)
+                                GoToNextTableCell
+                                AddText(Action.Behavior)
+                            EndFor
+                            EndTable
+                        EndIf
+                        
+                        
+                        // Use Case
+                        If:Equals(Element.ElementType,"use-case")
+                            // Status
+                            AddNewParagraph
+                            SetParagraphStyle("Body")
+                            AddTable(3,1,DocumentBodyWidth, Mm(5))
+                            SetTableStyle("Simple")
+                            SetTableColumnSize(0,0.3)
+                            SetTableColumnSize(1,0.6)
+                            SetTableColumnSize(2,0.1)
+                            AddText("Status")
+                            GoToNextTableCell
+                            AddText(Element.State)
+                            GoToNextTableCell
+                            AddImage(Element.StateIcon,Mm(10),Mm(10))
+                            EndTable
+                            
+                            AddNewParagraph
+                            AddText(" ")
+                            
+                            // Scope
+                            AddNewParagraph
+                            SetParagraphStyle("Body")
+                            AddTable(3,2,DocumentBodyWidth, Mm(5))
+                            SetTableStyle("Simple")
+                            SetTableColumnSize(0,0.3)
+                            SetTableColumnSize(1,0.6)
+                            SetTableColumnSize(2,0.1)
+                            AddText("Scope")
+                            GoToNextTableCell
+                            AddText(Element.DesignScope)
+                            AddText(" / ")
+                            AddText(Element.DesignScopeName)
+                            GoToNextTableCell
+                            AddImage(Element.DesignScopeIcon,Mm(10),Mm(10))
+                            GoToNextTableCell  // Goal Level
+                            AddText("Goal Level")
+                            GoToNextTableCell
+                            AddText(Element.GoalLevel)
+                            GoToNextTableCell
+                            AddImage(Element.GoalLevelIcon,Mm(10),Mm(10))
+                            EndTable
+                            
+                            AddNewParagraph
+                            AddText(" ")
+                            
+                            // Actors
+                            AddNewParagraph
+                            SetParagraphStyle("Body")
+                            AddTable(2,1,DocumentBodyWidth, Mm(5))
+                            SetTableStyle("Table")
+                            SetTableColumnSize(0,0.3)
+                            SetTableColumnSize(1,0.7)
+                            AddText("Actor")
+                            GoToNextTableCell
+                            AddText("Description")
+                            ForEach:Element.Stakeholders
+                                AddNewTableRow
+                                AddText(Stakeholder.Name)
+                                GoToNextTableCell
+                                AddText(ChangeTextStyle(Stakeholder.Documentation, "Body"))
+                            EndFor
+                            EndTable
+                            
+                            AddNewParagraph
+                            AddText(" ")
+                            
+                            // Precondition
+                            AddNewParagraph
+                            SetParagraphStyle("Body")
+                            AddTable(2,3,DocumentBodyWidth, Mm(5))
+                            SetTableColumnSize(0,0.3)
+                            SetTableColumnSize(1,0.7)
+                            SetTableStyle("Simple")
+                            AddText("Precondition")
+                            GoToNextTableCell
+                            AddText(Element.Precondition)
+                            // Success Guarantee
+                            GoToNextTableCell
+                            AddText("Success Guarantee")
+                            GoToNextTableCell
+                            AddText(Element.SuccessGuarantees)
+                            // Minimal Guarantee
+                            GoToNextTableCell
+                            AddText("Minimal Guarantee")
+                            GoToNextTableCell
+                            AddText(Element.MinimalGuarantees)
+                            EndTable
+                            
+                            // Flow events
+                            If:GT(Element.FlowEvents.Count,0)
+                                AddNewParagraph
+                                SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+                                AddText("Main Success Scenario")
+                                
+                                AddNewParagraph
+                                StartNumberedList
+                                FlowEvents(Element.FlowEvents)
+                            EndIf
+                            If:GT(Element.Extensions.Count,0)
+                                AddNewParagraph
+                                SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+                                AddText("Extensions")
+                                
+                                AddNewParagraph
+                                StartNumberedList
+                                FlowEvents(Element.Extensions)
+                            EndIf
+                            If:GT(Element.TechAndDataVariations.Count,0)
+                                AddNewParagraph
+                                SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+                                AddText("Technology and Data Variations")
+                                
+                                AddNewParagraph
+                                StartNumberedList
+                                FlowEvents(Element.TechAndDataVariations)
+                            EndIf
+                            If:GT(Element.SpecialRequirements.Count,0)
+                                AddNewParagraph
+                                SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+                                AddText("Special Requirements")
+                                
+                                AddNewParagraph
+                                StartNumberedList
+                                SpecialRequirements(Element.SpecialRequirements)
+                            EndIf
+                            If:GT(Element.OpenIssues.Count,0)
+                                AddNewParagraph
+                                SetParagraphStyle(Concat("Heading", Min(HeadingLevel,6)))
+                                AddText("Open Issues")
+                                
+                                AddNewParagraph
+                                StartNumberedList
+                                OpenIssues(Element.OpenIssues)
+                            EndIf
+                            
+                            SetParagraphNormalText
+                        EndIf
+                        
+                        
+                        Set:HeadingLevel=Dec(HeadingLevel)
+                    EndIf
+                    
+                EndFor  // ForEach:Diagram.Elements
+                Set:HeadingLevel=Dec(HeadingLevel)
+            EndIf // If:Eq(Diagram.TypeName, "requirements")
+        EndIf // If:GT(Diagram.Elements.Count,0)
+        
+        
+        // Notify progress
+        Set:DiagramCounter=Inc(DiagramCounter)
+        NotifyProgress(Div(DiagramCounter, TotalDiagramsCount))
+    EndFor
+    Set:HeadingLevel=Dec(HeadingLevel)
+    
+    AddNewPage
+    
+    // Subfolders
+    Set:HeadingLevel=Inc(HeadingLevel)
+    ForEach(SubFolder):Folder.Folders
+        FolderTemplate(SubFolder)
+    EndFor
+    Set:HeadingLevel=Dec(HeadingLevel)
+    
+EndTemplate
+
+// Front Page
+// Title - Project Name
+SetParagraphStyle("Title")
+SetParagraphSpaceBefore(100)
+SetCenterAlignment
+AddText(Project.Name)
+
+// Subtitle - Author name
+AddNewParagraph
+SetParagraphStyle("Subtitle")
+SetCenterAlignment
+AddText(Project.Authors)
+
+AddNewParagraph
+AddNewPage
+
+// Header
+EditHeader
+SetParagraphStyle("Body")
+SetCenterAlignment
+AddText(Project.Name)
+
+// Footer
+EditFooter
+SetParagraphStyle("Body")
+SetCenterAlignment
+AddTemplateText("Page.Number")
+
+EditBody
+
+// Table of Contents
+Optional:Contents
+    AddNewParagraph
+    SetParagraphStyle("Heading1")
+    SetParagraphNormalText
+    AddText("Contents")
+    AddNewParagraph
+    SetParagraphStyle("Body")
+    AddParagraphTab(165, "Right", ".")
+    AddTemplateText("Document.TableOfContents")
+    
+    AddNewParagraph
+    AddNewParagraph
+    AddNewPage
+    ClearParagraphTabs()
+EndOptional
+
+// Glossary
+Optional:Glossary
+    UserInput:GlossaryDescription=TextValue("Glossary description:")
+    IfNot:Project.Glossary.IsEmpty
+        SetParagraphStyle("Heading1")
+        SetParagraphLeftIndent(10)
+        ContinueNumberedList
+        SetParagraphNumbering("HeadingMultiLevel")
+        AddText("Glossary")
+        
+        AddNewParagraph
+        SetParagraphHeading(0)
+        SetParagraphStyle("Body")
+        
+        IfNot:IsEmpty(GlossaryDescription)
+            AddText(GlossaryDescription)
+        EndIf
+        
+        AddTable(2,1,DocumentBodyWidth, Mm(5))
+        SetParagraphStyle("Body")
+        SetTableStyle("Table")
+        AddText("Term")
+        GoToNextTableCell
+        AddText("Definition")
+        ForEach:Project.Glossary
+            AddNewTableRow
+            AddText(GlossaryTerm.Term)
+            GoToNextTableCell
+            AddText(ChangeTextStyle(GlossaryTerm.Meaning, "Body"))
+        EndFor
+        EndTable
+        
+        AddNewParagraph
+        AddNewPage
+    EndIf
+EndOptional
+
+// Count diagrams
+Set:DiagramCounter=0
+Set:TotalDiagramsCount=0
+ForEach:Project.AllFolders
+    Set:TotalDiagramsCount=Sum(TotalDiagramsCount,Folder.Diagrams.Count)
+EndFor
+
+// Diagram pages
+Set:HeadingLevel=1
+ForEach:Project.Folders
+    
+    FolderTemplate(Folder)
+    
+EndFor
+  </script>
+</documentation-template-script>

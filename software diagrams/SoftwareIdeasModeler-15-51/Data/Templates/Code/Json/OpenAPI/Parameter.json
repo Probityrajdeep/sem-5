@@ -1,0 +1,35 @@
+﻿<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+{<%==SIM:StartBlock==%><%==SIM:Line==%>	
+	"name": "<%==SIM:Coalesce(Element.ParameterName, Element.Name)==%>"
+	,<%==SIM:Line==%>"in": "<%==SIM:ToLower(Element.Location)==%>"
+	,<%==SIM:Line==%>"description": "<%==SIM:Replace(Coalesce(Element.Documentation,Element.Descrition),"\"","\\\"")==%>"
+	,<%==SIM:Line==%>"required": <%==SIM:ToLower(Element.Required)==%>
+	<%==SIM:If:Eq(Element.ParameterStyle,"Default")==%>,<%==SIM:Line==%>"style": "<%==SIM:ToLower(Element.ParameterStyle)==%>"<%==SIM:EndIf==%>
+	,<%==SIM:Line==%>"allowReserved": <%==SIM:ToLower(Element.AllowReserved)==%>
+	,<%==SIM:Line==%>"allowEmptyValue": <%==SIM:ToLower(Element.AllowEmptyValue)==%>
+	<%==SIM:If:Element.Deprecated==%>,<%==SIM:Line==%>"deprecated": <%==SIM:ToLower(Element.Deprecated)==%>"<%==SIM:EndIf==%>
+	<%==SIM:If:Element.Explode==%>,<%==SIM:Line==%>"explode": <%==SIM:ToLower(Element.Explode)==%>"<%==SIM:EndIf==%>
+	
+	,<%==SIM:Line==%>"schema": {<%==SIM:StartBlock==%><%==SIM:Line==%>
+		<%==SIM:If:Eq(Element.Multiplicity,"*")==%>
+		"type": "array",<%==SIM:Line==%>
+			<%==SIM:If:Element.Type.HasClassifier==%>
+			"items": {<%==SIM:StartBlock==%><%==SIM:Line==%>
+				"type": "<%==SIM:Element.Type.Name==%>",<%==SIM:Line==%>
+				"format": "<%==SIM:Element.Type.Name==%>"<%==SIM:Line==%>
+			<%==SIM:EndBlock==%><%==SIM:Line==%>}
+			<%==SIM:Else==%>
+			"$ref": "#/components/schemas/<%==SIM:Element.Type.Classifier.Name==%>"<%==SIM:Line==%>
+			<%==SIM:EndIf==%>
+		<%==SIM:ElseIf:Element.Type.HasClassifier==%>
+		"$ref": "#/components/schemas/<%==SIM:Element.Type.Classifier.Name==%>"<%==SIM:Line==%>
+		<%==SIM:Else==%>		
+		"type": <%==SIM:If:Element.OriginalType.IsInteger==%>"integer"<%==SIM:ElseIf:Element.OriginalType.IsNumber==%>"number"<%==SIM:ElseIf:Element.OriginalType.IsString==%>"string"<%==SIM:ElseIf:Element.OriginalType.IsBoolean==%>"boolean"<%==SIM:ElseIf:Element.OriginalType.IsArray==%>"array"<%==SIM:Else==%>"string"<%==SIM:EndIf==%>,<%==SIM:Line==%>
+		"format": <%==SIM:If:Element.OriginalType.IsDateTime==%>"date-time"<%==SIM:Else==%>"<%==SIM:Element.Type==%>"<%==SIM:EndIf==%><%==SIM:Line==%>
+		<%==SIM:Line==%>
+		<%==SIM:EndIf==%>
+	<%==SIM:EndBlock==%><%==SIM:Line==%>}
+	
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+}

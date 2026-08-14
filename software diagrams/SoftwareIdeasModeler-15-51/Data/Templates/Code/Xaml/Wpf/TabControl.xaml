@@ -1,0 +1,16 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+        <TabControl x:Name="<%==SIM:Element.SafeName==%>" Margin="<%==SIM:Element.ClientX==%>,<%==SIM:Element.ClientY==%>,0,0" Height="<%==SIM:Element.Height==%>" Width="<%==SIM:Element.Width==%>" HorizontalAlignment="Left" VerticalAlignment="Top"><%==SIM:StartBlock==%>
+<%==SIM:ForEach:Element.Tabs==%>
+    <%==SIM:Line==%>
+    <TabItem Header="<%==SIM:Tab.Name==%>"><%==SIM:StartBlock==%><%==SIM:Line==%>
+        <Grid><%==SIM:StartBlock==%><%==SIM:Line==%>
+          <%==SIM:ForEach:Tab.NestedElements==%>
+            <%==SIM:Include(Element.xaml,NestedElement,False)==%>
+          <%==SIM:EndFor==%>
+          <%==SIM:EndBlock==%><%==SIM:Line==%>
+        </Grid>
+        <%==SIM:EndBlock==%><%==SIM:Line==%>
+    </TabItem>
+<%==SIM:EndFor==%><%==SIM:EndBlock==%><%==SIM:Line==%>
+</TabControl><%==SIM:Line==%>

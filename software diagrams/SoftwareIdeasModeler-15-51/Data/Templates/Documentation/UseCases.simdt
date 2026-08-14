@@ -1,0 +1,1211 @@
+﻿<document name="Use Cases" is-template="true" creation-date="04/27/2016 21:05:05" order-index="0">
+  <meta>
+    <authors />
+    <description />
+    <creation-date>01/01/0001 00:00:00</creation-date>
+    <change-date>01/01/0001 00:00:00</change-date>
+    <revision-count>0</revision-count>
+    <version />
+  </meta>
+  <text>
+    <styles>
+      <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+        <text>
+          <solid-brush color="#FF000000" />
+        </text>
+      </style>
+      <style name="S2" font-name="Verdana" font-size="32" font-bold="true" font-italic="false" font-underline="false" font-strikeout="false">
+        <text>
+          <solid-brush color="#FF000000" />
+        </text>
+      </style>
+      <style name="S3" font-name="Verdana" font-size="18" font-bold="true" font-italic="false" font-underline="false" font-strikeout="false">
+        <text>
+          <solid-brush color="#FF000000" />
+        </text>
+      </style>
+      <style name="S4" font-name="Verdana" font-size="12" font-bold="true" font-italic="false" font-underline="false" font-strikeout="false">
+        <text>
+          <solid-brush color="#FF000000" />
+        </text>
+      </style>
+    </styles>
+    <definition>
+      <sections>
+        <section name="">
+          <default-page>
+            <page size="21,29.7" header-offset="1.5" footer-offset="1.5" unit="cm">
+              <margins left="2" right="2" top="2" bottom="2" />
+            </page>
+          </default-page>
+        </section>
+      </sections>
+    </definition>
+    <content>
+      <paragraph>
+        <style />
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S2" type="Marked">
+          <t>Project</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="Project.Name" display-text="Project" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S1" type="Marked">
+          <t> </t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="Project.Authors" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S1" type="PageBreak">
+          <t> 
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S3" type="Marked">
+          <t>Project.AllElements {</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="ForEach:Project.AllElements" display-text="" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S1" type="Marked">
+          <t>If:Element.OfType(use-case) {</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="If:Element.OfType(use-case)" display-text="" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style type="Heading1" />
+        <p s="S3" type="Marked">
+          <t>1</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="Document.HeadingNumber" display-text="Document.HeadingNumber" bounds="0,0,0,0" evaluate-at-rendering="true" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S3">
+          <t> </t>
+        </p>
+        <p s="S3" type="Marked">
+          <t>Element.ID</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="Element.ID" display-text="Element.ID" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S3">
+          <t> </t>
+        </p>
+        <p s="S3">
+          <t>: </t>
+        </p>
+        <p s="S3" type="Marked">
+          <t>Element.Name</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="Element.Name" display-text="Element.Name" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S3" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style alignment="Center" />
+        <p s="S1">
+          <t> </t>
+          <object size="637,40">
+            <table size="637,40">
+              <row-definitions>
+                <row size="1" />
+              </row-definitions>
+              <column-definitions>
+                <column size="0.297226582940869" />
+                <column size="0.908424908424908" />
+                <column size="1" />
+              </column-definitions>
+              <row>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="true" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1">
+                          <t>State
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1" type="Marked">
+                          <t>Element.State</t>
+                          <object size="0,0">
+                            <template-element>
+                              <template-element command="Element.State" display-text="Element.State" bounds="0,0,0,0" />
+                            </template-element>
+                          </object>
+                        </p>
+                        <p s="S1">
+                          <t>
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="0" footer-offset="0" unit="mm">
+                              <margins left="0" right="0" top="0" bottom="0" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style alignment="Center" />
+                        <p s="S1" type="Marked">
+                          <t>Element.StateIcon
+</t>
+                          <object size="0,0">
+                            <template-element>
+                              <template-element command="Element.StateIcon(40,40)" display-text="Element.StateIcon" bounds="0,0,0,0" />
+                            </template-element>
+                          </object>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+              </row>
+            </table>
+          </object>
+        </p>
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style alignment="Justified" />
+        <p s="S1" type="Marked">
+          <t>Element.Description
+</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="Element.Description" display-text="Element.Description" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S1">
+          <t> </t>
+          <object size="637,80">
+            <table size="637,80">
+              <row-definitions>
+                <row size="0.5" />
+                <row size="1" />
+              </row-definitions>
+              <column-definitions>
+                <column size="0.297226582940869" />
+                <column size="0.906855049712192" />
+                <column size="1" />
+              </column-definitions>
+              <row>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="true" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1">
+                          <t>Design </t>
+                        </p>
+                        <p s="S1">
+                          <t>Scope
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1" type="Marked">
+                          <t>Element.DesignScope</t>
+                          <object size="0,0">
+                            <template-element>
+                              <template-element command="Element.DesignScope" display-text="Element.DesignScope" bounds="0,0,0,0" />
+                            </template-element>
+                          </object>
+                        </p>
+                        <p s="S1">
+                          <t>
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="0" footer-offset="0" unit="mm">
+                              <margins left="0" right="0" top="0" bottom="0" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style alignment="Center" />
+                        <p s="S1" type="Marked">
+                          <t>Element.DesignScopeIcon
+</t>
+                          <object size="0,0">
+                            <template-element>
+                              <template-element command="Element.DesignScopeIcon(40,40)" display-text="Element.DesignScopeIcon" bounds="0,0,0,0" />
+                            </template-element>
+                          </object>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+              </row>
+              <row>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="true" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="cm">
+                              <margins left="0" right="0" top="0" bottom="0" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1">
+                          <t>Goal </t>
+                        </p>
+                        <p s="S1">
+                          <t>Level
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="cm">
+                              <margins left="0" right="0" top="0" bottom="0" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1" type="Marked">
+                          <t>Element.GoalLevel</t>
+                          <object size="0,0">
+                            <template-element>
+                              <template-element command="Element.GoalLevel" display-text="Element.GoalLevel" bounds="0,0,0,0" />
+                            </template-element>
+                          </object>
+                        </p>
+                        <p s="S1">
+                          <t>
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="0" footer-offset="0" unit="cm">
+                              <margins left="0" right="0" top="0" bottom="0" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style alignment="Center" />
+                        <p s="S1" type="Marked">
+                          <t>Element.GoalLevelIcon
+</t>
+                          <object size="0,0">
+                            <template-element>
+                              <template-element command="Element.GoalLevelIcon(40,40)" display-text="Element.GoalLevelIcon" bounds="0,0,0,0" />
+                            </template-element>
+                          </object>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+              </row>
+            </table>
+          </object>
+        </p>
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S3">
+          <t> </t>
+          <object size="637,28">
+            <table size="637,28">
+              <row-definitions>
+                <row size="1" />
+              </row-definitions>
+              <column-definitions>
+                <column size="0.297488226059655" />
+                <column size="1" />
+              </column-definitions>
+              <row>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="true" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1">
+                          <t>Primary </t>
+                        </p>
+                        <p s="S1">
+                          <t>Actor
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1" type="Marked">
+                          <t>Element.PrimaryActor.Name</t>
+                          <object size="0,0">
+                            <template-element>
+                              <template-element command="Element.PrimaryActor.Name" display-text="Element.PrimaryActor.Name" bounds="0,0,0,0" />
+                            </template-element>
+                          </object>
+                        </p>
+                        <p s="S1">
+                          <t>
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+              </row>
+            </table>
+          </object>
+        </p>
+        <p s="S3" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S1">
+          <t> </t>
+          <object size="637,90">
+            <table size="637,90">
+              <row-definitions>
+                <row size="0.333333333333333" />
+                <row size="0.666666666666667" />
+                <row size="1" />
+              </row-definitions>
+              <column-definitions>
+                <column size="0.297488226059655" />
+                <column size="1" />
+              </column-definitions>
+              <row>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="true" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1">
+                          <t>Preconditions
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1" type="Marked">
+                          <t>Element.Precondition</t>
+                          <object size="0,0">
+                            <template-element>
+                              <template-element command="Element.Precondition" display-text="Element.Precondition" bounds="0,0,0,0" />
+                            </template-element>
+                          </object>
+                        </p>
+                        <p s="S1">
+                          <t>
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+              </row>
+              <row>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="true" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1">
+                          <t>Success </t>
+                        </p>
+                        <p s="S1">
+                          <t>Guarantees
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1" type="Marked">
+                          <t>Element.SuccessGuarantees</t>
+                          <object size="0,0">
+                            <template-element>
+                              <template-element command="Element.SuccessGuarantees" display-text="Element.SuccessGuarantees" bounds="0,0,0,0" />
+                            </template-element>
+                          </object>
+                        </p>
+                        <p s="S1">
+                          <t>
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+              </row>
+              <row>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="true" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1">
+                          <t>Minimal </t>
+                        </p>
+                        <p s="S1">
+                          <t>Guarantees
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+                <cell>
+                  <text>
+                    <styles>
+                      <style name="S1" font-name="Verdana" font-size="12" font-bold="false" font-italic="false" font-underline="false" font-strikeout="false">
+                        <text>
+                          <solid-brush color="#FF000000" />
+                        </text>
+                      </style>
+                    </styles>
+                    <definition>
+                      <sections>
+                        <section name="">
+                          <default-page>
+                            <page size="21,29.7" header-offset="15" footer-offset="15" unit="mm">
+                              <margins left="20" right="20" top="20" bottom="20" />
+                            </page>
+                          </default-page>
+                        </section>
+                      </sections>
+                    </definition>
+                    <content>
+                      <paragraph>
+                        <style />
+                        <p s="S1" type="Marked">
+                          <t>Element.MinimalGuarantees</t>
+                          <object size="0,0">
+                            <template-element>
+                              <template-element command="Element.MinimalGuarantees" display-text="Element.MinimalGuarantees" bounds="0,0,0,0" />
+                            </template-element>
+                          </object>
+                        </p>
+                        <p s="S1">
+                          <t>
+</t>
+                        </p>
+                      </paragraph>
+                    </content>
+                  </text>
+                </cell>
+              </row>
+            </table>
+          </object>
+        </p>
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S4" type="Marked">
+          <t>Element.FlowEvents {</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="ForEach:Element.FlowEvents" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S4" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S4" type="Marked">
+          <t>FlowEvent.CustomID</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="FlowEvent.CustomID" display-text="FlowEvent.CustomID" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S4">
+          <t> </t>
+        </p>
+        <p s="S4">
+          <t> </t>
+        </p>
+        <p s="S1" type="Marked">
+          <t>FlowEvent.Description</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="FlowEvent.Description" display-text="FlowEvent.Description" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S1" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+		<style first-indent="7" />
+        <p s="S4" type="Marked">
+          <t>FlowEvent.SubEvents {</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="ForEach:FlowEvent.SubEvents" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S4" type="Marked">
+          <t>SubEvent.CustomID</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="SubEvent.CustomID" display-text="SubEvent.CustomID" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S4">
+          <t> </t>
+        </p>
+        <p s="S4">
+          <t> </t>
+        </p>
+        <p s="S1" type="Marked">
+          <t>SubEvent.Description</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="SubEvent.Description" display-text="SubEvent.Description" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S4" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style first-indent="14" />
+        <p s="S4" type="Marked">
+          <t>SubEvent.SubEvents(SubEvent2) {</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="ForEach:SubEvent.SubEvents(SubEvent2)" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S4" type="Marked">
+          <t>SubEvent2.CustomID</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="SubEvent2.CustomID" display-text="SubEvent2.CustomID" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S4">
+          <t> </t>
+        </p>
+        <p s="S4">
+          <t> </t>
+        </p>
+        <p s="S1" type="Marked">
+          <t>SubEvent2.Description
+</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="SubEvent2.Description" display-text="SubEvent2.Description" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>      		
+	</paragraph>		
+	<paragraph>
+		<style first-indent="21" />
+        <p s="S4" type="Marked">
+          <t>SubEvent2.SubEvents(SubEvent3) {</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="ForEach:SubEvent2.SubEvents(SubEvent3)" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>        
+        <p s="S4" type="Marked">
+          <t>SubEvent3.CustomID</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="SubEvent3.CustomID" display-text="SubEvent3.CustomID" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S4">
+          <t> </t>
+        </p>
+        <p s="S4">
+          <t> </t>
+        </p>
+        <p s="S1" type="Marked">
+          <t>SubEvent3.Description
+</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="SubEvent3.Description" display-text="SubEvent3.Description" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+	</paragraph>
+	<paragraph>
+		<style first-indent="28" />
+        <p s="S4" type="Marked">
+          <t>SubEvent3.SubEvents(SubEvent4) {</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="ForEach:SubEvent3.SubEvents(SubEvent4)" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>        
+        <p s="S4" type="Marked">
+          <t>SubEvent4.CustomID</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="SubEvent4.CustomID" display-text="SubEvent4.CustomID" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S4">
+          <t> </t>
+        </p>
+        <p s="S4">
+          <t> </t>
+        </p>
+        <p s="S1" type="Marked">
+          <t>SubEvent4.Description
+</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="SubEvent4.Description" display-text="SubEvent4.Description" bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+	</paragraph>
+	<paragraph>
+		<p s="S4" type="Marked">
+          <t>}</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="EndFor" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+		<p s="S4" type="Marked">
+          <t>}</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="EndFor" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>		
+        <p s="S4" type="Marked">
+          <t>}</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="EndFor" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>        
+        <p s="S4" type="Marked">
+          <t>}</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="EndFor" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+		<p s="S4" type="Marked">
+          <t>}</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="EndFor" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+        <p s="S4" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>
+      <paragraph>        		
+		<p s="S4" type="Marked">
+          <t>}</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="EndFor" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+		<p s="S4" type="LineBreak">
+          <t>
+
+</t>
+        </p>
+      </paragraph>                  
+      <paragraph>
+        <style />
+        <p s="S1" type="Marked">
+          <t>}
+</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="EndIf" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+      </paragraph>
+      <paragraph>
+        <style />
+        <p s="S3" type="Marked">
+          <t>}
+</t>
+          <object size="0,0">
+            <template-element>
+              <template-element command="EndFor" display-text=" " bounds="0,0,0,0" />
+            </template-element>
+          </object>
+        </p>
+      </paragraph>
+    </content>
+  </text>
+</document>

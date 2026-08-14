@@ -1,0 +1,50 @@
+﻿<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<%==SIM:Set:private=private==%><%==SIM:Set:protected=protected==%><%==SIM:Set:package= ==%><%==SIM:Set:public=public==%>
+<%==SIM:UserInput:IndentationSize=Number("Indentation size",4)==%>
+<%==SIM:UserInput:IndentationChar=Choice("Indentation char",Space,Tab)==%>
+<%==SIM:If:Eq(IndentationChar,"Tab")==%><%==SIM:SetTabIndent==%><%==SIM:Else==%><%==SIM:SetSpaceIndent==%><%==SIM:EndIf==%><%==SIM:IndentSize(IndentationSize)==%>
+
+<%==SIM:IfNot:IsEmpty(Coalesce(Element.Documentation("Description"),Element.Documentation))==%>
+description: <%==SIM:Replace(Coalesce(Element.Documentation("Description"),Element.Documentation),"\"","\\\"")==%><%==SIM:Line==%>
+<%==SIM:EndIf==%>
+type: string
+
+<%==SIM:ForEach:Element.Rules==%>
+	<%==SIM:IfNot:IsEmpty(Rule.Constraint)==%>
+	<%==SIM:If:Eq(Rule.Name,"pattern")==%>
+		<%==SIM:CLS==%>,<%==SIM:Line==%>
+		pattern: "<%==SIM:Rule.Constraint==%>"
+	<%==SIM:ElseIf:Eq(Rule.Name,"minLength")==%>
+		<%==SIM:CLS==%>,<%==SIM:Line==%>
+		minLength: <%==SIM:Rule.Constraint==%>
+	<%==SIM:ElseIf:Eq(Rule.Name,"maxLength")==%>
+		<%==SIM:CLS==%>,<%==SIM:Line==%>
+		maxLength: <%==SIM:Rule.Constraint==%>
+	<%==SIM:EndIf==%>
+	<%==SIM:EndIf==%>
+<%==SIM:EndFor==%>
+<%==SIM:Line==%>
+
+<%==SIM:Set:OperatorName="oneOf"==%>
+<%==SIM:Include(Operator.yaml,Element,True)==%>
+
+<%==SIM:Set:OperatorName="allOf"==%>
+<%==SIM:Include(Operator.yaml,Element,True)==%>
+
+<%==SIM:Set:OperatorName="anyOf"==%>
+<%==SIM:Include(Operator.yaml,Element,True)==%>
+
+<%==SIM:Set:OperatorName="not"==%>
+<%==SIM:Include(Operator.yaml,Element,True)==%>
+
+<%==SIM:Set:OperatorName="if"==%>
+<%==SIM:Include(Operator.yaml,Element,True)==%>
+
+<%==SIM:Set:OperatorName="then"==%>
+<%==SIM:Include(Operator.yaml,Element,True)==%>
+
+<%==SIM:Set:OperatorName="else"==%>
+<%==SIM:Include(Operator.yaml,Element,True)==%>
+
+<%==SIM:Line==%>

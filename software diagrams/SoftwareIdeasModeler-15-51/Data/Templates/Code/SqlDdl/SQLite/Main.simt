@@ -1,0 +1,39 @@
+<sim-template version="1.0">
+  <meta>
+    <name>SQL DDL - SQLite</name>
+    <description></description>
+    <type>SourceCode</type>
+    <language>SQLite</language>
+  </meta>
+  <files defaultName="{Name}.sql">
+    <file name="Table.sql" outputName="{Element.Name}.sql" type="AbstractElement">
+        <settings>
+          <setting name="DefaultType" value="Object"></setting>
+          <setting name="NameAdjustment" value="CamelCase"></setting>
+        </settings>
+        <types>
+          <type name="idef1x-entity" />
+          <type name="erd-entity" />
+          <type name="class" />
+        </types>
+    </file>
+    <file name="ErdChenTable.sql" outputName="{Element.Name}.sql" type="AbstractElement">
+      <settings>
+        <setting name="DefaultType" value="Object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+      <types>
+        <type name="erd-chen-entity" />        
+      </types>
+    </file>
+    <file name="ErdChenReferences.sql" outputName="{Element.Name}.sql" type="AbstractElement">
+      <settings>
+        <setting name="DefaultType" value="Object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+      <types>
+        <type name="erd-chen-entity" />
+      </types>
+    </file>
+  </files>
+</sim-template>

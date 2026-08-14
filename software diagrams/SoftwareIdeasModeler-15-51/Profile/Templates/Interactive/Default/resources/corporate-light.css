@@ -1,0 +1,454 @@
+﻿:root {
+    --bg: #f3f5f7;
+    --bg-page: #eef1f4;
+    --bg-elevated: #ffffff;
+    --bg-muted: #f8f9fb;
+    --text: #1f2933;
+    --text-soft: #52606d;
+    --text-faint: #7b8794;
+    --border: #d9e2ec;
+    --border-strong: #bcccdc;
+    --primary: #2f6fad;
+    --primary-hover: #245a8d;
+    --primary-soft: #eaf2f9;
+    --success: #2d8a5b;
+    --warning: #b7791f;
+    --danger: #c53030;
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+    --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.06);
+    --radius: 10px;
+    --radius-sm: 6px;
+    --code-bg: #f4f6f8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: var(--bg-page);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+    a:hover {
+        color: var(--primary-hover);
+        text-decoration: underline;
+    }
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+}
+
+header,
+.topbar,
+.navbar {
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    padding: 14px 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+    header h1,
+    .topbar h1,
+    .navbar h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        color: var(--text);
+    }
+
+    header a,
+    .topbar a,
+    .navbar a {
+        color: var(--text);
+    }
+
+main,
+.content,
+.container,
+.page-content {
+    padding: 24px;
+}
+
+nav,
+aside,
+.sidebar,
+.menu,
+.toc {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 14px;
+}
+
+    nav ul,
+    aside ul,
+    .sidebar ul,
+    .menu ul,
+    .toc ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav li,
+    aside li,
+    .sidebar li,
+    .menu li,
+    .toc li {
+        margin: 4px 0;
+    }
+
+    nav a,
+    aside a,
+    .sidebar a,
+    .menu a,
+    .toc a {
+        display: block;
+        padding: 9px 11px;
+        border-radius: 8px;
+        color: var(--text);
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+        nav a:hover,
+        aside a:hover,
+        .sidebar a:hover,
+        .menu a:hover,
+        .toc a:hover {
+            background: var(--primary-soft);
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+section,
+article,
+.panel,
+.card,
+.box,
+.content-block {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text);
+    line-height: 1.25;
+    margin-top: 0;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: 1.9rem;
+    margin-bottom: 0.8em;
+}
+
+h2 {
+    font-size: 1.45rem;
+    margin-bottom: 0.75em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--border);
+}
+
+h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.65em;
+}
+
+p,
+ul,
+ol,
+dl {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+small,
+.muted,
+.text-muted,
+.subtitle {
+    color: var(--text-soft);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 11px 13px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+th {
+    background: #f7f9fb;
+    color: var(--text);
+    font-weight: 600;
+}
+
+tr:hover td {
+    background: #fafbfd;
+}
+
+code,
+kbd,
+samp {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.92em;
+    background: var(--code-bg);
+    color: #243b53;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+pre {
+    background: #1f2933;
+    color: #f8fafc;
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+    pre code {
+        background: transparent;
+        color: inherit;
+        padding: 0;
+    }
+
+blockquote {
+    margin: 1.2rem 0;
+    padding: 12px 16px;
+    border-left: 4px solid var(--primary);
+    background: #f8fbfd;
+    color: var(--text);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+}
+
+input,
+select,
+textarea,
+button {
+    font: inherit;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(47, 111, 173, 0.12);
+    }
+
+    button,
+    .btn,
+    input[type="submit"],
+    input[type="button"] {
+        display: inline-block;
+        width: auto;
+        border: 1px solid var(--primary);
+        border-radius: 8px;
+        background: var(--primary);
+        color: #ffffff;
+        padding: 10px 16px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    }
+
+        button:hover,
+        .btn:hover,
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background: var(--primary-hover);
+            border-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+footer,
+.page-footer {
+    color: var(--text-soft);
+    padding: 20px 24px;
+    border-top: 1px solid var(--border);
+}
+
+.diagram,
+.thumbnail,
+.image-box,
+.preview,
+figure {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.breadcrumb,
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    color: var(--text-soft);
+    font-size: 0.95rem;
+}
+
+.badge,
+.tag,
+.label {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.alert,
+.notice,
+.message {
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: #ffffff;
+}
+
+.alert-success {
+    border-color: #b7dec8;
+    background: #f3fbf6;
+    color: #1f6f46;
+}
+
+.alert-warning {
+    border-color: #ecd7ae;
+    background: #fffbf2;
+    color: #8a6116;
+}
+
+.alert-danger,
+.alert-error {
+    border-color: #efc1c1;
+    background: #fff5f5;
+    color: #a61b1b;
+}
+
+.list-group,
+.tree,
+.item-list {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+    .list-group > *,
+    .tree > *,
+    .item-list > * {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+    }
+
+        .list-group > *:last-child,
+        .tree > *:last-child,
+        .item-list > *:last-child {
+            border-bottom: 0;
+        }
+
+.selected,
+.active,
+.current {
+    background: var(--primary-soft);
+    color: var(--primary);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c7d2da;
+    border-radius: 999px;
+    border: 3px solid #f3f5f7;
+}
+
+::-webkit-scrollbar-track {
+    background: #f3f5f7;
+}
+
+@media (max-width: 900px) {
+    main,
+    .content,
+    .container,
+    .page-content {
+        padding: 16px;
+    }
+
+    section,
+    article,
+    .panel,
+    .card,
+    .box,
+    .content-block {
+        padding: 18px;
+    }
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        font-size: 0.95rem;
+    }
+}

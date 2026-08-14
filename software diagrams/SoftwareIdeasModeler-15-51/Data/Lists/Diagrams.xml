@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<diagrams>
+  <group name="UML">
+    <diagram id="uml-activity" name="UML Activity Diagram">
+    </diagram>    
+    <diagram id="uml-class" name="UML Class Diagram">
+    </diagram>
+    <diagram id="uml-communication" name="UML Communication Diagram">
+    </diagram>
+    <diagram id="uml-component" name="UML Component Diagram">
+    </diagram>    
+    <diagram id="uml-composite-structure" name="UML Composite Structure Diagram">
+    </diagram>
+    <diagram id="uml-deployment" name="UML Deployment Diagram">
+    </diagram>    
+    <diagram id="uml-interaction-overview" name="UML Interaction Overview Diagram">
+    </diagram>    
+    <diagram id="uml-object" name="UML Object Diagram">
+    </diagram>    
+    <diagram id="uml-package" name="UML Package Diagram">
+    </diagram>   
+    <diagram id="uml-profile" name="UML Profile Diagram">
+    </diagram>    
+    <diagram id="uml-sequence" name="UML Sequence Diagram">
+    </diagram>    
+    <diagram id="uml-statechart" name="UML State Machine Diagram">
+    </diagram>    
+    <diagram id="uml-timing" name="UML Timing Diagram">
+    </diagram>    
+    <diagram id="uml-usecase" name="UML Use Case Diagram">
+    </diagram>    
+  </group>
+  <group name="UMLDerived">
+    <diagram id="uml-information-flow" name="UML Information Flow Diagram">
+    </diagram>
+    <diagram id="uml-model" name="UML Model Diagram">
+    </diagram>
+    <diagram id="uml-manifestation" name="UML Mansifestation Diagram">
+    </diagram>    
+  </group>
+  <group name="Wireframing">
+    <diagram id="user-interface" name="User Interface Diagram">
+    </diagram>
+    <diagram id="web-page" name="Web Page Diagram">
+    </diagram>
+    <diagram id="mobile-app" name="Mobile App Diagram">
+    </diagram>
+    <diagram id="screen-flow" name="Screen Flow Diagram">
+    </diagram>
+  </group>
+  <group name="Others">
+    <diagram id="uml-mixed" name="UML Mixed Diagram">
+    </diagram>
+    <diagram id="crc-cards" name="CRC Cards Diagram">
+    </diagram>
+    <diagram id="data-flow" name="Data Flow Diagram">
+    </diagram>    
+    <diagram id="flowchart" name="Flowchart Diagram">
+    </diagram>
+    <diagram id="robustness" name="Robustness Diagram">
+    </diagram>    
+    <diagram id="ssadm-entity-life-history" name="Entity Life History Diagram">
+    </diagram>
+    <diagram id="hierarchical-task-analysis" name="Hierarchical Task Analysis Diagram">
+    </diagram>
+    <diagram id="mind-map" name="Mind Map">
+    </diagram>
+    <diagram id="gane-sarson-data-flow" name="Data Flow Diagram (Gane &amp; Sarson)">
+    </diagram>
+    <diagram id="concurrency" name="Concurrency Diagram">
+    </diagram>
+    <diagram id="matrix" name="Matrix">
+    </diagram>
+    <diagram id="venn" name="Venn Diagram">
+    </diagram>
+    <diagram id="linear-venn" name="Linear Venn Diagram">
+    </diagram>
+    <diagram id="radial-venn" name="Radial Venn Diagram">
+    </diagram>    
+    <diagram id="requirements" name="Requirement Diagram">
+    </diagram>
+    <diagram id="behavior-tree" name="Behavior Tree">
+    </diagram>
+    <diagram id="structure-chart" name="Structure Chart">
+    </diagram>
+    <diagram id="grafcet" name="Grafcet">
+    </diagram>
+    <diagram id="roadmap" name="Roadmap">
+    </diagram>
+    <diagram id="user-story-map" name="User Story Map">
+    </diagram>    
+    <diagram id="layer-diagram" name="Layer Diagram">
+    </diagram>
+    <diagram id="decision-table" name="Decision Table">
+    </diagram>
+    <diagram id="computer-network" name="Computer Network Diagram">
+    </diagram>
+    <diagram id="cmmn" name="Case Management Model and Notation">
+    </diagram>
+    <diagram id="infographic" name="Infographic">
+    </diagram>
+    <diagram id="finite-state-machine" name="Finite State Machine">
+    </diagram>
+    <diagram id="fault-tree-analysis" name="Fault Tree Analysis">
+    </diagram>
+    <diagram id="event-tree-analysis" name="Event Tree Analysis">
+    </diagram>
+    <diagram id="fmea" name="Failure Mode and Effects Analysis">
+    </diagram>
+    <diagram id="cause-effect-graph" name="Cause and Effect Graph">
+    </diagram>
+    <diagram id="autosar" name="Autosar Diagram">
+    </diagram>
+    <diagram id="nassi-shneiderman" name="Nassi Shneiderman Diagram">
+    </diagram>
+    <diagram id="petri-net" name="Petri Net">
+    </diagram>
+    <diagram id="organizational-chart" name="Organizational Chart">
+    </diagram>
+    <diagram id="gantt-chart" name="Gantt Chart">
+    </diagram>
+    <diagram id="orm" name="Object Role Modeling Diagram">
+    </diagram>
+    <diagram id="upn" name="Universal Process Notation Map">
+    </diagram>
+    <diagram id="i-star" name="I* Star">
+    </diagram>
+    <diagram id="tutorial" name="Tutorial Diagram">
+    </diagram>
+    <diagram id="feature-model" name="Feature Model Diagram">
+    </diagram>
+    <diagram id="time-estimation" name="Time Estimation Diagram">
+    </diagram>
+    <diagram id="quick-diagram" name="Quick Diagram">
+    </diagram>
+    <diagram id="custom-diagram" name="Custom Diagram">
+    </diagram>    
+    <diagram id="circuit" name="Circuit">
+    </diagram>
+  </group>
+  <group name="IDEF">
+    <diagram id="idef0" name="IDEF0">
+    </diagram>
+    <diagram id="entity-relationship-idef1x" name="IDEF1X Entity Relationship Diagram">
+    </diagram>
+    <diagram id="idef3-object" name="IDEF3 Object Diagram">
+    </diagram>
+    <diagram id="idef3-process" name="IDEF3 Process Diagram">
+    </diagram>    
+  </group>
+  <group name="Presentation">
+    <diagram id="slide" name="Slide">
+    </diagram>
+  </group>
+  <group name="JSD">
+    <diagram id="jsd-entity-structure" name="Entity Structure Diagram">
+    </diagram>
+    <diagram id="jsd-network" name="Network Diagram">
+    </diagram>
+  </group>
+  <group name="C4">
+    <diagram id="c4-component-diagram" name="C4 Component Diagram">
+    </diagram>
+    <diagram id="c4-container-diagram" name="C4 Container Diagram">
+    </diagram>
+    <diagram id="c4-deployment-diagram" name="C4 Deployment Diagram">
+    </diagram>
+    <diagram id="c4-system-context-diagram" name="C4 System Diagram">
+    </diagram>
+  </group>  
+  <group name="BPMN">
+    <diagram id="bpmn-collaboration" name="BPMN Collaboration Diagram">
+    </diagram>
+    <diagram id="bpmn-conversation" name="BPMN Conversation Diagram">
+    </diagram>
+    <diagram id="bpmn-choreography" name="BPMN Choreography Diagram">
+    </diagram>
+    <diagram id="dmn" name="Decision Model and Notation Diagram">
+    </diagram>
+  </group>
+  <group name="SysML">
+    <diagram id="sysml-activity" name="SysML Activity Diagram">
+    </diagram>
+    <diagram id="sysml-block-definition" name="SysML Block Definition Diagram">
+    </diagram>
+    <diagram id="sysml-internal-block" name="SysML Internal Block Diagram">
+    </diagram>
+    <diagram id="sysml-package" name="SysML Package Diagram">
+    </diagram>
+    <diagram id="sysml-parametric" name="SysML Parametric Diagram">
+    </diagram>
+    <diagram id="sysml-requirement" name="SysML Requirement Diagram">
+    </diagram>
+    <diagram id="sysml-sequence" name="SysML Sequence Diagram">
+    </diagram>
+    <diagram id="sysml-state-machine" name="SysML State Machine Diagram">
+    </diagram>
+    <diagram id="sysml-use-case" name="SysML Use Case Diagram">
+    </diagram>    
+  </group>  
+  <group name="SysML2">
+    <diagram id="sysml2-action-flow" name="Action Flow View">
+    </diagram>
+    <diagram id="sysml2-case" name="Case View">
+    </diagram>
+    <diagram id="sysml2-general" name="General View">
+    </diagram>
+    <diagram id="sysml2-interconnection" name="Interconnection View">
+    </diagram>
+    <diagram id="sysml2-sequence" name="Sequence View">
+    </diagram>
+    <diagram id="sysml2-state-transition" name="State Transition View">
+    </diagram>    
+  </group>
+  <group name="Archimate">
+    <diagram id="archimate" name="Archimate Diagram">
+    </diagram>
+  </group>
+  <group name="EntityRelationship">
+    <diagram id="entity-relationship" name="Entity-Relationship Diagram">
+    </diagram>
+    <diagram id="chen-entity-relationship" name="Chen Entity Relationship Diagram">
+    </diagram>    
+  </group>
+  <group name="Infographics">
+    <diagram id="bending-process" name="Bending Process Diagram">
+    </diagram>
+    <diagram id="basic-cycle" name="Cycle Diagram">
+    </diagram>
+    <diagram id="hierarchical-list" name="Hierarchical List Diagram">
+    </diagram>
+    <diagram id="hierarchy" name="Hierarchy Diagram">
+    </diagram>
+    <diagram id="nested-blocks" name="Nested Blocks Diagram">
+    </diagram>
+    <diagram id="pie-cycle" name="Pie Cycle Diagram">
+    </diagram>
+    <diagram id="pyramid" name="Pyramid Diagram">
+    </diagram>
+    <diagram id="pyramid-mosaic" name="Pyramid Mosaic Diagram">
+    </diagram>
+    <diagram id="radial" name="Radial Diagram">
+    </diagram>
+    <diagram id="segmented-pyramid" name="Segmented Pyramid Diagram">
+    </diagram>
+    <diagram id="timeline" name="Timeline Diagram">
+    </diagram>    
+  </group>
+  <group name="Charts">
+    <diagram id="donut-chart" name="Donut Chart">
+    </diagram>
+    <diagram id="arc-bar-chart" name="Arc Bar Chart">
+    </diagram>
+    <diagram id="arc-chart" name="Arc Chart">
+    </diagram>
+    <diagram id="area-chart" name="Area Chart">
+    </diagram>
+    <diagram id="arrowed-cycle-chart" name="Arrowed Cycle Chart">
+    </diagram>
+    <diagram id="bar-chart" name="Bar Chart">
+    </diagram>
+    <diagram id="funnel-chart" name="Funnel Chart">
+    </diagram>
+    <diagram id="line-chart" name="Line Chart">
+    </diagram>
+    <diagram id="pie-chart" name="Pie Chart">
+    </diagram>
+    <diagram id="point-chart" name="Point Chart">
+    </diagram>
+    <diagram id="semicircle-chart" name="Semicircle Chart">
+    </diagram>
+    <diagram id="single-bar-chart" name="Single Bar Chart">
+    </diagram>
+    <diagram id="spider-chart" name="Spider Chart">
+    </diagram>
+    <diagram id="table-chart" name="Table Chart">
+    </diagram>
+    <diagram id="tree-map-chart" name="Tree Map Chart">
+    </diagram>
+  </group>
+</diagrams>

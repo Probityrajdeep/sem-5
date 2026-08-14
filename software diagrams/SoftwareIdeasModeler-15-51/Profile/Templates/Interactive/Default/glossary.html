@@ -1,0 +1,34 @@
+﻿<%==SIM:UserInput:InteractiveDocumentation_Style=TextValue("Style","css")==%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title><%==SIM:Project.Name==%> - Glossary</title>
+    <link rel="stylesheet" type="text/css" href="<%==SIM:InteractiveDocumentation_Style==%>" />
+</head>
+<body>
+
+    <h1><%==SIM:Project.Name==%></h1>
+    <h2>Glossary</h2>
+
+    <%==SIM:IfNot:Project.Glossary.IsEmpty==%>
+    <table class="standard-table">
+        <thead>
+            <tr>
+                <th>Term</th>
+                <th>Definition</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%==SIM:ForEach:Project.Glossary==%>
+            <tr>
+                <td><%==SIM:GlossaryTerm.Term==%></td>
+                <td><%==SIM:GlossaryTerm.Meaning==%></td>
+            </tr>
+            <%==SIM:EndFor==%>
+        </tbody>
+    </table>
+    <%==SIM:EndIf==%>
+
+</body>
+</html>

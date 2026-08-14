@@ -1,0 +1,233 @@
+﻿<document-theme name="Professional Blue">
+  <meta>
+    <description />
+  </meta>
+  <paragraph-styles>
+    <style name="Title" space-before="10" space-after="10" numbering-type="None">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Tahoma" font-size="28" font-bold="true">
+          <text>
+            <solid-brush color="#FF006AD5" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+    <style name="Subtitle" space-before="1" space-after="5" numbering-type="None">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Tahoma" font-size="18" font-bold="true">
+          <text>
+            <solid-brush color="#FF55AAFF" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+    <style name="Heading1" space-before="10" space-after="5" numbering-type="None" numbering-level="0" type="Heading1">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Tahoma" font-size="18" font-bold="true">
+          <text>
+            <solid-brush color="#FF006AD5" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+    <style name="Heading2" space-before="5" space-after="2" numbering-type="None" numbering-level="1" type="Heading2">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Tahoma" font-size="16" font-bold="true">
+          <text>
+            <solid-brush color="#FF006AD5" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+    <style name="Heading3" space-before="3" space-after="2" numbering-type="None" numbering-level="2" type="Heading3">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Tahoma" font-size="14" font-bold="true">
+          <text>
+            <solid-brush color="#FF006AD5" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+    <style name="Heading4" space-before="3" space-after="2" numbering-type="None" numbering-level="3" type="Heading4">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Tahoma" font-size="12" font-bold="true">
+          <text>
+            <solid-brush color="#FF006AD5" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+    <style name="Heading5" space-before="3" space-after="2" numbering-type="None" numbering-level="4" type="Heading5">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Tahoma" font-size="12" font-bold="true">
+          <text>
+            <solid-brush color="#FF006AD5" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+    <style name="Heading6" space-before="3" space-after="2" numbering-type="None" numbering-level="5" type="Heading6">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Tahoma" font-size="12" font-italic="true">
+          <text>
+            <solid-brush color="#FF006AD5" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+    <style name="Heading7" space-before="3" space-after="2" numbering-type="None" numbering-level="6" type="Heading7">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Tahoma" font-size="12" font-underline="true">
+          <text>
+            <solid-brush color="#FF006AD5" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+    <style name="Body" space-after="2" numbering-type="None">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Times New Roman" font-size="12">
+          <text>
+            <solid-brush color="#FF000000" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+    <style name="Annotation" numbering-type="None">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Arial" font-size="12">
+          <text>
+            <solid-brush color="#FF000000" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+    <style name="PictureLabel" space-after="3" numbering-type="None">
+      <numbering name="" multi-level="false">
+        <numbering-level type="None" level="0" format="{0}." />
+      </numbering>
+      <text>
+        <style font-name="Times New Roman" font-size="12" font-italic="true">
+          <text>
+            <solid-brush color="#FF000000" />
+          </text>
+          <background>
+            <solid-brush color="#00FFFFFF" />
+          </background>
+        </style>
+      </text>
+    </style>
+  </paragraph-styles>
+  <text-styles>
+    <style name="Emphasis" font-name="Times New Roman" font-size="12" font-bold="true">
+      <text>
+        <solid-brush color="#FF000000" />
+      </text>
+      <background>
+        <solid-brush color="#00FFFFFF" />
+      </background>
+    </style>
+  </text-styles>
+  <table-styles>
+    <style name="Table">
+      <header background-color="#FFAAD5FF" border="1 #FF000000">
+        <paragraph>
+          <style>
+            <text>
+              <style font-name="Tahoma" font-size="11" font-bold="true">
+                <text>
+                  <solid-brush color="#FF000000" />
+                </text>
+                <background>
+                  <solid-brush color="#00FFFFFF" />
+                </background>
+              </style>
+            </text>
+          </style>
+        </paragraph>
+      </header>
+      <odd-row border="1 #FF000000">
+        <paragraph>
+          <style>
+            <text>
+              <style font-name="Tahoma" font-size="11">
+                <text>
+                  <solid-brush color="#FF000000" />
+                </text>
+                <background>
+                  <solid-brush color="#00FFFFFF" />
+                </background>
+              </style>
+            </text>
+          </style>
+        </paragraph>
+      </odd-row>
+    </style>
+  </table-styles>
+</document-theme>

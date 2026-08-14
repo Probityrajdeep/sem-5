@@ -1,0 +1,16 @@
+<sim-template version="1.0">
+  <meta>
+    <name>WPF</name>
+    <description></description>
+    <type>SourceCode</type>
+    <language>Xaml</language>
+  </meta>
+  <files defaultName="{Name}.xaml">
+    <file name="Window.xaml" outputName="{Diagram.Name}.xaml" type="Diagram">
+      <settings>
+        <setting name="DefaultType" value="Object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+    </file>    
+  </files>
+</sim-template>

@@ -1,0 +1,16 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+
+<%==SIM:If:Element.HasStereotype("Array")==%>
+<%==SIM:Include(Array.yaml,Element,False)==%>
+<%==SIM:ElseIf:Element.HasStereotype("String")==%>
+<%==SIM:Include(String.yaml,Element,False)==%>
+<%==SIM:ElseIf:Or(Element.HasStereotype("Number"),Element.HasStereotype("Integer"))==%>
+<%==SIM:Include(Number.yaml,Element,False)==%>
+<%==SIM:ElseIf:Element.HasStereotype("Boolean")==%>
+<%==SIM:Include(Boolean.yaml,Element,False)==%>
+<%==SIM:ElseIf:Element.HasStereotype("Null")==%>
+<%==SIM:Include(Null.yaml,Element,False)==%>
+<%==SIM:Else==%>
+<%==SIM:Include(Class.yaml,Element,False)==%>
+<%==SIM:EndIf==%>

@@ -1,0 +1,61 @@
+﻿<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<%==SIM:Set:private=private==%><%==SIM:Set:protected=protected==%><%==SIM:Set:package= ==%><%==SIM:Set:public=public==%>
+<%==SIM:UserInput:IndentationSize=Number("Indentation size",4)==%>
+<%==SIM:UserInput:IndentationChar=Choice("Indentation char",Space,Tab)==%>
+<%==SIM:If:Eq(IndentationChar,"Tab")==%><%==SIM:SetTabIndent==%><%==SIM:Else==%><%==SIM:SetSpaceIndent==%><%==SIM:EndIf==%><%==SIM:IndentSize(IndentationSize)==%>
+
+<%==SIM:IfNot:IsEmpty(Coalesce(Element.Documentation("Description"),Element.Documentation))==%>
+description: "<%==SIM:Replace(Coalesce(Element.Documentation("Description"),Element.Documentation),"\"","\\\"")==%><%==SIM:Line==%>
+<%==SIM:EndIf==%>
+type: "array"<%==SIM:Line==%>
+
+<%==SIM:ForEach:Element.Rules==%>
+	<%==SIM:IfNot:IsEmpty(Rule.Constraint)==%>
+	<%==SIM:If:Eq(Rule.Name,"minItems")==%>
+		<%==SIM:CLS==%><%==SIM:Line==%>
+		minItems: <%==SIM:Rule.Constraint==%>
+	<%==SIM:ElseIf:Eq(Rule.Name,"maxItems")==%>
+		<%==SIM:CLS==%><%==SIM:Line==%>
+		maxItems: <%==SIM:Rule.Constraint==%>
+	<%==SIM:ElseIf:Eq(Rule.Name,"uniqueItems")==%>
+		<%==SIM:CLS==%><%==SIM:Line==%>
+		uniqueItems: <%==SIM:Rule.Constraint==%>
+	<%==SIM:ElseIf:Eq(Rule.Name,"maxContains")==%>
+		<%==SIM:CLS==%><%==SIM:Line==%>
+		maxContains: <%==SIM:Rule.Constraint==%
+	<%==SIM:ElseIf:Eq(Rule.Name,"minContains")==%>
+		<%==SIM:CLS==%><%==SIM:Line==%>
+		minContains: <%==SIM:Rule.Constraint==%>
+	<%==SIM:ElseIf:Eq(Rule.Name,"additionalItems")==%>
+		<%==SIM:CLS==%><%==SIM:Line==%>
+		additionalItems: <%==SIM:Rule.Constraint==%>
+	<%==SIM:EndIf==%>
+	<%==SIM:EndIf==%>
+<%==SIM:EndFor==%>
+
+
+<%==SIM:ForEach:Element.AllAttributes==%>
+	<%==SIM:If:Attribute.HasStereotype("required")==%><%==SIM:Add(Required, Attribute.Name)==%><%==SIM:EndIf==%>		
+<%==SIM:EndFor==%>
+
+<%==SIM:Set:SchemaName=Union(Element.Associations(WithoutStereotypes),Element.Containments(WithoutStereotypes)).First.Name==%>
+<%==SIM:IfNot:IsEmpty(SchemaName)==%>
+<%==SIM:CLS==%><%==SIM:Line==%>
+items: <%==SIM:StartBlock==%><%==SIM:Line==%>
+	$ref: "/schemas/<%==SIM:SchemaName==%>"
+	
+	<%==SIM:EndBlock==%><%==SIM:Line==%>
+
+<%==SIM:EndIf==%>
+
+<%==SIM:Set:SchemaName=Union(Element.Associations("contains"),Element.Containments("contains")).First.Name==%>
+<%==SIM:IfNot:IsEmpty(SchemaName)==%>
+<%==SIM:CLS==%><%==SIM:Line==%>
+contains: <%==SIM:StartBlock==%><%==SIM:Line==%>
+	$ref: "/schemas/<%==SIM:SchemaName==%>"
+	
+	<%==SIM:EndBlock==%><%==SIM:Line==%>
+
+<%==SIM:EndIf==%>
+<%==SIM:Line==%>

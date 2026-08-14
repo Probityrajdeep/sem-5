@@ -1,0 +1,16 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+	
+<%==SIM:If:Element.HasStereotype("Array")==%>
+<%==SIM:Include(Array.json,Element,False)==%>
+<%==SIM:ElseIf:Element.HasStereotype("String")==%>
+<%==SIM:Include(String.json,Element,False)==%>
+<%==SIM:ElseIf:Or(Element.HasStereotype("Number"),Element.HasStereotype("Integer"))==%>
+<%==SIM:Include(Number.json,Element,False)==%>
+<%==SIM:ElseIf:Element.HasStereotype("Boolean")==%>
+<%==SIM:Include(Boolean.json,Element,False)==%>
+<%==SIM:ElseIf:Element.HasStereotype("Null")==%>
+<%==SIM:Include(Null.json,Element,False)==%>
+<%==SIM:Else==%>
+<%==SIM:Include(Class.json,Element,False)==%>
+<%==SIM:EndIf==%>

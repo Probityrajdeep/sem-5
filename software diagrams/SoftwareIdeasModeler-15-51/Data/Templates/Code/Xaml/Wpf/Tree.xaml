@@ -1,0 +1,17 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<TreeView x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:XamlStyle(Element)==%>
+<%==SIM:StartBlock==%><%==SIM:Line==%>
+
+  <%==SIM:ForEach:Element.Nodes==%>
+    <TreeViewItem Header="<%==SIM:Node.Name==%>" IsExpanded="<%==SIM:Not(Node.IsCollapsed)==%>">
+    <%==SIM:If:GT(Node.Nodes.Count,0)==%>
+      <%==SIM:StartBlock==%><%==SIM:Line==%>
+        <%==SIM:Include(TreeItems.xaml,Node,False)==%>
+      <%==SIM:EndBlock==%><%==SIM:Line==%>
+    <%==SIM:EndIf==%>  
+    </TreeViewItem><%==SIM:Line==%>
+  <%==SIM:EndFor==%>
+    
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+</TreeView>

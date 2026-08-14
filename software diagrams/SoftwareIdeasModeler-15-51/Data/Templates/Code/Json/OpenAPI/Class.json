@@ -1,0 +1,131 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<%==SIM:Set:private=private==%><%==SIM:Set:protected=protected==%><%==SIM:Set:package= ==%><%==SIM:Set:public=public==%>
+<%==SIM:UserInput:IndentationSize=Number("Indentation size",4)==%>
+<%==SIM:UserInput:IndentationChar=Choice("Indentation char",Space,Tab)==%>
+<%==SIM:If:Eq(IndentationChar,"Tab")==%><%==SIM:SetTabIndent==%><%==SIM:Else==%><%==SIM:SetSpaceIndent==%><%==SIM:EndIf==%><%==SIM:IndentSize(IndentationSize)==%>
+
+"description": "<%==SIM:Replace(Coalesce(Element.Documentation("Description"),Element.Documentation),"\"","\\\"")==%>",<%==SIM:Line==%>
+"type": "object"
+
+<%==SIM:ForEach:Element.Rules==%>
+	<%==SIM:IfNot:IsEmpty(Rule.Constraint)==%>
+	<%==SIM:If:Eq(Rule.Name,"minProperties")==%>
+		<%==SIM:CLS==%>,<%==SIM:Line==%>
+		"minProperties": <%==SIM:Rule.Constraint==%>
+	<%==SIM:ElseIf:Eq(Rule.Name,"maxProperties")==%>
+		<%==SIM:CLS==%>,<%==SIM:Line==%>
+		"maxProperties": <%==SIM:Rule.Constraint==%>
+	<%==SIM:ElseIf:Eq(Rule.Name,"additionalProperties")==%>
+		<%==SIM:CLS==%>,<%==SIM:Line==%>
+		"additionalProperties": <%==SIM:Rule.Constraint==%>
+	<%==SIM:EndIf==%>
+	<%==SIM:EndIf==%>
+<%==SIM:EndFor==%>
+
+
+<%==SIM:ForEach:Element.AllAttributes==%>
+	<%==SIM:If:Attribute.HasStereotype("required")==%><%==SIM:Add(Required, Attribute.Name)==%><%==SIM:EndIf==%>		
+<%==SIM:EndFor==%>
+<%==SIM:IfNot:Required.IsEmpty==%>
+<%==SIM:CLS==%>,<%==SIM:Line==%>
+"required": [
+<%==SIM:ForEach:Required(Item)==%>
+	"<%==SIM:Item==%>"<%==SIM:IfNot:IsLastItem==%>, <%==SIM:EndIf==%>		
+<%==SIM:EndFor==%>
+]<%==SIM:Line==%><%==SIM:EndIf==%>
+
+<%==SIM:CLS==%>,<%==SIM:Line==%>
+"properties": {<%==SIM:StartBlock==%><%==SIM:Line==%>
+	<%==SIM:ForEach:Element.AllAttributes(Attribute,True)==%>			
+		"<%==SIM:Attribute.Name==%>" : {<%==SIM:StartBlock==%><%==SIM:Line==%>
+			<%==SIM:If:Attribute.OriginalType.HasClassifier==%>
+				<%==SIM:If:Attribute.OriginalType.IsEnum==%>
+					"type": "string",<%==SIM:Line==%>
+					"description": "<%==SIM:Replace(ToSingleLine(Attribute.Documentation),"\"","\\\"")==%>"<%==SIM:If:Attribute.HasDefaultValue==%>,<%==SIM:Line==%>"default": <%==SIM:Attribute.DefaultValue==%><%==SIM:EndIf==%>
+					,<%==SIM:Line==%>
+					"enum": [<%==SIM:ForEach:Attribute.OriginalType.Classifier.EnumerationItems==%>"<%==SIM:EnumerationItem.Name==%>"<%==SIM:IfNot:IsLastItem==%>, <%==SIM:EndIf==%><%==SIM:EndFor==%>]<%==SIM:Line==%>
+				<%==SIM:Else==%>
+					<%==SIM:If:Attribute.IsArray==%>
+						"type": "array"
+						<%==SIM:IfNot:IsEmpty(Attribute.MinMultiplicity)==%><%==SIM:CLS==%>,<%==SIM:Line==%>"minItems": <%==SIM:Attribute.MinMultiplicity==%><%==SIM:EndIf==%>
+						<%==SIM:IfNot:IsEmpty(Attribute.MaxMultiplicity)==%><%==SIM:CLS==%>,<%==SIM:Line==%>"maxItems": <%==SIM:Attribute.MaxMultiplicity==%><%==SIM:EndIf==%>
+						<%==SIM:CLS==%>,<%==SIM:Line==%>"description": "<%==SIM:Replace(ToSingleLine(Attribute.Documentation),"\"","\\\"")==%>"<%==SIM:If:Attribute.HasDefaultValue==%>,<%==SIM:Line==%>"default": <%==SIM:Attribute.DefaultValue==%><%==SIM:EndIf==%>
+						
+						<%==SIM:CLS==%>,<%==SIM:Line==%>"items": {<%==SIM:StartBlock==%><%==SIM:Line==%>
+							<%==SIM:If:Attribute.OriginalType.Classifier.HasStereotype("component")==%>
+								"$ref": "#/components/schemas/<%==SIM:Attribute.OriginalType.Classifier.Name==%>"
+							<%==SIM:Else==%>
+								<%==SIM:Include(SchemaObject.json,Attribute.OriginalType.Classifier,False)==%>   
+							<%==SIM:EndIf==%>
+						<%==SIM:EndBlock==%><%==SIM:Line==%>}
+					<%==SIM:Else==%>
+						<%==SIM:If:Attribute.OriginalType.Classifier.HasStereotype("component")==%>
+							"$ref": "#/components/schemas/<%==SIM:Attribute.OriginalType.Classifier.Name==%>"
+						<%==SIM:Else==%>
+							<%==SIM:Include(SchemaObject.json,Attribute.OriginalType.Classifier,False)==%>   
+						<%==SIM:EndIf==%>
+					<%==SIM:EndIf==%>	
+									
+				<%==SIM:EndIf==%>	
+			<%==SIM:Else==%>
+				<%==SIM:If:Attribute.IsArray==%>
+					"type": "array",<%==SIM:Line==%>
+					"items": {<%==SIM:StartBlock==%><%==SIM:Line==%>
+						"type": "<%==SIM:Attribute.Type==%>"<%==SIM:Line==%>
+					<%==SIM:EndBlock==%><%==SIM:Line==%>}
+					
+					<%==SIM:CLS==%>,<%==SIM:Line==%>"description": "<%==SIM:Replace(ToSingleLine(Attribute.Documentation),"\"","\\\"")==%>"<%==SIM:If:Attribute.HasDefaultValue==%>,<%==SIM:Line==%>"default": <%==SIM:Attribute.DefaultValue==%><%==SIM:EndIf==%>
+					<%==SIM:IfNot:IsEmpty(Attribute.MinMultiplicity)==%><%==SIM:CLS==%>,<%==SIM:Line==%>"minItems": <%==SIM:Attribute.MinMultiplicity==%><%==SIM:EndIf==%>
+					<%==SIM:IfNot:IsEmpty(Attribute.MaxMultiplicity)==%><%==SIM:CLS==%>,<%==SIM:Line==%>"maxItems": <%==SIM:Attribute.MaxMultiplicity==%><%==SIM:EndIf==%>
+				<%==SIM:Else==%>
+					<%==SIM:If:Attribute.OriginalType.IsInteger==%><%==SIM:Set:AttType=integer==%><%==SIM:ElseIf:Attribute.OriginalType.IsNumber==%><%==SIM:Set:AttType=number==%><%==SIM:ElseIf:Attribute.OriginalType.IsString==%><%==SIM:Set:AttType=string==%><%==SIM:ElseIf:Attribute.OriginalType.IsBoolean==%><%==SIM:Set:AttType=boolean==%><%==SIM:ElseIf:Attribute.OriginalType.IsArray==%><%==SIM:Set:AttType=array==%><%==SIM:Else==%><%==SIM:Set:AttType=string==%><%==SIM:EndIf==%>
+					"type": "<%==SIM:AttType==%>",<%==SIM:Line==%>
+					<%==SIM:IfNot:Eq(AttType,Attribute.Type)==%>
+					"format": <%==SIM:If:Attribute.OriginalType.IsDateTime==%>"date-time"<%==SIM:Else==%>"<%==SIM:Attribute.Type==%>"<%==SIM:EndIf==%>,<%==SIM:Line==%>
+					<%==SIM:EndIf==%>
+					"description": "<%==SIM:Replace(ToSingleLine(Attribute.Documentation),"\"","\\\"")==%>"<%==SIM:If:Attribute.HasDefaultValue==%>,<%==SIM:Line==%>"default": <%==SIM:Attribute.DefaultValue==%><%==SIM:EndIf==%>
+				<%==SIM:EndIf==%>
+			<%==SIM:EndIf==%>
+						
+			
+			<%==SIM:EndBlock==%><%==SIM:Line==%>
+		}<%==SIM:IfNot:IsLastItem==%>, <%==SIM:Line==%><%==SIM:EndIf==%>
+					
+	<%==SIM:EndFor==%>
+
+	<%==SIM:ForEach:Element.NestedClasses==%>
+		, <%==SIM:Line==%>
+		"<%==SIM:ToLower(NestedClass.Name)==%>": {<%==SIM:StartBlock==%><%==SIM:Line==%>
+		"type": "object",<%==SIM:Line==%>
+		<%==SIM:Include(Class.json,NestedClass,False)==%>
+		
+		<%==SIM:EndBlock==%><%==SIM:Line==%>
+		}<%==SIM:IfNot:IsLastItem==%>, <%==SIM:Line==%><%==SIM:EndIf==%>
+	<%==SIM:EndFor==%>
+	
+	<%==SIM:EndBlock==%><%==SIM:Line==%>
+}
+
+<%==SIM:Set:OperatorName="oneOf"==%>
+<%==SIM:Include(Operator.json,Element,True)==%>
+
+<%==SIM:Set:OperatorName="allOf"==%>
+<%==SIM:Include(Operator.json,Element,True)==%>
+
+<%==SIM:Set:OperatorName="anyOf"==%>
+<%==SIM:Include(Operator.json,Element,True)==%>
+
+<%==SIM:Set:OperatorName="not"==%>
+<%==SIM:Include(Operator.json,Element,True)==%>
+
+<%==SIM:Set:OperatorName="if"==%>
+<%==SIM:Include(Operator.json,Element,True)==%>
+
+<%==SIM:Set:OperatorName="then"==%>
+<%==SIM:Include(Operator.json,Element,True)==%>
+
+<%==SIM:Set:OperatorName="else"==%>
+<%==SIM:Include(Operator.json,Element,True)==%>
+
+<%==SIM:Line==%>

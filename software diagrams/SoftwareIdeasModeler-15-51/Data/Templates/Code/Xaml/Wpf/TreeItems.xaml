@@ -1,0 +1,11 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<%==SIM:ForEach:Input.Nodes(NestedNode)==%>
+<TreeViewItem Header="<%==SIM:NestedNode.Name==%>" IsExpanded="<%==SIM:Not(NestedNode.IsCollapsed)==%>">
+<%==SIM:If:GT(NestedNode.Nodes.Count,0)==%>
+    <%==SIM:StartBlock==%><%==SIM:Line==%>
+    <%==SIM:Include(TreeItems.xaml,NestedNode,False)==%>
+    <%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:EndIf==%>
+</TreeViewItem><%==SIM:Line==%>
+<%==SIM:EndFor==%>

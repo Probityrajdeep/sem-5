@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<typeset name="C#" description="" version="2.0" prefix="CSharp" language="CSharp">
+  <parameters>
+    <parameter id="nullable" name="Nullable" code="?" meaning="Nullable" template="{{Type}}?" description="" kind="Flag" />
+  </parameters>
+  <types>
+    <type name="bool" description="" tid="boolean">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="byte" description="" tid="u-integer8">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="sbyte" description="" tid="s-integer8">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="char" description="" tid="char">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="short" description="" tid="s-integer16">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="ushort" description="" tid="u-integer16">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="int" description="" tid="s-integer32">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="uint" description="" tid="u-integer32">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="long" description="" tid="s-integer64">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="ulong" description="" tid="u-integer64">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="float" description="" tid="s-real32">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="double" description="" tid="s-real64">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="decimal" description="" tid="s-decimal128">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="DateTime" description="" tid="datetime">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="object" description="" tid="object" nullable="true">
+    </type>
+    <type name="string" description="" tid="string" nullable="true">
+    </type>
+
+	<type id="CSharp.List" tid="array" name="List" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+	<type id="CSharp.IEnumerable" tid="" name="IEnumerable" description="" template="{{Name}}&lt;{{?}}&gt;" generic="true" />
+	<type id="CSharp.Dictionary" tid="" name="Dictionary" description="" template="{{Name}}&lt;{{?}},{{?}}&gt;" generic="true" />
+  </types>
+</typeset>

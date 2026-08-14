@@ -1,0 +1,19 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<Menu x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:XamlStyle(Element)==%>
+<%==SIM:StartBlock==%><%==SIM:Line==%>
+
+  <%==SIM:ForEach:Element.Items==%>
+    <%==SIM:If:Eq(Item.Name,"-")==%>
+      <Separator /><%==SIM:Line==%>
+    <%==SIM:Else==%>
+      <MenuItem Header="<%==SIM:Item.Name==%>"><%==SIM:If:GT(Item.Items.Count,0)==%>
+        <%==SIM:StartBlock==%><%==SIM:Line==%>
+          <%==SIM:Include(MenuItems.xaml,Item,False)==%>
+        <%==SIM:EndBlock==%><%==SIM:Line==%>
+      <%==SIM:EndIf==%></MenuItem><%==SIM:Line==%>
+    <%==SIM:EndIf==%>
+  <%==SIM:EndFor==%>
+    
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+</Menu>

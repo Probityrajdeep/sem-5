@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<types name="Protocol Buffer" description="" version="1.0" prefix="PB" language="ProtocolBuffer">
+  <type name="bool" description="" tid="boolean">
+  </type>
+  <type name="int32" description="" tid="s-integer32">
+  </type>
+  <type name="sint32" description="" tid="s-integer32">
+  </type>
+  <type name="sfixed32" description="" tid="s-integer32">
+  </type>
+  <type name="uint32" description="" tid="u-integer32">
+  </type>
+  <type name="fixed32" description="" tid="u-integer32">
+  </type>
+  <type name="int64" description="" tid="s-integer64">
+  </type>
+  <type name="sfixed64" description="" tid="s-integer64">
+  </type>
+  <type name="sint64" description="" tid="s-integer64">
+  </type>
+  <type name="uint64" description="" tid="u-integer64">
+  </type>
+  <type name="fixed64" description="" tid="u-integer64">
+  </type>
+  <type name="float" description="" tid="s-real32">
+  </type>
+  <type name="double" description="" tid="s-real64">
+  </type>
+  <type name="string" description="" tid="string" nullable="true">
+  </type>
+  <type name="bytes" description="" tid="byte-array" nullable="true">
+  </type>
+  <type name="google.protobuf.Any" description="" tid="object" nullable="true">
+  </type>  
+</types>

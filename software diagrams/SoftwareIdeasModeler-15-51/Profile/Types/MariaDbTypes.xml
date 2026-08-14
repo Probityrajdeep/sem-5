@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<types name="MariaDB" description="" version="1.0" prefix="MariaDb" language="MariaDb">
+  <type name="char" description="" tid="string" default-size="10">
+  </type>
+  <type name="varchar" description="" tid="string" default-size="MAX">
+  </type>
+  <type name="binary" description="" tid="binary" default-size="MAX">
+  </type>
+  <type name="varbinary" description="" tid="binary" default-size="MAX">
+  </type>
+  <type name="tinyblob" description="" tid="binary">
+  </type>
+  <type name="tinytext" description="" tid="string">
+  </type>
+  <type name="text" description="" tid="string" default-size="10">
+  </type>
+  <type name="blob" description="" tid="binary"  default-size="10">
+  </type>
+  <type name="mediumtext" description="" tid="string" default-size="10">
+  </type>
+  <type name="mediumblob" description="" tid="binary"  default-size="10">
+  </type>
+  <type name="longtext" description="" tid="string" default-size="10">
+  </type>
+  <type name="longblob" description="" tid="binary"  default-size="10">
+  </type>
+  <type name="enum" description="" tid="string">
+  </type>
+  <type name="set" description="" tid="string">
+  </type>
+  <type name="bit" description="" tid="boolean" default-size="1">
+  </type>  
+  <type name="int1" description="" tid="s-integer8" default-size="255">
+  </type>
+  <type name="tinyint" description="" tid="s-integer8" default-size="255">
+  </type>
+  <type name="tinyint unsigned" description="" tid="u-integer8" default-size="255">
+  </type>
+  <type name="tinyint zerofill" description="" tid="u-integer8" default-size="255">
+  </type>
+  <type name="bool" description="" tid="boolean">
+  </type>
+  <type name="boolean" description="" tid="boolean">
+  </type>
+  <type name="int2" description="" tid="s-integer16" default-size="255">
+  </type>
+  <type name="smallint" description="" tid="s-integer16" default-size="255">
+  </type>
+  <type name="smallint unsigned" description="" tid="u-integer16" default-size="255">
+  </type>
+  <type name="smallint zerofill" description="" tid="u-integer16" default-size="255">
+  </type>
+  <type name="int3" description="" tid="s-integer32" default-size="255">
+  </type>
+  <type name="mediumint" description="" tid="s-integer32" default-size="255">
+  </type>
+  <type name="mediumint unsigned" description="" tid="u-integer32" default-size="255">
+  </type>
+  <type name="mediumint zerofill" description="" tid="u-integer32" default-size="255">
+  </type>
+  <type name="int4" description="" tid="s-integer32" default-size="255">
+  </type>
+  <type name="int" description="" tid="s-integer32" default-size="255">
+  </type>
+  <type name="int unsigned" description="" tid="u-integer32" default-size="255">
+  </type>
+  <type name="int zerofill" description="" tid="u-integer32" default-size="255">
+  </type>
+  <type name="int8" description="" tid="s-integer64" default-size="255">
+  </type>
+  <type name="bigint" description="" tid="s-integer64" default-size="255">
+  </type>
+  <type name="bigint unsigned" description="" tid="u-integer64" default-size="255">
+  </type>
+  <type name="bigint zerofill" description="" tid="u-integer64" default-size="255">
+  </type>
+  <type name="float" description="" tid="s-real32" default-size="24">
+  </type>
+  <type name="float unsigned" description="" tid="u-real32" default-size="24">
+  </type>
+  <type name="float zerofill" description="" tid="u-real32" default-size="24">
+  </type>
+  <type name="double" description="" tid="s-real64" default-size="53,4">
+  </type>
+  <type name="double unsigned" description="" tid="u-real64" default-size="53,4">
+  </type>
+  <type name="double zerofill" description="" tid="u-real64" default-size="53,4">
+  </type>
+  <type name="decimal" description="" tid="s-decimal128" default-size="16,4">
+  </type>
+  <type name="decimal unsigned" description="" tid="u-decimal128" default-size="16,4">
+  </type>
+  <type name="decimal zerofill" description="" tid="u-decimal128" default-size="16,4">
+  </type>
+  <type name="dec" description="" tid="s-decimal128" default-size="16,4">
+  </type>
+  
+  <type name="datetime" description="" tid="datetime">
+  </type>
+  <type name="date" description="" tid="datetime">
+  </type>
+  <type name="timestamp" description="" tid="datetime">
+  </type>
+  <type name="time" description="" tid="datetime">
+  </type>
+  <type name="year" description="" tid="int">
+  </type>
+
+  <type name="inet6" description="" tid="string">
+  </type>  
+  <type name="json" description="" tid="string">
+  </type>  
+
+</types>

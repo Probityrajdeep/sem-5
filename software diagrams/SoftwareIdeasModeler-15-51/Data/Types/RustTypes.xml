@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<typeset name="Rust" description="" version="2.0" prefix="Rust" language="Rust">  
+  <types>
+    <type name="bool" description="" tid="boolean">      
+    </type>
+    <type name="char" description="" tid="char">      
+    </type>
+    <type name="i16" description="" tid="s-integer16">      
+    </type>
+    <type name="u16" description="" tid="u-integer16">      
+    </type>
+    <type name="i32" description="" tid="s-integer32">      
+    </type>
+    <type name="u32" description="" tid="u-integer32">      
+    </type>
+    <type name="i64" description="" tid="s-integer64">      
+    </type>
+    <type name="u64" description="" tid="u-integer64">      
+    </type>
+    <type name="i128" description="" tid="s-integer128">
+    </type>
+    <type name="u128" description="" tid="u-integer128">
+    </type>
+    <type name="isize" description="" tid="s-integer-arch">
+    </type>
+    <type name="usize" description="" tid="u-integer-arch">
+    </type>
+    <type name="f32" description="" tid="s-real32">      
+    </type>
+    <type name="f64" description="" tid="s-real64">    
+    </type>
+    <type name="decimal" description="" tid="s-decimal128">
+      <parameter ref="nullable" value="" />
+    </type>
+    <type name="DateTime" description="" tid="datetime">
+      <parameter ref="nullable" value="" />
+    </type>    
+    <type name="String" description="" tid="string">
+    </type>
+  </types>
+</typeset>

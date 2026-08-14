@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<typeset name="C++" description="" version="2.0" prefix="Cpp" language="Cpp">
+  <parameters>
+    <parameter id="c0af662d372f4009a8f2397fe47c8468" name="Pointer" code="*" meaning="Pointer" template="{{Type}}*" description="" kind="Flag" />
+    <parameter id="c1951d5c56ec4581bab0e6959a0050c0" name="Reference" code="&amp;" meaning="Reference" template="{{Type}}&amp;" description="" kind="Flag" />
+  </parameters>
+  <types>
+    <type name="bool" description="" tid="boolean">
+      <parameter ref="c0af662d372f4009a8f2397fe47c8468" value="" />
+      <parameter ref="c1951d5c56ec4581bab0e6959a0050c0" value="" />
+    </type>
+    <type name="char" description="" tid="char">
+      <parameter ref="c0af662d372f4009a8f2397fe47c8468" value="" />
+      <parameter ref="c1951d5c56ec4581bab0e6959a0050c0" value="" />
+    </type>
+    <type name="short int" description="" tid="s-integer16">
+      <parameter ref="c0af662d372f4009a8f2397fe47c8468" value="" />
+      <parameter ref="c1951d5c56ec4581bab0e6959a0050c0" value="" />
+    </type>
+    <type name="unsigned short int" description="" tid="u-integer16">
+      <parameter ref="c0af662d372f4009a8f2397fe47c8468" value="" />
+      <parameter ref="c1951d5c56ec4581bab0e6959a0050c0" value="" />
+    </type>
+    <type name="int" description="" tid="s-integer32">
+      <parameter ref="c0af662d372f4009a8f2397fe47c8468" value="" />
+      <parameter ref="c1951d5c56ec4581bab0e6959a0050c0" value="" />
+    </type>
+    <type name="unsigned int" description="" tid="u-integer32">
+      <parameter ref="c0af662d372f4009a8f2397fe47c8468" value="" />
+      <parameter ref="c1951d5c56ec4581bab0e6959a0050c0" value="" />
+    </type>
+    <type name="long int" description="" tid="s-integer64">
+      <parameter ref="c0af662d372f4009a8f2397fe47c8468" value="" />
+      <parameter ref="c1951d5c56ec4581bab0e6959a0050c0" value="" />
+    </type>
+    <type name="unsigned long int" description="" tid="u-integer64">
+      <parameter ref="c0af662d372f4009a8f2397fe47c8468" value="" />
+      <parameter ref="c1951d5c56ec4581bab0e6959a0050c0" value="" />
+    </type>
+    <type name="float" description="" tid="s-real32">
+      <parameter ref="c0af662d372f4009a8f2397fe47c8468" value="" />
+      <parameter ref="c1951d5c56ec4581bab0e6959a0050c0" value="" />
+    </type>
+    <type name="double" description="" tid="s-real64">
+      <parameter ref="c0af662d372f4009a8f2397fe47c8468" value="" />
+      <parameter ref="c1951d5c56ec4581bab0e6959a0050c0" value="" />
+    </type>
+    <type name="string" description="" tid="string">
+      <parameter ref="c0af662d372f4009a8f2397fe47c8468" value="" />
+      <parameter ref="c1951d5c56ec4581bab0e6959a0050c0" value="" />
+    </type>
+  </types>
+</typeset>

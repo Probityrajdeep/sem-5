@@ -1,0 +1,11 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<HorizontalStackLayout x:Name="<%==SIM:Element.SafeName==%>">
+<%==SIM:StartBlock==%><%==SIM:Line==%>
+
+  <%==SIM:ForEach:Element.NestedElements==%>
+  <%==SIM:Include(Element.xaml,NestedElement,False)==%>
+  <%==SIM:EndFor==%>
+    
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+</HorizontalStackLayout>

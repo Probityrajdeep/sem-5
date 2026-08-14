@@ -1,0 +1,66 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>  
+  	
+<%==SIM:If:Element.OfType(ui-panel)==%>
+	<%==SIM:Include(Panel.xaml,Element,False)==%><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-tab-control)==%>
+	<%==SIM:Include(TabControl.xaml,Element,False)==%><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-toolbar)==%>
+	<%==SIM:Include(Toolbar.xaml,Element,False)==%><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-menu)==%>
+	<%==SIM:Include(Menu.xaml,Element,False)==%><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-tree)==%>
+	<%==SIM:Include(Tree.xaml,Element,False)==%><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-button)==%>
+	<Button x:Name="<%==SIM:Element.SafeName==%>" Content="<%==SIM:Element.OriginalName==%>" <%==SIM:XamlStyle(Element,"Button")==%>
+	</Button><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-check-box)==%>
+	<CheckBox x:Name="<%==SIM:Element.SafeName==%>" Content="<%==SIM:Element.OriginalName==%>" <%==SIM:XamlStyle(Element,"CheckBox")==%>
+	</CheckBox><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-radio-button)==%>
+	<RadioButton x:Name="<%==SIM:Element.SafeName==%>" Content="<%==SIM:Element.OriginalName==%>" <%==SIM:XamlStyle(Element,"RadioButton")==%>
+	</RadioButton><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-label)==%>
+	<Label x:Name="<%==SIM:Element.SafeName==%>" Content="<%==SIM:Element.OriginalName==%>" <%==SIM:XamlStyle(Element,"Label")==%>
+	</Label><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-grid)==%>
+	<Grid x:Name="<%==SIM:Element.SafeName==%>" d:ItemsSource="{d:SampleData ItemCount=10}" <%==SIM:XamlStyle(Element,"Grid")==%>
+	</Grid><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(image)==%>
+	<Image x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:XamlStyle(Element,"Image")==%>
+	</Image><%==SIM:Line==%>
+<%==SIM:ElseIf:And(Element.OfType(ui-text-box),Not(Element.ShowPasswordDots))==%>
+	<TextBox x:Name="<%==SIM:Element.SafeName==%>" Text="<%==SIM:Element.OriginalName==%>" TextWrapping="NoWrap" <%==SIM:XamlStyle(Element,"TextBox")==%>
+	</TextBox><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-multi-line))==%>
+	<TextBox x:Name="<%==SIM:Element.SafeName==%>" Text="<%==SIM:Element.OriginalName==%>" TextWrapping="Wrap" <%==SIM:XamlStyle(Element,"TextBox")==%>
+	</TextBox><%==SIM:Line==%>
+<%==SIM:ElseIf:And(Element.OfType(ui-text-box),Element.ShowPasswordDots)==%>
+	<PasswordBox x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:XamlStyle(Element,"PasswordBox")==%>
+	</PasswordBox><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-combo-box)==%>
+	<ComboBox x:Name="<%==SIM:Element.SafeName==%>" Text="<%==SIM:Element.OriginalName==%>" IsEditable="True" <%==SIM:XamlStyle(Element,"ComboBox")==%>
+	</ComboBox><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-list-box)==%>
+	<ListBox x:Name="<%==SIM:Element.SafeName==%>" d:ItemsSource="{d:SampleData ItemCount=10}" SelectionMode="Single" <%==SIM:XamlStyle(Element,"ListBox")==%>
+	</ListBox><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-calendar)==%>
+	<Calendar x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:XamlStyle(Element,"Calendar")==%>
+	</Calendar><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-date-picker)==%>
+	<DatePicker x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:XamlStyle(Element,"DatePicker")==%>
+	</DatePicker><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-group-box)==%>
+	<GroupBox x:Name="<%==SIM:Element.SafeName==%>" Content="<%==SIM:Element.OriginalName==%>" <%==SIM:XamlStyle(Element,"GroupBox")==%>
+        <%==SIM:Include(Panel.xaml,Element,False)==%><%==SIM:Line==%>
+	</GroupBox><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-track-bar)==%>
+	<Slider x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:XamlStyle(Element,"Slider")==%>
+	</Slider><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-progress-bar)==%>
+	<ProgressBar x:Name="<%==SIM:Element.SafeName==%>" <%==SIM:XamlStyle(Element,"ProgressBar")==%>
+	</ProgressBar><%==SIM:Line==%>
+<%==SIM:ElseIf:Element.OfType(ui-scroll-bar)==%>  
+	<ScrollBar x:Name="<%==SIM:Element.SafeName==%>" Orientation="<%==SIM:If:GT(Element.Width,Element.Height)==%>Horizontal<%==SIM:Else==%>Vertical<%==SIM:EndIf==%>" <%==SIM:XamlStyle(Element,"ScrollBar")==%>
+	</ScrollBar><%==SIM:Line==%>
+<%==SIM:EndIf==%>	

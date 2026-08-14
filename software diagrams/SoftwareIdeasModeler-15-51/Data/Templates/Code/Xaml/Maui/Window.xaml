@@ -1,0 +1,92 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+
+<%==SIM:Template:BorderStart(XamlElement,Enforced,HideBorders)==%>
+<%==SIM:If:Or(Not(XamlElement.HasDefaultStyle),Enforced)==%>
+	<Border	<%==SIM:ElementLayout(XamlElement,True)==%>	
+		<%==SIM:IfNot:HideBorders==%>
+		<%==SIM:Space==%>Stroke="<%==SIM:XamlElement.Style.Border.Color.Hex==%>"
+		<%==SIM:Space==%>StrokeThickness="<%==SIM:XamlElement.Style.Border.Width==%>"
+		<%==SIM:Else==%>
+		<%==SIM:Space==%>StrokeThickness="0"
+		<%==SIM:EndIf==%>
+		<%==SIM:If:And(XamlElement.Style.Background.IsSolid,XamlElement.Style.Background.IsVisible)==%><%==SIM:Space==%>BackgroundColor="<%==SIM:XamlElement.Style.Background.Color.Hex==%>"<%==SIM:EndIf==%>
+		<%==SIM:Space==%>
+		<%==SIM:IfNot:Eq(XamlElement.RotationAngle,0)==%>Rotation="<%==SIM:XamlElement.RotationAngle==%>"<%==SIM:EndIf==%>
+	><%==SIM:StartBlock==%><%==SIM:Line==%>
+	<%==SIM:Set:InsideBorder=True==%>
+	
+	<%==SIM:IfNot:XamlElement.HasDefaultStyle==%><%==SIM:IfNot:XamlElement.Style.Background.IsSolid==%>
+	<Border.Background><%==SIM:Line==%>
+		<LinearGradientBrush StartPoint="<%==SIM:XamlElement.Style.Background.RelativeStartPoint.XY==%>" EndPoint="<%==SIM:XamlElement.Style.Background.RelativeEndPoint.XY==%>"><%==SIM:Line==%>
+		<%==SIM:ForEach:XamlElement.Style.Background.GradientStops==%>
+			<GradientStop Color="<%==SIM:GradientStop.Color.Hex==%>" Offset="<%==SIM:GradientStop.Offset==%>" /><%==SIM:Line==%>
+		<%==SIM:EndFor==%>
+		</LinearGradientBrush><%==SIM:Line==%>
+	</Border.Background><%==SIM:Line==%>
+	<%==SIM:EndIf==%><%==SIM:EndIf==%>
+<%==SIM:EndIf==%>
+<%==SIM:EndTemplate==%>
+
+<%==SIM:Template:BorderEnd(XamlElement)==%>
+<%==SIM:IfNot:XamlElement.HasDefaultStyle==%>
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:Set:InsideBorder=False==%>
+</Border>
+<%==SIM:EndIf==%>
+<%==SIM:EndTemplate==%>
+
+<%==SIM:Template:ElementLayout(XamlElement,ForBorder)==%>
+<%==SIM:If:And(Or(ForBorder,Not(InsideBorder)),Or(IsEmpty(XamlElement.Container),XamlElement.Container.ContainerLayout.IsSimpleLayout))==%>
+AbsoluteLayout.LayoutBounds="<%==SIM:XamlElement.ClientX==%>,<%==SIM:XamlElement.ClientY==%>,<%==SIM:XamlElement.Width==%>,<%==SIM:XamlElement.Height==%>" WidthRequest="<%==SIM:XamlElement.Width==%>" HeightRequest="<%==SIM:XamlElement.Height==%>" 
+<%==SIM:ElseIf:Not(InsideBorder)==%>
+WidthRequest="<%==SIM:XamlElement.Width==%>" HeightRequest="<%==SIM:XamlElement.Height==%>"
+<%==SIM:EndIf==%>
+<%==SIM:EndTemplate==%>
+
+<%==SIM:Template:FullElementStyle(XamlElement)==%>
+<%==SIM:IfNot:XamlElement.HasDefaultStyle==%>
+	<%==SIM:Space==%>BorderColor="<%==SIM:XamlElement.Style.Border.Color.Hex==%>"
+	<%==SIM:Space==%>BorderWidth="<%==SIM:XamlElement.Style.Border.Width==%>"
+	<%==SIM:If:XamlElement.Style.Background.IsSolid==%><%==SIM:Space==%>BackgroundColor="<%==SIM:XamlElement.Style.Background.Color.Hex==%>"<%==SIM:EndIf==%>
+	<%==SIM:Space==%>TextColor="<%==SIM:XamlElement.Style.NameTextStyle.Color.Hex==%>"
+	<%==SIM:Space==%>Padding="<%==SIM:XamlElement.Style.Padding.Left==%>,<%==SIM:XamlElement.Style.Padding.Top==%>,<%==SIM:XamlElement.Style.Padding.Right==%>,<%==SIM:XamlElement.Style.Padding.Bottom==%>"	
+<%==SIM:EndIf==%>
+<%==SIM:EndTemplate==%>
+
+<%==SIM:Template:ElementBackground(XamlElement,ElementName)==%>
+<%==SIM:IfNot:XamlElement.HasDefaultStyle==%>
+<%==SIM:IfNot:XamlElement.Style.Background.IsSolid==%>
+<<%==SIM:ElementName==%>.Background><%==SIM:Line==%>
+	<LinearGradientBrush StartPoint="<%==SIM:XamlElement.Style.Background.RelativeStartPoint.XY==%>" EndPoint="<%==SIM:XamlElement.Style.Background.RelativeEndPoint.XY==%>"><%==SIM:Line==%>
+	<%==SIM:ForEach:XamlElement.Style.Background.GradientStops==%>
+		<GradientStop Color="<%==SIM:GradientStop.Color.Hex==%>" Offset="<%==SIM:GradientStop.Offset==%>" /><%==SIM:Line==%>
+	<%==SIM:EndFor==%>
+	</LinearGradientBrush><%==SIM:Line==%>
+</<%==SIM:ElementName==%>.Background><%==SIM:Line==%>
+<%==SIM:EndIf==%>
+<%==SIM:EndTemplate==%>
+
+<%==SIM:ForEach:Diagram.Elements==%>
+    <%==SIM:If:Element.OfType(ui-window)==%>
+    
+<?xml version="1.0" encoding="utf-8" ?><%==SIM:Line==%>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"<%==SIM:Line==%>
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"<%==SIM:Line==%>
+             x:Class="<%==SIM:Element.Namespace==%>.<%==SIM:Element.SafeName==%>"><%==SIM:StartBlock==%><%==SIM:Line==%>
+        
+	<%==SIM:ForEach:Element.NestedElements==%>
+		<%==SIM:If:NestedElement.OfType(ui-menu)==%>
+			<%==SIM:Include(Menu.xaml,NestedElement,False)==%><%==SIM:Line==%>
+		<%==SIM:EndIf==%>
+    <%==SIM:EndFor==%>
+        
+	<ScrollView><%==SIM:StartBlock==%><%==SIM:Line==%>
+		<%==SIM:Include(Panel.xaml,Element,False)==%><%==SIM:Line==%>
+    <%==SIM:EndBlock==%><%==SIM:Line==%></ScrollView>
+    
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+</ContentPage><%==SIM:Line==%>
+    
+    <%==SIM:EndIf==%>
+<%==SIM:EndFor==%>

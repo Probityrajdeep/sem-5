@@ -1,0 +1,454 @@
+﻿:root {
+    --bg: #f7fafc;
+    --surface: #ffffff;
+    --surface-soft: #f1f6fa;
+    --border: #dbe6ef;
+    --border-strong: #c4d5e4;
+    --text: #233241;
+    --text-soft: #66788a;
+    --heading: #1a3f63;
+    --primary: #2f78b7;
+    --primary-dark: #205b8d;
+    --primary-soft: #edf5fb;
+    --shadow-sm: 0 4px 14px rgba(22, 50, 80, 0.05);
+    --shadow-md: 0 10px 30px rgba(22, 50, 80, 0.09);
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+    --content-width: 1180px;
+    --text-width: 900px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    background: radial-gradient(circle at top left, #ffffff 0%, #f3f8fc 40%, #f7fafc 100%);
+}
+
+/* ---------- Typography ---------- */
+
+h1 {
+    max-width: var(--content-width);
+    margin: 32px auto 24px auto;
+    padding: 0 0 18px 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-align: left;
+    color: var(--heading);
+    border-bottom: 1px solid var(--border);
+}
+
+h2 {
+    margin: 0 0 14px 0;
+    padding: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--heading);
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+    a:hover {
+        color: var(--primary-dark);
+        text-decoration: none;
+    }
+
+p {
+    margin-top: 0;
+}
+
+.project-name {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.author {
+    max-width: var(--text-width);
+    margin: -8px auto 20px auto;
+    text-align: left;
+    color: var(--text-soft);
+    font-size: 0.98rem;
+}
+
+/* ---------- Intro / descriptive blocks ---------- */
+
+.project-description,
+.model-description,
+.diagram-description,
+.element-description,
+.project-glossary {
+    max-width: var(--text-width);
+    margin: 0 auto 24px auto;
+    background: var(--surface);
+    padding: 22px 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.project-description,
+.model-description,
+.diagram-description,
+.element-description {
+    position: relative;
+}
+
+    .project-description::before,
+    .model-description::before,
+    .diagram-description::before,
+    .element-description::before,
+    .project-glossary::before {
+        content: "";
+        display: block;
+        width: 64px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), #9cc9ec);
+        border-radius: 999px;
+        margin-bottom: 16px;
+    }
+
+    .project-description:empty,
+    .model-description:empty,
+    .diagram-description:empty,
+    .element-description:empty {
+        display: none;
+    }
+
+/* ---------- Glossary terms ---------- */
+
+.project-glossary .term {
+    padding: 8px 12px;
+    display: inline-block;
+    margin: 6px 8px 0 0;
+    background: var(--primary-soft);
+    border: 1px solid #d2e3f0;
+    border-radius: 999px;
+    color: var(--primary-dark);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.project-glossary a h2 {
+    display: inline-block;
+    margin-bottom: 14px;
+}
+
+/* ---------- Main layout wrappers ---------- */
+
+.project-content,
+.model-content,
+.diagram-content,
+.element-content {
+    max-width: var(--content-width);
+    margin: 0 auto 36px auto;
+    overflow: visible;
+}
+
+.model-group,
+.diagram-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 24px;
+    margin-bottom: 28px;
+    overflow: hidden;
+}
+
+    .model-group .footer {
+        padding-top: 16px;
+        margin-top: 12px;
+        border-top: 1px solid var(--border);
+        text-align: right;
+        font-weight: 600;
+    }
+
+/* ---------- Diagram / folder cards ---------- */
+
+.folders,
+.diagrams {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    overflow: visible;
+}
+
+.model-group .diagram,
+.diagram-group .diagram,
+.model-group .folder,
+.diagram-group .folder {
+    display: block;
+    width: calc(25% - 14px);
+    min-width: 220px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.diagram .thumb,
+.folder .thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 170px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: linear-gradient(180deg, #ffffff 0%, #f4f8fb 100%);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+    .diagram .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+.folder .thumb {
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(241,246,250,0.96)), url(folder.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 84px, 84px;
+}
+
+.diagram .name,
+.folder .name {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: var(--heading);
+    font-weight: 600;
+    font-size: 0.96rem;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.diagram:hover .thumb,
+.folder:hover .thumb {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-strong);
+}
+
+.diagram:hover .name,
+.folder:hover .name {
+    color: var(--primary-dark);
+}
+
+/* ---------- Tables ---------- */
+
+.standard-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+    .standard-table thead th {
+        background: linear-gradient(180deg, #f1f6fa 0%, #e9f1f8 100%);
+        color: var(--heading);
+        padding: 13px 14px;
+        text-align: left;
+        font-size: 0.95rem;
+        font-weight: 700;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .standard-table tbody td {
+        padding: 12px 14px;
+        border-bottom: 1px solid #e7eef5;
+        vertical-align: top;
+    }
+
+    .standard-table tbody tr:nth-child(even) td {
+        background: #fbfdfe;
+    }
+
+    .standard-table tbody tr:hover td {
+        background: #f3f8fc;
+    }
+
+    .standard-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+/* ---------- Diagram / element images ---------- */
+
+.diagram-image,
+.element-image {
+    max-width: var(--content-width);
+    margin: 24px auto;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 22px;
+}
+
+    .diagram-image img,
+    .element-image img {
+        max-width: 100%;
+        height: auto;
+        display: inline-block;
+        border-radius: var(--radius-sm);
+        border: 1px solid #e3ebf2;
+        background: #fff;
+    }
+
+/* ---------- Stereotypes / badges ---------- */
+
+.diagram-group span,
+.element-content span {
+    display: inline-block;
+    margin: 0 8px 10px 0;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    border: 1px solid #d2e3f0;
+    color: var(--primary-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ---------- Rich text inside documentation ---------- */
+
+.project-description ul,
+.model-description ul,
+.diagram-description ul,
+.element-description ul,
+.project-description ol,
+.model-description ol,
+.diagram-description ol,
+.element-description ol {
+    padding-left: 22px;
+}
+
+.project-description code,
+.model-description code,
+.diagram-description code,
+.element-description code,
+.standard-table code {
+    background: #eef5fb;
+    border: 1px solid #d7e6f2;
+    border-radius: 8px;
+    padding: 2px 6px;
+    font-size: 0.92em;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+.project-description pre,
+.model-description pre,
+.diagram-description pre,
+.element-description pre {
+    background: #17324a;
+    color: #edf5fc;
+    padding: 14px;
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1200px) {
+    h1,
+    .project-content,
+    .model-content,
+    .diagram-content,
+    .element-content,
+    .diagram-image,
+    .element-image {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .project-description,
+    .model-description,
+    .diagram-description,
+    .element-description,
+    .project-glossary,
+    .author {
+        margin-left: 20px;
+        margin-right: 20px;
+        max-width: none;
+    }
+}
+
+@media (max-width: 900px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .model-group .diagram,
+    .diagram-group .diagram,
+    .model-group .folder,
+    .diagram-group .folder {
+        width: calc(50% - 9px);
+    }
+
+    .standard-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 620px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.55rem;
+        margin-top: 22px;
+    }
+
+    .model-group,
+    .diagram-group,
+    .project-description,
+    .model-description,
+    .diagram-description,
+    .element-description,
+    .project-glossary,
+    .diagram-image,
+    .element-image {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+        .model-group .diagram,
+        .diagram-group .diagram,
+        .model-group .folder,
+        .diagram-group .folder {
+            width: 100%;
+        }
+
+    .diagram .thumb,
+    .folder .thumb {
+        height: 160px;
+    }
+}

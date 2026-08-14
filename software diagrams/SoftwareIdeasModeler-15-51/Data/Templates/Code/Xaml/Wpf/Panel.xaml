@@ -1,0 +1,28 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<%==SIM:If:Eq(Element.ContainerLayout.Type,"simple")==%>
+<Canvas <%==SIM:XamlStyle(Element,"Canvas")==%>
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"stack")==%>
+<StackPanel <%==SIM:XamlStyle(Element,"StackPanel")==%>
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"flow")==%>
+<WrapPanel <%==SIM:XamlStyle(Element,"WrapPanel")==%>
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"table")==%>
+<Grid <%==SIM:XamlStyle(Element,"Grid")==%>
+<%==SIM:EndIf==%>  
+    
+  <%==SIM:StartBlock==%><%==SIM:Line==%>
+
+  <%==SIM:ForEach:Element.NestedElements==%>
+  <%==SIM:Include(Element.xaml,NestedElement,False)==%><%==SIM:Line==%>
+  <%==SIM:EndFor==%>
+
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:If:Eq(Element.ContainerLayout.Type,"simple")==%>
+</Canvas>
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"stack")==%>
+</StackPanel>
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"flow")==%>
+</WrapPanel>
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"table")==%>
+</Grid>
+<%==SIM:EndIf==%>

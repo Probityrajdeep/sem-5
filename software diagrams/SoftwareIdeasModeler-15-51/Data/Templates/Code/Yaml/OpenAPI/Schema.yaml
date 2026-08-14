@@ -1,0 +1,58 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+
+<%==SIM:UserInput:IndentationSize=Number("Indentation size",4)==%>
+<%==SIM:UserInput:IndentationChar=Choice("Indentation char",Space,Tab)==%>
+<%==SIM:If:Eq(IndentationChar,"Tab")==%><%==SIM:SetTabIndent==%><%==SIM:Else==%><%==SIM:SetSpaceIndent==%><%==SIM:EndIf==%><%==SIM:IndentSize(IndentationSize)==%>
+
+<%==SIM:Set:Root===%>
+<%==SIM:ForEach:Diagram.Elements(E)==%>
+	<%==SIM:If:E.IsRoot==%><%==SIM:Set:Root=E==%><%==SIM:EndIf==%>
+<%==SIM:EndFor==%>
+<%==SIM:If:IsEmpty(Root)==%>
+<%==SIM:ForEach:Diagram.Elements(E)==%>
+	<%==SIM:If:Not(Element.IsContained)==%>
+		<%==SIM:Set:Root=E==%>
+	<%==SIM:EndIf==%>
+<%==SIM:EndFor==%>
+<%==SIM:EndIf==%>
+<%==SIM:If:IsEmpty(Root)==%>
+<%==SIM:ForEach:Diagram.Elements(E)==%>
+	<%==SIM:If:Not(Element.IsContained)==%>
+		<%==SIM:Set:Root=E==%>
+	<%==SIM:EndIf==%>
+<%==SIM:EndFor==%>
+<%==SIM:EndIf==%>
+
+<%==SIM:Set:private=private==%><%==SIM:Set:protected=protected==%><%==SIM:Set:package= ==%><%==SIM:Set:public=public==%>
+
+<%==SIM:Line==%>
+<%==SIM:StartBlock==%><%==SIM:Line==%>
+	$schema: https://json-schema.org/draft/2019-09/schema<%==SIM:Line==%>
+	title: <%==SIM:ToSingleLine(Root.Name)==%><%==SIM:Line==%>
+
+	<%==SIM:Include(SchemaObject.yaml,Root,False)==%>
+	
+	<%==SIM:Line==%>
+	
+	$defs: <%==SIM:StartBlock==%><%==SIM:Line==%>
+  <%==SIM:Set:FirstItem=True==%>
+	<%==SIM:ForEach:Diagram.Elements==%>
+		<%==SIM:If:And(Not(Eq(Root,Element)),Element.OfTypes("class","entity"))==%>
+			<%==SIM:IfNot:FirstItem==%><%==SIM:CLS==%><%==SIM:EndIf==%><%==SIM:Line==%>
+			<%==SIM:Set:FirstItem=False==%>
+			<%==SIM:Element.Name==%> : <%==SIM:StartBlock==%><%==SIM:Line==%>
+				$id: /schemas/<%==SIM:Element.Name==%><%==SIM:Line==%>
+				$schema: https://json-schema.org/draft/2019-09/schema<%==SIM:Line==%>
+	
+			<%==SIM:Include(SchemaObject.yaml,Element,False)==%>
+			
+			<%==SIM:EndBlock==%><%==SIM:Line==%>
+		<%==SIM:EndIf==%>		
+	<%==SIM:EndFor==%>
+	<%==SIM:EndBlock==%><%==SIM:Line==%>
+
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:Line==%>
+
+<%==SIM:EndIf==%>

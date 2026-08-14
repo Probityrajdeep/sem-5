@@ -1,0 +1,19 @@
+<sim-template version="1.0">
+  <meta>
+    <name>ECMA Script 2015</name>
+    <description></description>
+    <type>SourceCode</type>
+    <language>JavaScript</language>
+  </meta>
+  <files defaultName="{Name}.js">    
+    <file name="Class.js" outputName="{Element.Name}.js" type="AbstractElement">
+      <settings>
+        <setting name="DefaultType" value="Object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+      <types>
+        <type name="class" />
+      </types>
+    </file>
+  </files>
+</sim-template>

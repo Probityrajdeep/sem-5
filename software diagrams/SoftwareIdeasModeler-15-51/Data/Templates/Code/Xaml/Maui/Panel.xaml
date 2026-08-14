@@ -1,0 +1,50 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<%==SIM:If:Eq(Element.ContainerLayout.Type,"simple")==%>
+<AbsoluteLayout <%==SIM:ElementLayout(Element)==%>>
+<%==SIM:StartBlock==%><%==SIM:Line==%>
+
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"stack")==%>
+<StackLayout 
+<%==SIM:Space==%>Orientation="<%==SIM:If:Or(Eq(Element.ContainerLayout.Direction,"LeftToRight"),Eq(Element.ContainerLayout.Direction,"RightToLeft"))==%>Horizontal<%==SIM:Else==%>Vertical<%==SIM:EndIf==%>"
+<%==SIM:Space==%>FlowDirection="<%==SIM:If:Or(Eq(Element.ContainerLayout.Direction,"LeftToRight"),Eq(Element.ContainerLayout.Direction,"TopToBottom"))==%>LeftToRight<%==SIM:Else==%>RightToLeft<%==SIM:EndIf==%>"
+<%==SIM:Space==%>Spacing="<%==SIM:Element.ContainerLayout.Offset==%>" VerticalOptions="<%==SIM:If:Eq(Element.ContainerLayout.FitElements")==%>Fill<%==SIM:Else==%>Start<%==SIM:EndIf==%>"
+<%==SIM:Space==%><%==SIM:ElementLayout(Element)==%>
+>
+<%==SIM:StartBlock==%><%==SIM:Line==%>
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"flow")==%>
+
+<FlexLayout Wrap="Wrap" Direction="<%==SIM:If:Or(Eq(Element.ContainerLayout.Direction,"LeftToRight"),Eq(Element.ContainerLayout.Direction,"RightToLeft"))==%>Column<%==SIM:Else==%>Row<%==SIM:EndIf==%>" 
+FlowDirection="<%==SIM:If:Or(Eq(Element.ContainerLayout.Direction,"LeftToRight"),Eq(Element.ContainerLayout.Direction,"TopToBottom"))==%>LeftToRight<%==SIM:Else==%>RightToLeft<%==SIM:EndIf==%>"
+<%==SIM:ElementLayout(Element)==%>
+>
+<%==SIM:StartBlock==%><%==SIM:Line==%>
+
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"table")==%>
+<Grid <%==SIM:ElementLayout(Element)==%>><%==SIM:StartBlock==%><%==SIM:Line==%>
+	<Grid.ColumnDefinitions><%==SIM:Line==%>
+	<%==SIM:ForEach:Range(Element.ContainerLayout.Columns)==%>
+		<ColumnDefinition Width="*" /><%==SIM:Line==%>
+	<%==SIM:EndFor==%>
+	</Grid.ColumnDefinitions><%==SIM:Line==%>
+	<Grid.RowDefinitions><%==SIM:Line==%>
+	<%==SIM:ForEach:Range(Element.ContainerLayout.Rows)==%>
+		<RowDefinition Height="*" /><%==SIM:Line==%>
+	<%==SIM:EndFor==%>
+	</Grid.RowDefinitions><%==SIM:Line==%>
+<%==SIM:EndIf==%>      
+
+  <%==SIM:ForEach:Element.NestedElements==%>
+  <%==SIM:Include(Element.xaml,NestedElement,False)==%><%==SIM:Line==%>
+  <%==SIM:EndFor==%>
+
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:If:Eq(Element.ContainerLayout.Type,"simple")==%>
+</AbsoluteLayout>
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"stack")==%>
+</StackLayout>
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"flow")==%>
+</FlexLayout>
+<%==SIM:ElseIf:Eq(Element.ContainerLayout.Type,"table")==%>
+</Grid>
+<%==SIM:EndIf==%>

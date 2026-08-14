@@ -1,0 +1,175 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+
+<%==SIM:UserInput:IndentationSize=Number("Indentation size",4)==%>
+<%==SIM:UserInput:IndentationChar=Choice("Indentation char",Space,Tab)==%>
+<%==SIM:If:Eq(IndentationChar,"Tab")==%><%==SIM:SetTabIndent==%><%==SIM:Else==%><%==SIM:SetSpaceIndent==%><%==SIM:EndIf==%><%==SIM:IndentSize(IndentationSize)==%>
+
+<%==SIM:Set:private=private==%><%==SIM:Set:protected=protected==%><%==SIM:Set:package= ==%><%==SIM:Set:public=public==%>
+
+
+openapi: 3.0.0<%==SIM:Line==%>
+info: <%==SIM:StartBlock==%><%==SIM:Line==%>
+	title: <%==SIM:ToSingleLine(Diagram.Name)==%><%==SIM:Line==%>
+	description: "<%==SIM:Replace(Diagram.Documentation,"\"","\\\"")==%>"<%==SIM:Line==%>
+	termsOfService: "<%==SIM:Diagram.GetTaggedValue("TermsOfService")==%>"<%==SIM:Line==%>
+	version: "<%==SIM:Diagram.Version==%>"
+	
+	<%==SIM:Set:Contact=Diagram.ElementWithStereotype("contact")==%>
+	<%==SIM:IfNot:IsEmpty(Contact)==%>
+	<%==SIM:Line==%>
+	contact: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+		name: <%==SIM:Contact.Name==%><%==SIM:Line==%>	
+		url: <%==SIM:Coalesce(Contact.GetAttributeValue("Url"),Contact.Hyperlink)==%><%==SIM:Line==%>	
+		email: <%==SIM:Contact.GetAttributeValue("Email")==%>
+		<%==SIM:EndBlock==%><%==SIM:Line==%>
+	  <%==SIM:Line==%>
+	<%==SIM:EndIf==%>
+	
+	<%==SIM:Set:Contact=Diagram.ElementWithStereotype("contact")==%>
+	<%==SIM:IfNot:IsEmpty(Contact)==%>
+	,<%==SIM:Line==%>
+	license: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+		name: <%==SIM:Contact.Name==%><%==SIM:Line==%>	
+		url: <%==SIM:Coalesce(Contact.GetAttributeValue("Url"),Contact.Hyperlink)==%><%==SIM:Line==%>
+		<%==SIM:EndBlock==%><%==SIM:Line==%>
+	  <%==SIM:Line==%>
+	<%==SIM:EndIf==%>
+	
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:Line==%>
+
+
+servers: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+<%==SIM:ForEach:Diagram.ElementsWithStereotype("server")==%>
+<%==SIM:StartBlock==%><%==SIM:Line==%>			
+	- url: <%==SIM:Element.Name==%><%==SIM:Line==%>	
+	<%==SIM:Space(2)==%>description: <%==SIM:Replace(Element.Documentation,"\"","\\\"")==%><%==SIM:Line==%>
+	<%==SIM:Space(2)==%>variables: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+	<%==SIM:ForEach:Element.Attributes==%>
+		<%==SIM:Space(2)==%><%==SIM:Attribute.Name==%>: <%==SIM:StartBlock==%><%==SIM:Line==%>
+			default: <%==SIM:Attribute.DefaultValue==%><%==SIM:Line==%>
+			description: <%==SIM:Replace(Attribute.Documentation,"\"","\\\"")==%>
+		<%==SIM:EndBlock==%><%==SIM:Line==%><%==SIM:IfNot:IsLastItem==%><%==SIM:EndIf==%>
+	<%==SIM:EndFor==%>
+	<%==SIM:EndBlock==%><%==SIM:Line==%><%==SIM:IfNot:IsLastItem==%><%==SIM:EndIf==%><%==SIM:Line==%>	
+		
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:Line==%>
+<%==SIM:EndFor==%>
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:Line==%>
+
+
+
+paths: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+
+<%==SIM:ForEach:Diagram.ElementsWithStereotype("path")==%>
+<%==SIM:IfNot:StartsWith(Element.Name,"/")==%>/<%==SIM:EndIf==%><%==SIM:Element.Name==%>: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+
+<%==SIM:ForEach:Element.NestedElements==%>
+<%==SIM:IfNot:IsEmpty(NestedElement.Stereotypes.GetOneOf("get","post","put","delete","options","patch","options","head"))==%>
+<%==SIM:IfNot:IsFirst==%><%==SIM:Line==%><%==SIM:EndIf==%><%==SIM:Set:IsFirst=True==%>
+<%==SIM:NestedElement.Stereotypes.GetOneOf("get","post","put","delete","options","patch","options","head")==%>: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+	<%==SIM:Set:HasPorts=True==%>
+
+	description: "<%==SIM:Replace(NestedElement.Documentation,"\"","\\\"")==%>"<%==SIM:Line==%>
+	responses: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+
+<%==SIM:ForEach:NestedElement.Ports.FilterByStereotype("response")==%>
+<%==SIM:ForEach:Port.Relations(Relation)==%>
+
+<%==SIM:Relation.Name==%>: <%==SIM:StartBlock==%><%==SIM:Line==%>
+	<%==SIM:IfNot:IsEmpty(Relation.Documentation)==%>
+	description: <%==SIM:Replace(Relation.Documentation,"\"","\\\"")==%>
+	<%==SIM:EndIf==%>
+	<%==SIM:IfNot:Relation.OtherElement(Port).HasStereotype("null")==%>
+	<%==SIM:CLS==%><%==SIM:Line==%>content: <%==SIM:StartBlock==%><%==SIM:Line==%>
+		application/json: <%==SIM:StartBlock==%><%==SIM:Line==%>
+			  schema: <%==SIM:StartBlock==%><%==SIM:Line==%>                
+				$ref: "#/components/schemas/<%==SIM:Relation.OtherElement(Port).Name==%>"
+			  <%==SIM:EndBlock==%>
+			<%==SIM:EndBlock==%>
+		<%==SIM:EndBlock==%><%==SIM:Line==%>
+	<%==SIM:EndIf==%>
+	<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:EndFor==%>
+<%==SIM:EndFor==%>
+	
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+
+
+<%==SIM:Set:Port=NestedElement.Ports.FilterByStereotype("request").First==%>
+<%==SIM:Set:Relation=Port.Relations.First==%>
+<%==SIM:IfNot:IsEmpty(Relation)==%>
+<%==SIM:Line==%>
+requestBody: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+	<%==SIM:IfNot:IsEmpty(Relation.Documentation)==%>
+	description: <%==SIM:Replace(Relation.Documentation,"\"","\\\"")==%><%==SIM:Line==%>
+	<%==SIM:EndIf==%>
+	required: true<%==SIM:Line==%>
+	content: <%==SIM:StartBlock==%><%==SIM:Line==%>
+		application/json: <%==SIM:StartBlock==%><%==SIM:Line==%>
+			  schema: <%==SIM:StartBlock==%><%==SIM:Line==%>                                
+				$ref: "#/components/schemas/<%==SIM:Relation.OtherElement(Port).Name==%>"
+			  <%==SIM:EndBlock==%>
+			<%==SIM:EndBlock==%>
+	<%==SIM:EndBlock==%>
+	
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:EndIf==%>
+
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:EndIf==%>
+<%==SIM:EndFor==%>
+
+
+<%==SIM:If:HasPorts==%><%==SIM:Line==%><%==SIM:EndIf==%>parameters: <%==SIM:StartBlock==%><%==SIM:Line==%>
+<%==SIM:ForEach:Element.NestedElements.FilterByStereotype("parameter")==%>
+-<%==SIM:Space(1)==%>
+<%==SIM:IncreaseAutoIndentBase(2)==%>
+<%==SIM:Include(Parameter.yaml, NestedElement, True)==%>
+<%==SIM:DecreaseAutoIndentBase(2)==%>
+<%==SIM:Line==%>
+<%==SIM:EndFor==%>
+<%==SIM:EndBlock==%>
+
+
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:IfNot:IsLastItem==%><%==SIM:EndIf==%><%==SIM:Line==%>
+
+<%==SIM:EndFor==%>
+
+<%==SIM:EndBlock==%><%==SIM:Line==%><%==SIM:Line==%>
+
+
+
+components: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+
+<%==SIM:ForEach:Diagram.Elements==%>
+<%==SIM:If:And(Element.HasStereotype("component"),Not(Element.HasStereotype("parameter")))==%>
+<%==SIM:Add(SchemaComponents,Element)==%>
+<%==SIM:EndIf==%>
+<%==SIM:EndFor==%>
+
+schemas: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+<%==SIM:ForEach:SchemaComponents(Element)==%>
+<%==SIM:Element.Name==%>: <%==SIM:StartBlock==%><%==SIM:Line==%>
+	<%==SIM:Include(SchemaObject.yaml,Element,False)==%>
+	
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:IfNot:IsLastItem==%><%==SIM:EndIf==%><%==SIM:Line==%>
+<%==SIM:EndFor==%>
+<%==SIM:EndBlock==%><%==SIM:Line==%><%==SIM:Line==%>
+
+
+parameters: <%==SIM:StartBlock==%><%==SIM:Line==%>	
+<%==SIM:ForEach:Diagram.ElementsWithStereotypes(Element,"component","parameter")==%>
+<%==SIM:Element.Name==%>: <%==SIM:Include(Parameter.yaml, Element, False)==%>
+<%==SIM:IfNot:IsLastItem==%><%==SIM:EndIf==%><%==SIM:Line==%>
+<%==SIM:EndFor==%>
+<%==SIM:EndBlock==%><%==SIM:Line==%><%==SIM:Line==%>
+
+
+
+<%==SIM:EndBlock==%><%==SIM:Line==%>

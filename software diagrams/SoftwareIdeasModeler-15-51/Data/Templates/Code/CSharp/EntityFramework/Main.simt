@@ -1,0 +1,36 @@
+<sim-template version="1.0">
+  <meta>
+    <name>EntityFramework</name>
+    <description></description>
+    <type>SourceCode</type>
+    <language>CSharp</language>
+  </meta>
+  <files defaultName="{Name}.cs">
+    <file name="Class.cs" outputName="{Element.Name}.cs" type="AbstractElement">
+      <settings>
+        <setting name="DefaultType" value="object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+      <stereotypes>
+        <stereotype name="interface" condition="without" />
+        <stereotype name="enum" condition="without" />
+        <stereotype name="enumeration" condition="without" />
+        <stereotype name="struct" condition="without" />
+        <stereotype name="structure" condition="without" />
+        <stereotype name="*" />
+      </stereotypes>
+      <types>
+        <type name="idef1x-entity" />
+        <type name="erd-entity" />
+        <type name="class" />
+      </types>
+    </file>
+    <file name="Context.cs" outputName="{Diagram.Name}Context.cs" type="Diagram">
+      <settings>
+        <setting name="DefaultType" value="object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+    </file>
+    
+  </files>
+</sim-template>

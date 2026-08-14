@@ -1,0 +1,15 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+<ContentPage.MenuBarItems>
+<%==SIM:StartBlock==%><%==SIM:Line==%>
+
+  <%==SIM:ForEach:Element.Items==%>    
+	<MenuBarItem Text="<%==SIM:Item.Name==%>">
+		<%==SIM:StartBlock==%><%==SIM:Line==%>
+		  <%==SIM:Include(MenuItems.xaml,Item,False)==%>
+		<%==SIM:EndBlock==%><%==SIM:Line==%>
+		<%==SIM:EndIf==%></MenuBarItem><%==SIM:Line==%>
+  <%==SIM:EndFor==%>
+    
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+</ContentPage.MenuBarItems>

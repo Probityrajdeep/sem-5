@@ -1,0 +1,4 @@
+﻿<toolbox>
+  <group-setting name="Favorite" style="Icons" expanded="true" show-name="false" icon-size="20" sort="Default" />
+  <group-setting name="Custom" style="Icons" expanded="true" show-name="false" icon-size="20" sort="Default" />
+</toolbox>

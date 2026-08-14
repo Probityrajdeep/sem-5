@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultNames>
+  <element type="accept-time-event-action" defaultName="AcceptEventAction" defaultId="AEA###" />
+  <element type="action" defaultName="Action" defaultId="ACT###" />
+  <element type="call-behavior-action" defaultName="CallBehaviorAction" defaultId="CBA###" />  
+  <element type="activation-bar" defaultName="ExecutionSpecification" defaultId="ES###" />
+  <element type="activity" defaultName="Activity" defaultId="A###" />
+  <element type="activity-final-node" defaultName="ActivityFinalNode" defaultId="AFN###" />
+  <element type="actor" defaultName="Actor" defaultId="AC###" />
+  <element type="artifact" defaultName="Artifact" defaultId="AF###" />
+ 
+  <element type="boundary" defaultName="Boundary" defaultId="BDR###" />
+  <element type="choice" defaultName="Choice" defaultId="CH###" />
+  <element type="class" defaultName="Class" defaultId="C###" />  
+  <element type="collaboration" defaultName="Collaboration" defaultId="CL###" />
+  <element type="comment" defaultName="Comment" defaultId="CMT###" />
+  <element type="comment-connector" defaultName="CommentConnector" defaultId="CN###" />
+  <element type="communication-lifeline" defaultName="Lifeline" defaultId="CLL###" />
+  <element type="communication-message" defaultName="Message" defaultId="CMSG###" />
+  <element type="component" defaultName="Component" defaultId="CPT###" />
+  <element type="composite-state" defaultName="CompositeState" defaultId="CS###" />
+  <element type="constraint" defaultName="Constraint" defaultId="CON###" />
+  <element type="containment" defaultName="Containment" defaultId="CNT###" />
+  <element type="uml-control" defaultName="Control" defaultId="CTRL###" />
+  <element type="decision" defaultName="Decision" defaultId="DC###" />
+  <element type="dependency" defaultName="Dependency" defaultId="DEP###" />
+  <element type="destroy" defaultName="DestructionOccurrence" defaultId="DES###" />
+  <element type="uml-entity" defaultName="Entity" defaultId="ENT###" />
+  <element type="entry-point" defaultName="EntryPoint" defaultId="ENP###" />
+  <element type="enumeration" defaultName="Enumeration" defaultId="E###" />
+  <element type="exit-point" defaultName="ExitPoint" defaultId="EXP###" />
+  <element type="extend" defaultName="Extend" defaultId="EX###" />
+  <element type="final-state" defaultName="FinalState" defaultId="FS###" />
+  <element type="flow-final" defaultName="FlowFinal" defaultId="FLF###" />
+  <element type="fork-join" defaultName="ForkJoin" defaultId="FJ###" />
+  <element type="fork" defaultName="Fork" defaultId="FRK###" />
+  <element type="fork-state" defaultName="ForkState" defaultId="FS###" />
+  <element type="join" defaultName="Join" defaultId="JN###" />
+  <element type="join-state" defaultName="JoinState" defaultId="JS###" />
+  <element type="fragment" defaultName="Fragment" defaultId="FR###" />
+  <element type="generalization" defaultName="Generalization" defaultId="GNR###" />
+  <element type="history" defaultName="History" defaultId="HIS###" />
+  <element type="include" defaultName="Include" defaultId="INC###" />
+  <element type="initial-node" defaultName="InitialNode" defaultId="IN###" />
+  <element type="initial-state" defaultName="InitialState" defaultId="IS###" />
+  <element type="interaction-operand" defaultName="InteractionOperand" defaultId="IOP###" />
+  <element type="uml-interface" defaultName="Interface" defaultId="IFC###" />
+  <element type="uml-required-interface-end" defaultName="RequiredInterface" defaultId="RQI###" />
+  <element type="interruptible-activity-region" defaultName="InterruptibleActivityRegion" defaultId="IAR###" />
+  <element type="lifeline" defaultName="Lifeline" defaultId="LL###" />  
+  <element type="node" defaultName="Node" defaultId="NOD###" />
+  <element type="object" defaultName="Object" defaultId="OBJ###" />
+  <element type="operation" defaultName="Operation" defaultId="OP###" />  
+  <element type="package" defaultName="Package" defaultId="PKG###" />  
+  <element type="part" defaultName="Part" defaultId="PAR###" />
+  <element type="port" defaultName="Port" defaultId="PORT###" />
+  <element type="property" defaultName="Property" defaultId="PROP###" />
+  <element type="realization" defaultName="Realization" defaultId="REA###" />
+  <element type="relationship" defaultName="Relationship" defaultId="REL###" />  
+  <element type="sequence-action" defaultName="Message" defaultId="SM###" />  
+  <element type="uml-interface-classifier" defaultName="Interface" defaultId="I###" />
+  <element type="uml-n-ary-association" defaultName="Association" defaultId="NAS###" />
+  <element type="uml-required-interface" defaultName="RequiredInterface" defaultId="RIF###" />
+  <element type="use-case" defaultName="UseCase" defaultId="UC###" />
+  <element type="transition" defaultName="Transition" defaultId="TR###" />
+  <element type="timing-frame" defaultName="TimingFrame" defaultId="TF###" />
+  <element type="terminate-node" defaultName="Terminate" defaultId="TN###" />
+  <element type="system-boundary" defaultName="System" defaultId="SYS###" />
+  <element type="swimlane" defaultName="Swimlane" defaultId="SL###" />
+  <element type="state-region" defaultName="StateRegion" defaultId="STRG###" />
+  <element type="state" defaultName="State" defaultId="ST###" />
+  <element type="signal" defaultName="Signal" defaultId="SGN###" />
+  <element type="signal-sending" defaultName="SignalSend" defaultId="SS###" />
+  <element type="accept-event-action" defaultName="AcceptEventAction" defaultId="AEA###" />
+  <element type="data-type" defaultName="DataType" defaultId="DT###" />
+  <element type="abstraction" defaultName="Abstraction" defaultId="ABS###" />
+  <element type="substitution" defaultName="Substitution" defaultId="SBT###" />
+  <element type="manifestation" defaultName="Manifestation" defaultId="MNF###" />
+  <element type="connector" defaultName="Connector" defaultId="CON###" />
+  <element type="deployment" defaultName="Deployment" defaultId="DPL###" />
+  <element type="stereotype" defaultName="Stereotype" defaultId="ST###" />
+  
+  <element type="call-operation-action" defaultName="CallOperationAction" defaultId="ACT###" />
+  <element type="clear-association-action" defaultName="ClearAssociationAction" defaultId="ACT###" />
+  <element type="clear-structural-feature-action" defaultName="ClearStructuralFeatureAction" defaultId="ACT###" />
+  <element type="clear-variable-action" defaultName="ClearVariableAction" defaultId="ACT###" />
+  <element type="create-link-action" defaultName="CreateLinkAction" defaultId="ACT###" />
+  <element type="create-link-object-action" defaultName="CreateLinkObjectAction" defaultId="ACT###" />
+  <element type="create-object-action" defaultName="CreateObjectAction" defaultId="ACT###" />
+  <element type="destroy-link-action" defaultName="DestroyLinkAction" defaultId="ACT###" />
+  <element type="destroy-object-action" defaultName="DestroyObjectAction" defaultId="ACT###" />
+  <element type="opaque-action" defaultName="OpaqueAction" defaultId="ACT###" />
+  <element type="raise-exception-action" defaultName="RaiseExceptionAction" defaultId="ACT###" />
+  <element type="read-extend-action" defaultName="ReadExtendAction" defaultId="ACT###" />
+  <element type="read-is-classified-object-action" defaultName="ReadIsClassifiedObjectAction" defaultId="ACT###" />
+  <element type="read-link-action" defaultName="ReadLinkAction" defaultId="ACT###" />
+  <element type="read-link-object-end-action" defaultName="ReadLinkObjectEndAction" defaultId="ACT###" />
+  <element type="read-link-object-end-qualifier-action" defaultName="ReadLinkObjectEndQualifierAction" defaultId="ACT###" />
+  <element type="read-self-action" defaultName="ReadSelfAction" defaultId="ACT###" />
+  <element type="read-structural-feature-action" defaultName="ReadStructuralFeatureAction" defaultId="ACT###" />
+  <element type="read-variable-action" defaultName="ReadVariableAction" defaultId="ACT###" />
+  <element type="reclassify-object-action" defaultName="ReclassifyObjectAction" defaultId="ACT###" />
+  <element type="reduce-action" defaultName="ReduceAction" defaultId="ACT###" />
+  <element type="remove-structural-feature-value-action" defaultName="RemoveStructuralFeatureValueAction" defaultId="ACT###" />
+  <element type="remove-variable-action" defaultName="RemoveVariableAction" defaultId="ACT###" />
+  <element type="reply-action" defaultName="ReplyAction" defaultId="ACT###" />
+  <element type="send-object-action" defaultName="SendObjectAction" defaultId="ACT###" />
+  <element type="start-classifier-behavior-action" defaultName="StartClassifierBehaviorAction" defaultId="ACT###" />
+  <element type="start-object-behavior-action" defaultName="StartObjectBehaviorAction" defaultId="ACT###" />
+  <element type="test-identify-action" defaultName="TestIdentifyAction" defaultId="ACT###" />
+  <element type="unmarshall-action" defaultName="UnmarshallAction" defaultId="ACT###" />
+  <element type="value-specification-action" defaultName="ValueSpecificationAction" defaultId="ACT###" />
+  <element type="write-variable-action" defaultName="WriteVariableAction" defaultId="ACT###" />
+
+  <element type="erd-entity" defaultName="Entity" defaultId="ENT###" />
+  <element type="erd-relationship" defaultName="Relation" defaultId="REL###" />
+
+  <element type="simple-ui-object" defaultName="UIObject" defaultId="OBJ###" />
+  <element type="container-ui-object" defaultName="UIObject" defaultId="COBJ###" />
+
+  <element type="crc-card" defaultName="CrcCard" defaultId="CRC###" />
+
+  <element type="group" defaultName="Group" defaultId="GROUP###" />
+
+  <element type="dfd-process" defaultName="Process" defaultId="#" />
+  <element type="dfd-data-flow" defaultName="DataFlow" defaultId="DFF###" />
+  <element type="dfd-data-store" defaultName="DataStore" defaultId="DFS###" />
+  <element type="dfd-external" defaultName="External" defaultId="DFE###" />
+  <element type="dfd-gate" defaultName="Gate" defaultId="DFG###" />
+
+  <element type="flowchart-data" defaultName="Data" defaultId="FCDT###" />
+  <element type="flowchart-decision" defaultName="Decision" defaultId="FCDC###" />
+  <element type="flowchart-direct-data" defaultName="DirectData" defaultId="FCDD###" />
+  <element type="flowchart-document" defaultName="Document" defaultId="FCDO###" />
+  <element type="flowchart-internal-storage" defaultName="InternalStorage" defaultId="FCIS###" />
+  <element type="flowchart-predefined-process" defaultName="PredefinedProcess" defaultId="FCPP###" />
+  <element type="flowchart-process" defaultName="Process" defaultId="FCP###" />
+  <element type="flowchart-start-end-symbol" defaultName="StartEndSymbol" defaultId="FCSE###" />
+  <element type="flowchart-stored-data" defaultName="StoredData" defaultId="FCSD###" />
+  <element type="flowchart-user-input" defaultName="UserInput" defaultId="FCUI###" />
+  <element type="flowchart-flow" defaultName="Flow" defaultId="FCF###" />
+  <element type="flowchart-offline-storage" defaultName="OfflineStorage" defaultId="FOS###" />
+  <element type="flowchart-card" defaultName="Card" defaultId="FC###" />
+
+  <element type="venn-circle" defaultName="VennCircle" defaultId="VENN###" />
+  <element type="venn-label" defaultName="VennLabel" defaultId="VENL###" />
+
+
+  <element type="jsd-action" defaultName="Action" defaultId="ACT###" />
+  <element type="jsd-connection-end" defaultName="ConnetionEnd" defaultId="END###" />
+  <element type="jsd-connection-start" defaultName="ConnectionStart" defaultId="STR###" />
+  <element type="jsd-connector" defaultName="Connector" defaultId="CON###" />
+  <element type="jsd-controlled-data-stream" defaultName="ControlledDataStream" defaultId="CDS###" />
+  <element type="jsd-data-stream" defaultName="DataStream" defaultId="DS###" />
+  <element type="jsd-entity" defaultName="Entity" defaultId="ENT###" />
+  <element type="jsd-process" defaultName="Process" defaultId="PRC###" />
+  <element type="jsd-state-vector" defaultName="StateVector" defaultId="SV###" />
+  
+  <element type="concurrency-eventflag" defaultName="EventFlag" defaultId="EVF###" />
+  <element type="concurrency-hardware-boundary" defaultName="HardwareBoundary" defaultId="HB###" />
+  <element type="concurrency-mailbox" defaultName="MailBox" defaultId="MBX###" />
+  <element type="concurrency-mutex" defaultName="Mutex" defaultId="MTX###" />
+  <element type="concurrency-pool" defaultName="Pool" defaultId="PL###" />
+  <element type="concurrency-queue" defaultName="Queue" defaultId="QUE###" />
+  <element type="concurrency-semaphore" defaultName="Semaphore" defaultId="SEM###" />
+  <element type="concurrency-task" defaultName="Task" defaultId="TSK###" />
+  <element type="concurrency-timer" defaultName="Timer" defaultId="TMR###" />
+
+  <element type="erd-chen-attribute" defaultName="Attribute" defaultId="ATT###" />
+  <element type="erd-chen-attribute-connector" defaultName="AttributeConnector" defaultId="ATC###" />
+  <element type="erd-chen-entity" defaultName="Entity" defaultId="ENT###" />
+  <element type="erd-chen-participation" defaultName="Participation" defaultId="PAR###" />
+  <element type="erd-chen-relationship" defaultName="Relationship" defaultId="REL###" />
+
+  <element type="hta-plan" defaultName="Plan" defaultId="PLN###" />
+  <element type="hta-task" defaultName="Task" defaultId="TSK###" />
+
+  <element type="matrix" defaultName="Matrix" defaultId="MTX###" />
+
+  <element type="mind-map-edge" defaultName="Edge" defaultId="EDG###" />
+  <element type="mind-map-node" defaultName="Node" defaultId="NOD###" />
+  <element type="mind-map-start" defaultName="Start" defaultId="STR###" />
+
+  <element type="requirement" defaultName="Requirement" defaultId="REQ###" />
+
+  <element type="elh-connector" defaultName="Connector" defaultId="CNN###" />
+  <element type="elh-entity" defaultName="Entity" defaultId="ENT###" />
+  <element type="elh-event" defaultName="Event" defaultId="EVT###" />
+
+  <element type="sysml-frame" defaultName="Frame" defaultId="FRM###" />
+  <element type="sysml-block" defaultName="Block" defaultId="BLC###" />
+  <element type="sysml-constraint-block" defaultName="ConstraintBlock" defaultId="CBL###" />
+  <element type="sysml-unit" defaultName="Unit" defaultId="U###" />
+  <element type="sysml-quantity-kind" defaultName="QuantityKind" defaultId="QK###" />
+  <element type="sysml-connector" defaultName="Connector" defaultId="CNN###" />
+  <element type="sysml-constraint-property" defaultName="ConstraintProperty" defaultId="CP###" />
+  <element type="sysml-value-type" defaultName="ValueType" defaultId="VT###" />
+  <element type="sysml-flow-port" defaultName="FlowPort" defaultId="FLP###" />
+  <element type="sysml-item-flow" defaultName="ItemFlow" defaultId="IF###" />
+  <element type="sysml-allocate" defaultName="Allocate" defaultId="ALC###" />  
+  <element type="sysml-bound-reference" defaultName="Bound Reference" defaultId="BRF###" />
+  <element type="sysml-requirement" defaultName="Requirement" defaultId="REQ###" />
+  <element type="sysml-test-case" defaultName="TestCase" defaultId="TC###" />
+
+  <element type="ui-button" defaultName="Button" defaultId="BTN###" />
+  <element type="ui-combo-box" defaultName="ComboBox" defaultId="CMB###" />
+  <element type="ui-grid" defaultName="Grid" defaultId="GRD###" />
+  <element type="ui-group-box" defaultName="GroupBox" defaultId="GRP###" />
+  <element type="ui-check-box" defaultName="CheckBox" defaultId="CHB###" />
+  <element type="ui-label" defaultName="Label" defaultId="LBL###" />
+  <element type="ui-list-box" defaultName="ListBox" defaultId="LST###" />
+  <element type="ui-menu" defaultName="Menu" defaultId="MNU###" />
+  <element type="ui-progress-bar" defaultName="ProgressBar" defaultId="PB###" />
+  <element type="ui-radio-button" defaultName="RadioButton" defaultId="RB###" />
+  <element type="ui-scroll-bar" defaultName="ScrollBar" defaultId="SCB###" />
+  <element type="ui-tab-control" defaultName="TabControl" defaultId="TBC###" />
+  <element type="ui-text-box" defaultName="TextBox" defaultId="TXT###" />
+  <element type="ui-track-bar" defaultName="TrackBar" defaultId="TCB###" />
+  <element type="ui-window" defaultName="Window" defaultId="WND###" />
+  <element type="ui-video" defaultName="Video" defaultId="V###" />
+  <element type="ui-pager" defaultName="Pager" defaultId="P###" />
+  <element type="ui-titled-panel" defaultName="TitledPanel" defaultId="TP###" />
+  <element type="ui-breadcrumbs" defaultName="Breadcrumbs" defaultId="BC###" />
+  <element type="ui-button-group" defaultName="ButtonGroup" defaultId="BG###" />
+  <element type="ui-tabs" defaultName="Tabs" defaultId="T###" />
+  <element type="ui-alert" defaultName="Alert" defaultId="A###" />
+  <element type="ui-splitter" defaultName="Splitter" defaultId="SPT###" />
+  <element type="ui-slider" defaultName="Slider" defaultId="SLD###" />
+  <element type="ui-calendar" defaultName="Calendar" defaultId="C###" />
+  <element type="ui-search-box" defaultName="SearchBox" defaultId="SB###" />
+  <element type="ui-drop-down-button" defaultName="DropDownButton" defaultId="DD###" />
+  <element type="ui-time-control" defaultName="Time Control" defaultId="TC###" />
+  <element type="ui-named-box" defaultName="NamedBox" defaultId="NB###" />
+  <element type="ui-loading-spinner" defaultName="LoadingSpinner" defaultId="LS###" />
+  <element type="ui-map" defaultName="Map" defaultId="MP###" />
+  <element type="ui-login" defaultName="Login" defaultId="LG###" />
+  <element type="ui-alphabet-bar" defaultName="AlphabetBar" defaultId="AB###" />
+  <element type="ui-ruler" defaultName="Ruler" defaultId="RL###" />
+  <element type="ui-web-browser" defaultName="WebBrowser" defaultId="WB###" />
+  <element type="ui-smartphone" defaultName="Smartphone" defaultId="SM###" />
+  <element type="ui-keyboard" defaultName="Keyboard" defaultId="KB###" />
+  <element type="ui-button-panel" defaultName="ButtonPanel" defaultId="BP###" />
+  <element type="ui-checked-list" defaultName="CheckedListBox" defaultId="CL###" />
+  <element type="ui-accordion-menu" defaultName="AccordionMenu" defaultId="AM###" />
+  <element type="ui-thumbnail-view" defaultName="ThumbnailView" defaultId="TV###" />
+  <element type="ui-context-menu" defaultName="ContextMenu" defaultId="CM###" />
+  <element type="ui-app-title-panel" defaultName="AppTitlePanel" defaultId="AT###" />
+  <element type="detail-expansion" defaultName="DetailExpansion" defaultId="DE###" />
+  <element type="expansion-table" defaultName="ExpansionTable" defaultId="ET###" />
+
+  <element type="bpmn-association" defaultName="Association" defaultId="A###" />
+  <element type="bpmn-boundary-event" defaultName="BoundaryEvent" defaultId="BEV###" />
+  <element type="bpmn-call-activity" defaultName="CallActivity" defaultId="CLA###" />
+  <element type="bpmn-call-choreography" defaultName="CallChoreography" defaultId="CCH###" />  
+  <element type="bpmn-conversation" defaultName="Conversation" defaultId="CNV###" />
+  <element type="bpmn-call-conversation" defaultName="CallConversation" defaultId="CLC###" />
+  <element type="bpmn-conditional-flow" defaultName="ConditionalFlow" defaultId="CFL###" />
+  <element type="bpmn-conversation-link" defaultName="ConversationLink" defaultId="CLN###" />
+  <element type="bpmn-data-association" defaultName="DataAssociation" defaultId="DTA###" />
+  <element type="bpmn-data-input" defaultName="DataInput" defaultId="DTI###" />
+  <element type="bpmn-data-object" defaultName="DataObject" defaultId="DAT###" />
+  <element type="bpmn-data-object-reference" defaultName="DataObjectReference" defaultId="DOR###" />
+  <element type="bpmn-data-output" defaultName="DataOutput" defaultId="DTO###" />
+  <element type="bpmn-data-state" defaultName="DataState" defaultId="DS###" />
+  <element type="bpmn-data-store" defaultName="DataStore" defaultId="DTS###" />
+  <element type="bpmn-data-store-reference" defaultName="DataStoreReference" defaultId="DSR###" />
+  <element type="bpmn-default-flow" defaultName="DefaultFlow" defaultId="DFL###" />    
+  <element type="bpmn-event" defaultName="Event" defaultId="EVT###" />
+  <element type="bpmn-error" defaultName="Error" defaultId="ERR###" />
+  <element type="bpmn-escalation" defaultName="Escalation" defaultId="ESC###" />
+  <element type="bpmn-lane" defaultName="Lane" defaultId="LN###" />
+  <element type="bpmn-sub-process" defaultName="SubProcess" defaultId="SP###" />
+  <element type="bpmn-forked-conversation-link" defaultName="ForkedConversationLink" defaultId="FCL###" />    
+  <element type="bpmn-gateway" defaultName="Gateway" defaultId="GTW###" />
+  <element type="bpmn-group" defaultName="Group" defaultId="GRP###" />
+  <element type="bpmn-choreography-sub-process" defaultName="ChoreographySubProcess" defaultId="CSP###" />
+  <element type="bpmn-choreography-task" defaultName="ChoreographyTask" defaultId="CHT###" />
+  <element type="bpmn-message" defaultName="Message" defaultId="MSG###" />
+  <element type="bpmn-message-flow" defaultName="MessageFlow" defaultId="MFL###" />
+  <element type="bpmn-message-connector" defaultName="MessageConnector" defaultId="MCN###" />
+  <element type="bpmn-operation" defaultName="Operation" defaultId="OP###" />
+  <element type="bpmn-participant" defaultName="Participant" defaultId="P###" />
+  <element type="bpmn-pool" defaultName="Pool" defaultId="PL###" />
+  <element type="bpmn-resource" defaultName="Resource" defaultId="RES###" />
+  <element type="bpmn-sequence-flow" defaultName="SequenceFlow" defaultId="SQF###" />
+  <element type="bpmn-signal" defaultName="Signal" defaultId="SGL###" />
+  <element type="bpmn-sub-conversation" defaultName="SubConversation" defaultId="SCN###" />
+  <element type="bpmn-task" defaultName="Task" defaultId="TSK###" />
+  <element type="bpmn-transaction" defaultName="Transaction" defaultId="TRN###" />
+  <element type="bpmn-text-annotation" defaultName="TextAnnotation" defaultId="TA###" />
+
+  <element type="arch-junction" defaultName="Junction" defaultId="JNC###" />
+  <element type="arch-meaning" defaultName="Meaning" defaultId="MNG###" />
+  <element type="arch-gap" defaultName="Gap" defaultId="GAP###" />
+  <element type="arch-location" defaultName="Location" defaultId="LOC###" />
+  <element type="arch-plateau" defaultName="Plateau" defaultId="PLA###" />
+  <element type="arch-work-package" defaultName="WorkPackage" defaultId="WP###" />
+  <element type="arch-assessment" defaultName="Assessment" defaultId="AS###" />
+  <element type="arch-constraint" defaultName="Constraint" defaultId="CON###" />
+  <element type="arch-driver" defaultName="Driver" defaultId="DRV###" />
+  <element type="arch-goal" defaultName="Goal" defaultId="G###" />
+  <element type="arch-principle" defaultName="Principle" defaultId="P###" />
+  <element type="arch-requirement" defaultName="Requirement" defaultId="RQ###" />
+  <element type="arch-stakeholder" defaultName="Stakeholder" defaultId="SH###" />
+  <element type="arch-actor" defaultName="Actor" defaultId="ACT###" />
+  <element type="arch-collaboration" defaultName="Collaboration" defaultId="CLB###" />
+  <element type="arch-communication-path" defaultName="CommunicationPath" defaultId="CP###" />
+  <element type="arch-component" defaultName="Component" defaultId="CMP###" />
+  <element type="arch-device" defaultName="Device" defaultId="DVC###" />
+  <element type="arch-interface" defaultName="Interface" defaultId="IFC###" />
+  <element type="arch-network" defaultName="Network" defaultId="NET###" />
+  <element type="arch-node" defaultName="Node" defaultId="ND###" />
+  <element type="arch-role" defaultName="Role" defaultId="R###" />
+  <element type="arch-system-software" defaultName="SystemSoftware" defaultId="SS###" />
+  <element type="arch-artifact" defaultName="Artifact" defaultId="ART###" />
+  <element type="arch-event" defaultName="Event" defaultId="EVT###" />
+  <element type="arch-function" defaultName="Function" defaultId="FNC###" />
+  <element type="arch-interaction" defaultName="Interaction" defaultId="INT###" />
+  <element type="arch-object" defaultName="Object" defaultId="OBJ###" />
+  <element type="arch-process" defaultName="Process" defaultId="PRC###" />
+  <element type="arch-product" defaultName="Product" defaultId="PRO###" />
+  <element type="arch-representation" defaultName="Representation" defaultId="REP###" />
+  <element type="arch-service" defaultName="Service" defaultId="SVC###" />
+  <element type="arch-value" defaultName="Value" defaultId="VAL###" />
+  <element type="arch-access" defaultName="Access" defaultId="ACS###" />
+  <element type="arch-aggregation" defaultName="Aggregation" defaultId="AGR###" />
+  <element type="arch-assignment" defaultName="Assignment" defaultId="ASG###" />
+  <element type="arch-association" defaultName="Association" defaultId="A###" />
+  <element type="arch-composition" defaultName="Composition" defaultId="CMS###" />
+  <element type="arch-flow" defaultName="Flow" defaultId="FLW###" />
+  <element type="arch-realization" defaultName="Realization" defaultId="REA###" />
+  <element type="arch-specialization" defaultName="Specialization" defaultId="SPC###" />
+  <element type="arch-triggering" defaultName="Triggering" defaultId="TRG###" />
+  <element type="arch-used-by" defaultName="UsedBy" defaultId="UB###" />
+  <element type="arch-deliverable" defaultName="Deliverable" defaultId="DLV###" />
+
+  <element type="idef1x-category-discriminator" defaultName="CategoryDiscriminator" defaultId="CD###" />
+  <element type="idef1x-entity" defaultName="Entity" defaultId="ENT###" />
+  <element type="idef1x-relationship" defaultName="Relationship" defaultId="REL###" />
+  
+  <element type="attribute" defaultName="Attribute" defaultId="AT###" />
+  <element type="operation" defaultName="Operation" defaultId="OP###" />
+  <element type="rule-field" defaultName="Constraint" defaultId="CON###" />
+  <element type="erd-entity-attribute" defaultName="Attribute" defaultId="EA###" />
+  <element type="erd-entity-index" defaultName="Index" defaultId="ERI###" />
+  <element type="enumeration-item" defaultName="EnumerationItem" defaultId="ENI###" />
+
+  <element type="grafcet-regular-step" defaultName="R" defaultId="RS###" />
+  <element type="grafcet-task-step" defaultName="T" defaultId="TS###" />
+  <element type="grafcet-macro-step" defaultName="M" defaultId="MS###" />
+  <element type="grafcet-initial-step" defaultName="I" defaultId="IS###" />
+  <element type="grafcet-enclosing-step" defaultName="E" defaultId="ES###" />
+
+  <element type="roadmap-container" defaultName="Roadmap" defaultId="RM###" />
+  <element type="roadmap-partition" defaultName="Partition" defaultId="RMP###" />
+  <element type="roadmap-label" defaultName="Label" defaultId="RML###" />
+  <element type="roadmap-milestone" defaultName="Milestone" defaultId="RMM###" />
+
+  <element type="user-story" defaultName="UserStory" defaultId="US###" />
+  <element type="sprint" defaultName="Sprint" defaultId="SP###" />
+
+  <element type="cnd-cell-phone" defaultName="CellPhone" defaultId="CP###" />
+  <element type="cnd-cloud" defaultName="Cloud" defaultId="C###" />
+  <element type="cnd-cluster" defaultName="Cluster" defaultId="CR###" />
+  <element type="cnd-computer" defaultName="Computer" defaultId="CM###" />
+  <element type="cnd-database" defaultName="Database" defaultId="DB###" />
+  <element type="cnd-firewall" defaultName="Firewall" defaultId="FW###" />
+  <element type="cnd-internet" defaultName="Internet" defaultId="I###" />
+  <element type="cnd-layer" defaultName="Layer" defaultId="L###" />
+  <element type="cnd-notebook" defaultName="Notebook" defaultId="N###" />
+  <element type="cnd-printer" defaultName="Printer" defaultId="PR###" />
+  <element type="cnd-router" defaultName="Router" defaultId="RT###" />
+  <element type="cnd-server" defaultName="Server" defaultId="S###" />
+  <element type="cnd-smart-phone" defaultName="SmartPhone" defaultId="SP###" />
+  <element type="cnd-switch" defaultName="Switch" defaultId="SW###" />
+  <element type="cnd-tablet" defaultName="Tablet" defaultId="T###" />
+  <element type="cnd-user" defaultName="User" defaultId="U###" />
+  <element type="cnd-wifi-router" defaultName="WifiRouter" defaultId="WR###" />
+  
+  <element type="ld-brace" defaultName="Brace" defaultId="BRC###" />
+  <element type="ld-component" defaultName="Component" defaultId="CPN###" />
+  <element type="ld-dependency" defaultName="Dependency" defaultId="DP###" />
+  <element type="ld-group" defaultName="Group" defaultId="GRP###" />
+  <element type="ld-layer" defaultName="Layer" defaultId="LY###" />
+  <element type="ld-or" defaultName="Or" defaultId="OR###" />
+  <element type="ld-responsibility" defaultName="Responsibility" defaultId="RSP###" />
+  <element type="ld-tier" defaultName="Tier" defaultId="TR###" />
+  
+  <element type="decision-table" defaultName="DecisionTable" defaultId="DT###" />
+
+  <element type="cmmn-task" defaultName="Task" defaultId="TSK###" />
+  <element type="cmmn-text-annotation" defaultName="TextAnnotation" defaultId="TA###" />
+  <element type="cmmn-timer-event-listener" defaultName="TimerEventListener" defaultId="TEL###" />
+  <element type="cmmn-user-event-listener" defaultName="UserEventListener" defaultId="UEL###" />
+  <element type="cmmn-sentry" defaultName="Sentry" defaultId="SNT###" />
+  <element type="cmmn-role" defaultName="Role" defaultId="RL###" />
+  <element type="cmmn-required-rule" defaultName="RequiredRule" defaultId="RQR###" />
+  <element type="cmmn-repetition-rule" defaultName="RepetitionRule" defaultId="RPR###" />
+  <element type="cmmn-property" defaultName="Property" defaultId="PRP###" />
+  <element type="cmmn-process-task" defaultName="ProcessTask" defaultId="PRT###" />
+  <element type="cmmn-process" defaultName="Process" defaultId="PRC###" />
+  <element type="cmmn-planning-table" defaultName="PlanningTable" defaultId="PT###" />  
+  <element type="cmmn-plan-item" defaultName="PlanItem" defaultId="PI###" />
+  <element type="cmmn-plan-fragment" defaultName="PlanFragment" defaultId="PF###" />
+  <element type="cmmn-parameter-mapping" defaultName="ParameterMapping" defaultId="PM###" />
+  <element type="cmmn-parameter" defaultName="Parameter" defaultId="PRM###" />
+  <element type="cmmn-milestone" defaultName="Milestone" defaultId="MLS###" />
+  <element type="cmmn-manual-activation-rule" defaultName="ManualActivationRule" defaultId="MAR###" />
+  <element type="cmmn-human-task" defaultName="HumanTask" defaultId="HT###" />
+  <element type="cmmn-exit-criterion" defaultName="ExitCriterion" defaultId="EXC###" />
+  <element type="cmmn-event-listener" defaultName="EventListener" defaultId="EL###" />
+  <element type="cmmn-entry-criterion" defaultName="EntryCriterion" defaultId="ENC###" />
+  <element type="cmmn-discretionary-item" defaultName="DiscretionaryItem" defaultId="DI###" />
+  <element type="cmmn-discretionary-association" defaultName="DiscretionaryAssociation" defaultId="DA###" />
+  <element type="cmmn-decision-task" defaultName="DecisionTask" defaultId="DTS###" />
+  <element type="cmmn-decision" defaultName="Decision" defaultId="DC###" />
+  <element type="cmmn-case-task" defaultName="CaseTask" defaultId="CST###" />
+  <element type="cmmn-case-parameter" defaultName="CaseParameter" defaultId="CSP###" />
+  <element type="cmmn-case-file-item-definition" defaultName="CaseFileItemDefinition" defaultId="CFID###" />
+  <element type="cmmn-case-file-item" defaultName="CaseFileItem" defaultId="CFI###" />
+  <element type="cmmn-case-file" defaultName="CaseFile" defaultId="CF###" />
+  <element type="cmmn-case" defaultName="Case" defaultId="C###" />
+  <element type="cmmn-association" defaultName="Association" defaultId="A###" />
+  <element type="cmmn-applicability-rule" defaultName="ApplicabilityRule" defaultId="AR###" />
+  <element type="cmmn-stage" defaultName="Stage" defaultId="STG###" />
+
+  <element type="fsm-state" defaultName="State" defaultId="###" />
+  <element type="fsm-transition" defaultName="Transition" defaultId="T###" />
+
+  <element type="element-detail" defaultName="ElementDetail" defaultId="ED###" />
+    
+  <element type="class" stereotype="block" defaultName="Block" defaultId="B###" />
+  <element type="class" stereotype="constraintblock" defaultName="ConstraintBlock" defaultId="CB###" />
+  <element type="class" stereotype="interfaceblock" defaultName="InterfaceBlock" defaultId="IB###" />
+  <element type="object" stereotype="unit" defaultName="Unit" defaultId="U###" />
+  <element type="object" stereotype="quantitykind" defaultName="Quantity Kind" defaultId="QK###" />
+  <element type="class" stereotype="connector" defaultName="Connector" defaultId="CNT###" />
+  <element type="property" stereotype="constraintproperty" defaultName="ConstraintProperty" defaultId="CP###" />
+  <element type="data-type" stereotype="valuetype" defaultName="ValueType" defaultId="VT###" />
+  <element type="port" stereotype="flowport" defaultName="FlowPort" defaultId="FP###" />
+  <element type="property" stereotype="flowproperty" defaultName="FlowProperty" defaultId="FPT###" />
+  <element type="information-flow" stereotype="itemflow" defaultName="ItemFlow" defaultId="IF###" />
+  <element type="abstraction" stereotype="allocate" defaultName="Allocate" defaultId="A###" />
+  <element type="property" stereotype="boundreference" defaultName="BoundReference" defaultId="BR###" />
+  <element type="class" stereotype="requirement" defaultName="Requirement" defaultId="RQ###" />
+  <element type="activity" stereotype="testcase" defaultName="TestCase" defaultId="TC###" />
+  <element type="actor" stereotype="stakeholder" defaultName="Stakeholder" defaultId="SH###" />
+
+  <element type="data-summary" defaultName="DataSummary" defaultId="DS###" />
+  <element type="area-chart" defaultName="AreaChart" defaultId="ACH###" />
+  <element type="bar-chart" defaultName="BarChart" defaultId="BCH###" />
+  <element type="circular-chart" defaultName="CircularChart" defaultId="CCH###" />
+  <element type="spider-chart" defaultName="SpiderChart" defaultId="SCH###" />
+  <element type="table-chart" defaultName="TableChart" defaultId="TCH###" />
+  <element type="ig-callout" defaultName="Callout" defaultId="IGC###" />
+  <element type="ig-pin" defaultName="Pin" defaultId="IGP###" />
+  <element type="ig-list-path" defaultName="ListPath" defaultId="IGL###" />
+  <element type="ig-progress-bar" defaultName="ProgressBar" defaultId="IGB###" />
+  <element type="ig-step" defaultName="Step" defaultId="IGS###" />
+
+  <element type="diagram-description" defaultName="DiagramDescription" defaultId="DD###" />
+  <element type="diagram-reference" defaultName="DiagramReference" defaultId="DR###" />
+
+  <element type="chart-legend" defaultName="ChartLegend" defaultId="CL###" />
+
+  <element type="screenflow-flow" defaultName="Flow" defaultId="SFF###" />
+  <element type="screenflow-screen" defaultName="Screen" defaultId="SFS###" />
+  <element type="screenflow-start" defaultName="Start" defaultId="SFA###" />
+  <element type="screenflow-end" defaultName="End" defaultId="SFE###" />
+  <element type="screenflow-decision" defaultName="Decision" defaultId="SFD###" />
+
+  <element type="fmea-failure-mode" defaultName="FailureMode" defaultId="F###" />
+
+  <element type="ceg-connector" defaultName="Connector" defaultId="CEC###" />
+  <element type="ceg-group" defaultName="Group" defaultId="CEG###" />
+  <element type="ceg-node" defaultName="Node" defaultId="CEN###" />
+  
+  <element type="as-atomic-sw-component" defaultName="AtomicSwComponent" defaultId="ASC###" />
+  <element type="as-client-server-port" defaultName="ClientServerPort" defaultId="CSP###" />
+  <element type="as-communication-cluster" defaultName="CommunicationCluster" defaultId="CCL###" />
+  <element type="as-component" defaultName="Component" defaultId="CMP###" />
+  <element type="as-composition" defaultName="Component" defaultId="CMN###" />
+  <element type="as-connection-to-bus" defaultName="ConnectionToBus" defaultId="CTB###" />
+  <element type="as-connector" defaultName="Connector" defaultId="CNT###" />
+  <element type="as-ecu-instance" defaultName="EcuInstance" defaultId="EIN###" />
+  <element type="as-ecu-port" defaultName="EcuPort" defaultId="EPT###" />  
+  <element type="as-interface-connector" defaultName="InterfaceConnector" defaultId="ICN###" />
+  <element type="as-inter-runnable-variable" defaultName="InterRunnableVariable" defaultId="IRV###" />
+  <element type="as-mode-switch-port" defaultName="ModeSwitchPort" defaultId="MSP###" />
+  <element type="as-nv-data-port" defaultName="NvDataPort" defaultId="NDP###" />
+  <element type="as-parameter-port" defaultName="ParameterPort" defaultId="PPT###" />
+  <element type="as-runnable-entity" defaultName="RunnableEntity" defaultId="RNE###" />
+  <element type="as-sender-receiver-port" defaultName="SenderReceiverPort" defaultId="SRP###" />
+  <element type="as-sensor-actuator-component" defaultName="SensorActuatorComponent" defaultId="SAC###" />
+  <element type="as-trigger-port" defaultName="Trigger" defaultId="TPT###" />
+
+  <element type="nsd-block" defaultName="Block" defaultId="BLK###" />
+  <element type="nsd-condition" defaultName="Condition" defaultId="CN###" />
+  <element type="nsd-function" defaultName="Function" defaultId="FN###" />
+  <element type="nsd-loop" defaultName="Loop" defaultId="LP###" />
+  <element type="nsd-process" defaultName="Process" defaultId="PRC###" />
+  <element type="nsd-concurrent" defaultName="Concurrent" defaultId="CRT###" />
+
+  <element type="pn-arc" defaultName="Arc" defaultId="A###" />
+  <element type="pn-place" defaultName="Place" defaultId="P###" />
+  <element type="pn-transition" defaultName="Transition" defaultId="T###" />
+
+  <element type="org-connector" defaultName="Connector" defaultId="C###" />
+  <element type="org-role" defaultName="Role" defaultId="R###" />
+
+  <element type="orm-constraint-connector" defaultName="ConstraintConnector" defaultId="CC###" />
+  <element type="orm-disjunctive-mandatory-constraint" defaultName="DisjunctiveMandatoryConstraint" defaultId="DMC###" />
+  <element type="orm-entity" defaultName="Entity" defaultId="E###" />
+  <element type="orm-equality-constraint" defaultName="EqualityConstraint" defaultId="EC###" />
+  <element type="orm-exclusion-constraint" defaultName="ExlusionConstraint" defaultId="XC###" />
+  <element type="orm-mandatory-constraint" defaultName="MandatoryConstraint" defaultId="MC###" />
+  <element type="orm-predicate" defaultName="Predicate" defaultId="P###" />
+  <element type="orm-role-connector" defaultName="RoleConnector" defaultId="RC###" />
+  <element type="orm-subset-constraint" defaultName="SubsetConstraint" defaultId="SSC###" />
+  <element type="orm-subtype-constraint" defaultName="SubtypeConstraint" defaultId="SC###" />
+  <element type="orm-value" defaultName="Value" defaultId="V###" />
+  <element type="orm-xor-constraint" defaultName="XorConstraint" defaultId="XR###" />
+  <element type="orm-objectifier" defaultName="Objectifier" defaultId="O###" />
+  <element type="orm-index-annotation" defaultName="IndexAnnotation" defaultId="IA###" />  
+
+  <element type="gc-activity" defaultName="Activity" defaultId="AC###" />
+  <element type="gc-task" defaultName="Task" defaultId="TK###" />
+  <element type="gc-task-table" defaultName="Task Table" defaultId="TT###" />
+  <element type="gc-dependency" defaultName="Dependency" defaultId="DP###" />
+
+  <element type="ted-task" defaultName="Task" defaultId="TSK###" />
+  <element type="ted-task-type" defaultName="Task Type" defaultId="TT###" />
+</defaultNames>

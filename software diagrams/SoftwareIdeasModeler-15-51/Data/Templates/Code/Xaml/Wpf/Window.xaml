@@ -1,0 +1,60 @@
+<%==SIM:ExplicitWhitespacesOn==%>
+<%==SIM:AutoIndentOn==%>
+
+<%==SIM:Template:XamlStyle(XamlElement,ElementName)==%>
+<%==SIM:If:Or(IsEmpty(XamlElement.Container),XamlElement.Container.ContainerLayout.IsSimpleLayout)==%>
+ Margin="<%==SIM:XamlElement.ClientX==%>,<%==SIM:XamlElement.ClientY==%>,0,0" Height="<%==SIM:XamlElement.Height==%>" Width="<%==SIM:XamlElement.Width==%>" HorizontalAlignment="Left" VerticalAlignment="Top"
+<%==SIM:EndIf==%>
+
+<%==SIM:IfNot:XamlElement.HasDefaultStyle==%>
+<%==SIM:Space==%>BorderBrush="<%==SIM:XamlElement.Style.Border.Color.HexA==%>"
+<%==SIM:Space==%>BorderThickness="<%==SIM:XamlElement.Style.Border.Width==%>"
+<%==SIM:If:XamlElement.Style.Background.IsSolid==%><%==SIM:Space==%>Background="<%==SIM:XamlElement.Style.Background.Color.HexA==%>"<%==SIM:EndIf==%>
+<%==SIM:Space==%>Foreground="<%==SIM:XamlElement.Style.NameTextStyle.Color.HexA==%>"
+<%==SIM:EndIf==%>
+><%==SIM:StartBlock==%><%==SIM:Line==%>
+
+<%==SIM:IfNot:XamlElement.HasDefaultStyle==%>
+<%==SIM:IfNot:XamlElement.Style.Background.IsSolid==%>
+<<%==SIM:ElementName==%>.Background><%==SIM:Line==%>
+	<LinearGradientBrush StartPoint="<%==SIM:XamlElement.Style.Background.RelativeStartPoint.XY==%>" EndPoint="<%==SIM:XamlElement.Style.Background.RelativeEndPoint.XY==%>"><%==SIM:Line==%>
+	<%==SIM:ForEach:XamlElement.Style.Background.GradientStops==%>
+		<GradientStop Color="<%==SIM:GradientStop.Color.HexA==%>" Offset="<%==SIM:GradientStop.Offset==%>" /><%==SIM:Line==%>
+	<%==SIM:EndFor==%>
+	</LinearGradientBrush><%==SIM:Line==%>
+</<%==SIM:ElementName==%>.Background><%==SIM:Line==%>
+<%==SIM:EndIf==%>
+<%==SIM:EndIf==%>
+
+<%==SIM:IfNot:Eq(XamlElement.RotationAngle,0)==%>
+<<%==SIM:ElementName==%>.RenderTransform><%==SIM:Line==%>
+	<TransformGroup><%==SIM:Line==%>
+		<RotateTransform Angle="<%==SIM:XamlElement.RotationAngle==%>"/><%==SIM:Line==%>
+	</TransformGroup><%==SIM:Line==%>
+</<%==SIM:ElementName==%>.RenderTransform><%==SIM:Line==%>
+<%==SIM:EndIf==%>
+<%==SIM:EndBlock==%><%==SIM:Line==%>
+<%==SIM:EndTemplate==%>
+
+<%==SIM:ForEach:Diagram.Elements==%>
+    <%==SIM:If:Element.OfType(ui-window)==%>
+    
+<Window x:Class="<%==SIM:Element.Namespace==%>.<%==SIM:Element.SafeName==%>"<%==SIM:Line==%>
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"<%==SIM:Line==%>
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"<%==SIM:Line==%>
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"<%==SIM:Line==%>
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"<%==SIM:Line==%>
+    xmlns:local="clr-namespace:<%==SIM:Element.Namespace==%>"<%==SIM:Line==%>
+    mc:Ignorable="d"<%==SIM:Line==%>
+    Title="<%==SIM:Element.OriginalName==%>" Height="<%==SIM:Element.Height==%>" Width="<%==SIM:Element.Width==%>"><%==SIM:StartBlock==%><%==SIM:Line==%>
+    <Grid><%==SIM:StartBlock==%><%==SIM:Line==%>
+      <%==SIM:ForEach:Element.NestedElements==%>
+        <%==SIM:Include(Element.xaml,NestedElement,False)==%>
+      <%==SIM:EndFor==%>
+      <%==SIM:EndBlock==%><%==SIM:Line==%>
+    </Grid>
+    <%==SIM:EndBlock==%><%==SIM:Line==%>
+</Window><%==SIM:Line==%>
+        
+    <%==SIM:EndIf==%>
+<%==SIM:EndFor==%>

@@ -1,0 +1,48 @@
+﻿<documentation-template-script id="223d640a3713497dabc1c7c7b0abea4a" name="Glossary Table" creation-date="06/01/2017 21:00:50" order-index="0">
+  <named-texts />
+  <script>// Front Page
+// Title - Project Name
+SetParagraphStyle("Title")
+SetCenterAlignment
+AddText(Project.Name)
+
+// Subtitle - Author name
+AddNewParagraph
+SetParagraphStyle("Subtitle")
+SetCenterAlignment
+AddText(Project.Authors)
+
+// Footer
+EditFooter
+SetParagraphStyle("Text")
+SetCenterAlignment
+AddTemplateText("Page.Number")
+
+EditBody
+
+// Glossary
+IfNot:Project.Glossary.IsEmpty
+    Set:TotalItemCount=Count(Project.Glossary)
+    Set:DiagramCounter=0
+                
+    AddTable(2,1,DocumentBodyWidth, Mm(5))
+    SetParagraphStyle("Text")
+    SetTableStyle("Blue")
+    AddText("Term")
+    GoToNextTableCell
+    AddText("Definition")
+    ForEach:Project.Glossary
+        AddNewTableRow
+        AddText(GlossaryTerm.Term)
+        GoToNextTableCell
+        AddText(ChangeTextAlignment(GlossaryTerm.Meaning, "Justified"))
+        
+        Set:DiagramCounter=Inc(Counter)
+        NotifyProgress(Div(Counter, TotalItemCount))
+    EndFor
+    EndTable
+EndIf
+
+
+</script>
+</documentation-template-script>

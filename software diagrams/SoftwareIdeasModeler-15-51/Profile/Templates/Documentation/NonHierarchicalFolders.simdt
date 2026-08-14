@@ -1,0 +1,701 @@
+﻿<documentation-template-script id="223d640a3713497dabc1c7c7b0abea4a" name="Non-Hierarchical Folders" creation-date="06/01/2017 21:00:50" order-index="0">
+  <named-texts />
+  <script>// Front Page
+// Title - Project Name
+SetParagraphStyle("Title")
+SetParagraphSpaceBefore(100)
+SetCenterAlignment
+AddText(Project.Name)
+
+// Subtitle - Author name
+AddNewParagraph
+SetParagraphStyle("Subtitle")
+SetCenterAlignment
+AddText(Project.Authors)
+
+AddNewParagraph
+AddNewPage
+
+// Header
+EditHeader
+SetParagraphStyle("Text")
+SetCenterAlignment
+AddText(Project.Name)
+
+// Footer
+EditFooter
+SetParagraphStyle("Text")
+SetCenterAlignment
+AddTemplateText("Page.Number")
+
+EditBody
+
+// Table of Contents
+Optional:Contents
+    AddNewParagraph
+    SetParagraphStyle("Heading 1")
+    SetParagraphNormalText
+    AddText("Contents")
+    AddNewParagraph
+    AddParagraphTab(165, "Right", ".")
+    AddTemplateText("Document.TableOfContents")
+    
+    AddNewParagraph
+    AddNewParagraph
+    AddNewPage
+    ClearParagraphTabs()
+EndOptional
+
+// Glossary
+Optional:Glossary
+    UserInput:GlossaryDescription=TextValue("Glossary description:")
+    IfNot:Project.Glossary.IsEmpty
+        SetParagraphStyle("Heading 1")
+        SetParagraphLeftIndent(10)
+        ContinueNumberedList
+        SetParagraphNumbering("HeadingMultiLevel")
+        AddText("Glossary")
+        
+        AddNewParagraph
+        SetParagraphHeading(0)
+        SetParagraphStyle("Text")
+        
+        IfNot:IsEmpty(GlossaryDescription)                        
+            AddText(GlossaryDescription)
+        EndIf
+                
+        AddTable(2,1,DocumentBodyWidth, Mm(5))
+        SetParagraphStyle("Text")
+        SetTableStyle("Blue")
+        AddText("Term")
+        GoToNextTableCell
+        AddText("Definition")
+        ForEach:Project.Glossary
+            AddNewTableRow
+            AddText(GlossaryTerm.Term)
+            GoToNextTableCell
+            AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(GlossaryTerm.Meaning, "Times New Roman"),12),"Justified"))
+        EndFor
+        EndTable
+        
+        AddNewParagraph
+        AddNewPage
+    EndIf
+EndOptional
+
+// Count diagrams
+Set:DiagramCounter=0
+Set:TotalDiagramsCount=0
+ForEach:Project.AllFolders
+    Set:TotalDiagramsCount=Sum(TotalDiagramsCount,Folder.Diagrams.Count)
+EndFor
+
+// Diagram pages
+ForEach:Project.AllFolders
+    AddNewParagraph
+    SetParagraphStyle("Heading 1")
+    SetParagraphLeftIndent(10)
+    SetParagraphNumbering("HeadingMultiLevel")
+    AddText(" ")
+    AddText(Folder.Name)
+    SetParagraphHeading(1)
+    
+    // Folder description
+    AddNewParagraph
+    SetParagraphStyle("Text")
+    AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(Folder.Documentation, "Times New Roman"),12),"Justified"))
+    
+    // Documents
+    Optional:Documents
+        ForEach:Folder.Documents
+            AddNewParagraph
+            SetParagraphStyle("Heading 2")
+            SetParagraphLeftIndent(10)
+            SetParagraphNumbering("HeadingMultiLevel")
+            AddText(" ")
+            AddText(Document.Name)
+            SetParagraphHeading(2)
+            AddNewParagraph
+            
+            AddText(Document.Content)
+        EndFor
+    EndOptional
+    
+    // Diagrams
+    ForEach:Folder.Diagrams
+        If:GT(Diagram.Elements.Count,0)
+            AddNewParagraph
+            SetParagraphStyle("Heading 2")
+            SetParagraphLeftIndent(10)
+            SetParagraphNumbering("HeadingMultiLevel")
+            AddText(" ")
+            AddText(Diagram.Name)
+            SetParagraphHeading(2)
+            
+            // Diagram description
+            AddNewParagraph
+            SetParagraphStyle("Text")
+            AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(Diagram.Documentation, "Times New Roman"),12),"Justified"))
+			
+			// Diagram tagged values
+			Optional:DiagramTaggedValues("Diagram tagged values")
+                ForEach:Diagram.TaggedValues
+					StartBulletedList
+                    AddNewParagraph
+                    AddText(TaggedValue.Name)
+                    AddText(": ")
+                    AddText(TaggedValue.Value)
+                EndFor
+            EndOptional            
+            
+			If:Eq(Diagram.TypeName, "requirements")     // Requirements Diagram
+			    AddTable(5,1,DocumentBodyWidth, Mm(5))
+                SetTableStyle("Blue")
+                SetTableColumnSize(0,0.1)
+                SetTableColumnSize(1,0.3)
+                SetTableColumnSize(2,0.15)
+                SetTableColumnSize(3,0.1)
+                SetTableColumnSize(4,0.35)
+                SetParagraphStyle("Compact Text")
+                AddText("ID")
+                GoToNextTableCell
+                SetParagraphStyle("Compact Text")
+                AddText("Name")
+                GoToNextTableCell
+				SetParagraphStyle("Compact Text")
+                AddText("Priority")
+                GoToNextTableCell
+                SetParagraphStyle("Compact Text")
+                AddText("Description")
+				
+			    ForEach:Diagram.Requirements						    
+                    AddNewTableRow
+                    SetParagraphStyle("Compact Text")
+                    AddText(Requirement.ID)
+                    GoToNextTableCell
+                    SetParagraphStyle("Compact Text")
+                    AddText(Requirement.Name)
+                    GoToNextTableCell
+					SetParagraphStyle("Compact Text")
+                    AddText(Requirement.Priority)
+                    GoToNextTableCell
+                    SetParagraphStyle("Compact Text")
+                    AddText(Requirement.Description)
+				EndFor
+				EndTable
+				
+			Else			// Other diagrams
+			
+                // Diagram image
+                AddNewParagraph
+                SetParagraphStyle("Text")
+                SetCenterAlignment
+                AddImage(Diagram.Image,DocumentBodyWidth)
+            
+                // Diagram elements table
+                AddNewParagraph
+                SetLeftAlignment
+                AddTable(3,1,DocumentBodyWidth, Mm(5))
+                SetTableStyle("Blue")
+                AddText("Name")
+                GoToNextTableCell
+                AddText("ID")
+                GoToNextTableCell
+                AddText("Type")
+                ForEach:Diagram.Elements
+                    IfNot:IsEmpty(Element.Name)
+                        AddNewTableRow
+                        SetParagraphStyle("Compact Text")
+                        AddText(Element.Name)
+                        GoToNextTableCell
+                        SetParagraphStyle("Compact Text")
+                        AddText(Element.CustomID)
+                        GoToNextTableCell
+                        SetParagraphStyle("Compact Text")
+                        AddText(Element.ElementType)
+                    EndIf
+                EndFor
+                EndTable
+			
+                // Elements
+                ForEach:Diagram.Elements
+                    If:Or(Element.HasDocumentation,Element.HasAttributes,Element.HasOperations,Equals(Element.ElementType,"state"),Equals(Element.ElementType,"use-case"),Equals(Element.ElementType,"enumeration"))
+                        AddNewParagraph
+                        SetParagraphStyle("Heading 3")
+                        SetParagraphLeftIndent(15)
+                        SetParagraphNumbering("HeadingMultiLevel")
+                        AddText(" ")
+                        AddText(Element.Name)
+                        SetParagraphHeading(3)
+                    
+                        // Element description
+                        AddNewParagraph
+                        SetParagraphStyle("Text")
+                        AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(Element.Documentation, "Times New Roman"),12),"Justified"))
+					
+					    // Element tagged values
+					    Optional:ElementTaggedValues("Element tagged values")								    
+                            ForEach:Element.TaggedValues
+							    StartBulletedList
+                                AddNewParagraph
+                                AddText(TaggedValue.Name)
+                                AddText(": ")
+                                AddText(TaggedValue.Value)
+                            EndFor
+                        EndOptional
+                    
+                        // Attributes
+                        Optional:Attributes
+                            If:Element.HasAttributes
+                                AddNewParagraph
+                                SetParagraphStyle("Heading 4")
+                                AddText("Attributes")
+                            
+                                AddNewParagraph
+                                SetParagraphStyle("Text")
+                                If:Equals(Element.ElementType,"erd-entity")
+                                    AddTable(5,1,DocumentBodyWidth, Mm(5))
+                                    SetTableStyle("Blue")
+                                    SetTableColumnSize(0,0.1)
+                                    SetTableColumnSize(1,0.3)
+                                    SetTableColumnSize(2,0.15)
+                                    SetTableColumnSize(3,0.1)
+                                    SetTableColumnSize(4,0.35)
+                                    SetParagraphStyle("Compact Text")
+                                    AddText("Key")
+                                    GoToNextTableCell
+                                    SetParagraphStyle("Compact Text")
+                                    AddText("Name")
+                                    GoToNextTableCell
+                                    SetParagraphStyle("Compact Text")
+                                    AddText("Type")
+                                    GoToNextTableCell
+                                    SetParagraphStyle("Compact Text")
+                                    AddText("Size")
+                                    GoToNextTableCell
+                                    SetParagraphStyle("Compact Text")
+                                    AddText("Description")
+                                    ForEach:Element.Attributes
+                                        AddNewTableRow
+                                        SetParagraphStyle("Compact Text")
+                                        If:Attribute.IsPrimaryKey
+                                            AddText("PK")
+                                        EndIf
+                                        If:Attribute.IsForeignKey
+                                            If:Attribute.IsPrimaryKey
+                                                AddText(",")
+                                            EndIf
+                                            AddText("FK")
+                                        EndIf
+                                        GoToNextTableCell
+                                        SetParagraphStyle("Compact Text")
+                                        AddText(Attribute.Name)
+                                        GoToNextTableCell
+                                        SetParagraphStyle("Compact Text")
+                                        AddText(Attribute.OriginalType.Name)
+                                        GoToNextTableCell
+                                        SetParagraphStyle("Compact Text")
+                                        AddText(Attribute.TypeLength)
+                                        GoToNextTableCell
+                                        SetParagraphStyle("Compact Text")
+                                        AddTextLine(Attribute.Description)
+                                        AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(Attribute.Documentation, "Times New Roman"),12),"Justified"))
+                                    EndFor
+                                    EndTable
+                                Else
+                                    AddTable(1,1,DocumentBodyWidth, Mm(5))
+                                    SetTableStyle("Blue")
+                                    SetParagraphStyle("Compact Text")
+                                    AddText("Name")
+                                
+                                    AddNewTableColumn
+                                    SetParagraphStyle("Compact Text")
+                                    AddText("Type")
+                                
+                                    Optional:AttributeMultiplicity("Multiplicity")
+                                        AddNewTableColumn
+                                        SetParagraphStyle("Compact Text")
+                                        AddText("Multiplicity")                                    
+                                    EndOptional
+                                
+                                    AddNewTableColumn
+                                    SetParagraphStyle("Compact Text")
+                                    AddText("Description")
+                                
+                                    Optional:TaggedValues("Tagged values")
+                                        AddNewTableColumn
+                                        SetParagraphStyle("Compact Text")
+                                        AddText("Tagged Values")
+                                    EndOptional
+                                
+                                    ForEach:Element.Attributes
+                                        AddNewTableRow
+                                        SetParagraphStyle("Compact Text")
+                                        AddText(Attribute.Name)
+                                        GoToNextTableCell
+                                        SetParagraphStyle("Compact Text")
+                                        AddText(Attribute.OriginalType.Name)
+                                    
+                                        Optional:AttributeMultiplicity
+                                            GoToNextTableCell
+                                            SetParagraphStyle("Compact Text")
+                                            AddText(Attribute.Multiplicity)                                        
+                                        EndOptional
+                                    
+                                        GoToNextTableCell
+                                        SetParagraphStyle("Compact Text")
+                                        AddTextLine(Attribute.Description)
+                                        AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(Attribute.Documentation, "Times New Roman"),12),"Justified"))
+                                    
+                                        Optional:TaggedValues
+                                            GoToNextTableCell
+                                            ForEach:Attribute.TaggedValues                                            
+                                                AddText(TaggedValue.Name)
+                                                AddText(" = ")
+                                                AddText(TaggedValue.Value)
+                                                AddText(", ")
+                                            EndFor
+                                        EndOptional
+                                    EndFor
+                                    EndTable
+                                EndIf
+                            EndIf
+                        EndOptional
+                    
+                        // Data
+                        If:Element.HasData
+                            AddNewParagraph
+                            SetParagraphStyle("Heading 4")
+                            AddText("Data")
+                        
+                            AddNewParagraph
+                            SetParagraphStyle("Text")
+                            AddTable(Element.Attributes.Count,1,DocumentBodyWidth, Mm(5))
+                            SetTableStyle("Blue")
+                            SetParagraphStyle("Compact Text")
+                            ForEach:Element.Attributes
+                                AddText(Attribute.Name)
+                                IfNot:IsLastItem
+                                    GoToNextTableCell
+                                    SetParagraphStyle("Compact Text")
+                                EndIf
+                            EndFor
+                            ForEach:Element.DataRows
+                                AddNewTableRow
+                                SetParagraphStyle("Compact Text")
+                                ForEach:DataRow.Values
+                                    AddText(Value)
+                                    IfNot:IsLastItem
+                                        GoToNextTableCell
+                                        SetParagraphStyle("Compact Text")
+                                    EndIf
+                                EndFor
+                            EndFor
+                            EndTable
+                        EndIf
+                    
+                        // Enumeration items
+                        If:GT(Element.EnumerationItems.Count,0)
+                            AddNewParagraph
+                            SetParagraphStyle("Heading 4")
+                            AddText("Items")
+                        
+                            AddNewParagraph
+                            SetParagraphStyle("Text")
+                        
+                            AddTable(3,1,DocumentBodyWidth, Mm(5))
+                            SetTableStyle("Blue")
+                            SetTableColumnSize(0,0.2)
+                            SetTableColumnSize(1,0.3)
+                            SetTableColumnSize(2,0.5)
+                            SetParagraphStyle("Compact Text")
+                            AddText("Name")
+                            GoToNextTableCell
+                            SetParagraphStyle("Compact Text")
+                            AddText("Value")
+                            GoToNextTableCell
+                            SetParagraphStyle("Compact Text")
+                            AddText("Description")
+                            ForEach:Element.EnumerationItems
+                                AddNewTableRow
+                                SetParagraphStyle("Compact Text")
+                                AddText(EnumerationItem.Name)
+                                GoToNextTableCell
+                                SetParagraphStyle("Compact Text")
+                                AddText(EnumerationItem.Value)
+                                GoToNextTableCell
+                                SetParagraphStyle("Compact Text")
+                                AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(EnumerationItem.Documentation, "Times New Roman"),12),"Justified"))
+                            EndFor
+                            EndTable
+                        EndIf
+                    
+                        // Operations
+                        Optional:Operations
+                            If:Element.HasOperations
+                                AddNewParagraph
+                                SetParagraphStyle("Heading 4")
+                                AddText("Operations")
+                            
+                                ForEach:Element.Operations
+                                    AddNewParagraph
+                                    SetParagraphStyle("Heading 5")
+                                    AddText(Operation.Name)
+                                
+                                    If:Operation.HasReturnType
+                                        AddNewParagraph
+                                        SetParagraphStyle("Text")
+                                        SwitchBold()
+                                        AddText("Return type: ")
+                                        SwitchBold()
+                                        AddText(Operation.OriginalReturnType.Name)
+                                    EndIf
+                                
+                                    AddNewParagraph
+                                    SetParagraphStyle("Text")
+                                    AddText(Operation.Documentation)
+								
+								    Optional:OperationTaggedValues("Tagged values")								    
+                                        ForEach:Operation.TaggedValues
+									        StartBulletedList
+                                            AddNewParagraph
+                                            AddText(TaggedValue.Name)
+                                            AddText(": ")
+                                            AddText(TaggedValue.Value)
+                                        EndFor
+                                    EndOptional
+                                
+                                
+                                    If:GreaterThan(Operation.Parameters.Count,0)
+                                        AddNewParagraph
+                                        SetParagraphStyle("Heading 6")
+                                        AddText("Parameters")
+                                    
+                                        AddNewParagraph
+                                        SetParagraphStyle("Text")
+                                        AddTable(4,1,DocumentBodyWidth, Mm(5))
+                                        SetTableStyle("Blue")
+                                        AddText("Name")
+                                        GoToNextTableCell
+                                        AddText("Type")
+                                        GoToNextTableCell
+                                        AddText("Default Value")
+                                        GoToNextTableCell
+                                        AddText("Description")
+                                        ForEach:Operation.Parameters
+                                            AddNewTableRow
+                                            AddText(Parameter.Name)
+                                            GoToNextTableCell
+                                            AddText(Parameter.OriginalType.Name)
+                                            GoToNextTableCell
+                                            AddText(Parameter.DefaultValue)
+                                            GoToNextTableCell
+                                            AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(Parameter.Documentation, "Times New Roman"),12),"Justified"))
+                                        EndFor
+                                        EndTable
+                                    EndIf
+                                EndFor
+                            
+                            EndIf
+                        EndOptional
+                    
+                        // Actions
+                        If:Equals(Element.ElementType,"state")
+                            AddNewParagraph
+                            SetParagraphStyle("Text")
+                            AddTable(2,3,DocumentBodyWidth, Mm(5))
+                            SetTableColumnSize(0,0.3)
+                            SetTableColumnSize(1,0.7)
+                            SetTableStyle("Simple")
+                        
+                            AddText("From")
+                            GoToNextTableCell
+                            ForEach:Element.InRelations
+                                If:Eq(Relation.From.ElementType,"state")
+                                    AddText(Relation.From.Name)
+                                    AddText(", ")
+                                EndIf
+                            EndFor
+                            GoToNextTableCell
+                            AddText("To")
+                            GoToNextTableCell
+                            ForEach:Element.OutRelations
+                                If:Eq(Relation.To.ElementType,"state")
+                                    AddText(Relation.To.Name)
+                                    AddText(", ")
+                                EndIf
+                            EndFor
+                            GoToNextTableCell
+                            AddText("State Invariant")
+                            GoToNextTableCell
+                            AddText(Element.StateInvariant)
+                        
+                            ForEach:Element.Actions
+                                AddNewTableRow
+                                AddText(Action.Name)
+                                GoToNextTableCell
+                                AddText(Action.Behavior)
+                            EndFor
+                            EndTable
+                        EndIf
+                    
+                    
+                        // Use Case
+                        If:Equals(Element.ElementType,"use-case")
+                            // Status
+                            AddNewParagraph
+                            SetParagraphStyle("Text")
+                            AddTable(3,1,DocumentBodyWidth, Mm(5))
+                            SetTableStyle("Simple")
+                            SetTableColumnSize(0,0.3)
+                            SetTableColumnSize(1,0.6)
+                            SetTableColumnSize(2,0.1)
+                            AddText("Status")
+                            GoToNextTableCell
+                            AddText(Element.State)
+                            GoToNextTableCell
+                            AddImage(Element.StateIcon,Mm(10),Mm(10))
+                            EndTable
+                        
+                            AddNewParagraph
+                            AddText(" ")
+                        
+                            // Scope
+                            AddNewParagraph
+                            SetParagraphStyle("Text")
+                            AddTable(3,2,DocumentBodyWidth, Mm(5))
+                            SetTableStyle("Simple")
+                            SetTableColumnSize(0,0.3)
+                            SetTableColumnSize(1,0.6)
+                            SetTableColumnSize(2,0.1)
+                            AddText("Scope")
+                            GoToNextTableCell
+                            AddText(Element.DesignScope)
+                            AddText(" / ")
+                            AddText(Element.DesignScopeName)
+                            GoToNextTableCell
+                            AddImage(Element.DesignScopeIcon,Mm(10),Mm(10))
+                            GoToNextTableCell  // Goal Level
+                            AddText("Goal Level")
+                            GoToNextTableCell
+                            AddText(Element.GoalLevel)
+                            GoToNextTableCell
+                            AddImage(Element.GoalLevelIcon,Mm(10),Mm(10))
+                            EndTable
+                        
+                            AddNewParagraph
+                            AddText(" ")
+                        
+                            // Actors
+                            AddNewParagraph
+                            SetParagraphStyle("Text")
+                            AddTable(2,1,DocumentBodyWidth, Mm(5))
+                            SetTableStyle("Blue")
+                            SetTableColumnSize(0,0.3)
+                            SetTableColumnSize(1,0.7)
+                            AddText("Actor")
+                            GoToNextTableCell
+                            AddText("Description")
+                            ForEach:Element.Stakeholders
+                                AddNewTableRow
+                                AddText(Stakeholder.Name)
+                                GoToNextTableCell
+                                AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(Stakeholder.Documentation, "Times New Roman"),12),"Justified"))
+                            EndFor
+                            EndTable
+                        
+                            AddNewParagraph
+                            AddText(" ")
+                        
+                            // Precondition
+                            AddNewParagraph
+                            SetParagraphStyle("Text")
+                            AddTable(2,3,DocumentBodyWidth, Mm(5))
+                            SetTableColumnSize(0,0.3)
+                            SetTableColumnSize(1,0.7)
+                            SetTableStyle("Simple")
+                            AddText("Precondition")
+                            GoToNextTableCell
+                            AddText(Element.Precondition)
+                            // Success Guarantee
+                            GoToNextTableCell
+                            AddText("Success Guarantee")
+                            GoToNextTableCell
+                            AddText(Element.SuccessGuarantees)
+                            // Minimal Guarantee
+                            GoToNextTableCell
+                            AddText("Minimal Guarantee")
+                            GoToNextTableCell
+                            AddText(Element.MinimalGuarantees)
+                            EndTable
+                        
+                            // Flow events
+                            AddNewParagraph
+                            StartNumberedList
+                            ForEach:Element.FlowEvents
+                                SetParagraphNumbering("ListMultiLevel")
+                                SetParagraphNumberingLevel(1)
+                                SetParagraphLeftIndent(10)
+                                SetParagraphFirstLineIndent(0)
+                                AddText(FlowEvent.Name)
+                                AddText(" ")
+                                AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(FlowEvent.Description, "Times New Roman"),12),"Justified"))
+                            
+                                ForEach:FlowEvent.SubEvents
+                                    AddNewParagraph
+                                    ContinueNumberedList
+                                    SetParagraphNumbering("ListMultiLevel")
+                                    SetParagraphNumberingLevel(2)
+                                    SetParagraphLeftIndent(15)
+                                    SetParagraphFirstLineIndent(5)
+                                    AddText(SubEvent.Name)
+                                    AddText(" ")
+                                    AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(SubEvent.Description, "Times New Roman"),12),"Justified"))
+                                
+                                    ForEach:SubEvent.SubEvents(SubEvent2)
+                                        AddNewParagraph
+                                        SetParagraphNumbering("ListMultiLevel")
+                                        SetParagraphNumberingLevel(3)
+                                        SetParagraphLeftIndent(25)
+                                        SetParagraphFirstLineIndent(10)
+                                        AddText(SubEvent2.Name)
+                                        AddText(" ")
+                                        AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(SubEvent2.Description, "Times New Roman"),12),"Justified"))
+                                    
+                                        ForEach:SubEvent2.SubEvents(SubEvent3)
+                                            AddNewParagraph
+                                            SetParagraphNumbering("ListMultiLevel")
+                                            SetParagraphNumberingLevel(4)
+                                            SetParagraphLeftIndent(35)
+                                            SetParagraphFirstLineIndent(15)
+                                            AddText(SubEvent3.Name)
+                                            AddText(" ")
+                                            AddText(ChangeTextAlignment(ChangeFontSize(ChangeFontName(SubEvent3.Description, "Times New Roman"),12),"Justified"))
+                                        EndFor
+                                    EndFor
+                                EndFor
+                            
+                                IfNot:IsLastItem
+                                    AddNewParagraph
+                                    ContinueNumberedList
+                                EndIf
+                            EndFor
+                            SetParagraphNormalText
+                        EndIf
+                    
+                    
+                    EndIf
+                EndFor  // ForEach:Diagram
+			EndIf // If:Eq(Diagram.TypeName, "requirements")
+        EndIf // If:GT(Diagram.Elements.Count,0)
+        
+        
+        // Notify progress
+        Set:DiagramCounter=Inc(DiagramCounter)
+        NotifyProgress(Div(DiagramCounter, TotalDiagramsCount))
+    EndFor
+    AddNewPage
+    
+EndFor
+</script>
+</documentation-template-script>

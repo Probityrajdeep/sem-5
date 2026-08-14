@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<types name="ORACLE" description="" version="1.0" prefix="Oracle" language="OracleSql">  
+  <type name="LONG" description="" tid="s-integer32">
+  </type>  
+  <type name="BINARY_FLOAT" description="" tid="s-real32">
+  </type>
+  <type name="BINARY_DOUBLE" description="" tid="s-real64">
+  </type>
+  <type name="FLOAT" description="" tid="s-real64" default-size="10">
+  </type>  
+  <type name="DATE" description="" tid="datetime">
+  </type>  
+  <type name="BFILE" description="" tid="binary">
+  </type>  
+  <type name="BLOB" description="" tid="binary">
+  </type>
+  <type name="RAW" description="" tid="binary" default-size="2000">
+  </type>
+  <type name="LONG RAW" description="" tid="binary" default-size="2000">
+  </type>
+  <type name="VARCHAR2" description="" tid="string" default-size="MAX">
+  </type>
+  <type name="CHAR" description="" tid="string" default-size="10">
+  </type>
+  <type name="NVARCHAR2" description="" tid="string" default-size="MAX">
+  </type>
+  <type name="NCHAR" description="" tid="string" default-size="10">
+  </type>
+  <type name="NCLOB" description="" tid="string">
+  </type>
+  <type name="CLOB" description="" tid="string">
+  </type>
+  <type name="ROWID" description="" tid="guid">
+  </type>
+  <type name="TIMESTAMP" description="" tid="time">
+  </type>  
+  <type name="NUMBER" description="" tid="s-decimal128" default-size="16,4">
+  </type>  
+</types>

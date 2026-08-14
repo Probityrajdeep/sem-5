@@ -1,0 +1,46 @@
+<sim-template version="1.0">
+  <meta>
+    <name>JS Doc</name>
+    <description></description>
+    <type>SourceCode</type>
+    <language>JavaScript</language>
+  </meta>
+  <files defaultName="{Name}.js">    
+    <file name="Class.js" outputName="{Element.Name}.js" type="AbstractElement">
+      <settings>
+        <setting name="DefaultType" value="Object"></setting>
+        <setting name="NameAdjustment" value="CamelCase"></setting>
+      </settings>
+      <types>
+        <type name="class" />
+      </types>
+	  <stereotypes>
+        <stereotype name="interface" condition="without" />
+        <stereotype name="enum" condition="without" />
+        <stereotype name="enumeration" condition="without" />
+        <stereotype name="struct" condition="without" />
+        <stereotype name="structure" condition="without" />
+        <stereotype name="*" />
+      </stereotypes>
+    </file>
+	<file name="Enum.js" outputName="{Element.Name}.js" type="AbstractElement">
+		<settings>
+			<setting name="DefaultType" value="object"></setting>
+			<setting name="NameAdjustment" value="CamelCase"></setting>
+		</settings>
+		<stereotypes>
+			<stereotype name="enum" />
+			<stereotype name="enumeration" />
+		</stereotypes>
+	</file>
+	<file name="Interface.js" outputName="{Element.Name}.js" type="AbstractElement">
+		<settings>
+			<setting name="DefaultType" value="object"></setting>
+			<setting name="NameAdjustment" value="CamelCase"></setting>
+		</settings>
+		<stereotypes>
+			<stereotype name="interface" />
+		</stereotypes>
+	</file>
+  </files>
+</sim-template>

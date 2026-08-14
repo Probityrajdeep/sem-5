@@ -1,0 +1,16 @@
+<sim-template version="1.0">
+  <meta>
+    <name>QtQuick</name>
+    <description>Qt Quick (QML) templates</description>
+    <type>SourceCode</type>
+    <language>Qml</language>
+  </meta>
+  <files defaultName="{Name}.qml">
+    <file name="Window.qml" outputName="{Diagram.Name}.qml" type="Diagram">
+      <settings>
+        <setting name="DefaultType" value="Object"/>
+        <setting name="NameAdjustment" value="CamelCase"/>
+      </settings>
+    </file>
+  </files>
+</sim-template>
