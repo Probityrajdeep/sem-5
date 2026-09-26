@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exp-6 | CSS Simple Selectors</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background: #f4f1ea;
+			color: #20313a;
+			font-family: Georgia, "Times New Roman", serif;
+			line-height: 1.6;
+		}
+
+		header {
+			background: #20313a;
+			color: #f4f1ea;
+			padding: 56px 8vw 48px;
+		}
+
+		header p {
+			color: #b9d8cf;
+			max-width: 680px;
+			margin-top: 12px;
+		}
+
+		h1, h2, h3 {
+			font-family: Arial, Helvetica, sans-serif;
+			letter-spacing: 0;
+		}
+
+		h1 {
+			color: #f6c453;
+			font-size: clamp(2.2rem, 6vw, 4.6rem);
+			line-height: 1;
+		}
+
+		h2 {
+			color: #20313a;
+			font-size: 1.8rem;
+			margin-bottom: 10px;
+		}
+
+		h3 {
+			color: #267d72;
+			font-size: 1.1rem;
+		}
+
+		main {
+			margin: 0 auto;
+			max-width: 1180px;
+			padding: 34px 5vw 70px;
+		}
+
+		section {
+			border-top: 3px solid #f6c453;
+			margin-top: 34px;
+			padding-top: 24px;
+		}
+
+		.section-intro {
+			color: #52636a;
+			margin-bottom: 20px;
+		}
+
+		.selector-note {
+			background: #e4eee9;
+			border-left: 4px solid #267d72;
+			color: #31514e;
+			font-family: Consolas, "Courier New", monospace;
+			font-size: 0.9rem;
+			margin-bottom: 18px;
+			padding: 10px 14px;
+		}
+
+		.profile-card, .department-panel, .product-card {
+			background: #ffffff;
+			border: 1px solid #d5ded9;
+			border-radius: 8px;
+			box-shadow: 0 10px 24px rgba(32, 49, 58, 0.08);
+			padding: 24px;
+		}
+
+		#student-name {
+			color: #b6533c;
+			font-size: 2rem;
+			margin-bottom: 4px;
+		}
+
+		#student-bio {
+			color: #52636a;
+			margin-bottom: 16px;
+		}
+
+		.tag {
+			background: #f6c453;
+			border-radius: 999px;
+			color: #20313a;
+			display: inline-block;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 0.8rem;
+			font-weight: bold;
+			margin: 4px 4px 0 0;
+			padding: 3px 10px;
+		}
+
+		.department-panel {
+			border-top: 7px solid #267d72;
+		}
+
+		.department-panel p {
+			margin: 12px 0;
+		}
+
+		.department-panel ul {
+			list-style: square;
+			margin: 12px 0 20px 22px;
+		}
+
+		button, .catalogue-button {
+			background: #b6533c;
+			border: 0;
+			border-radius: 5px;
+			color: #ffffff;
+			cursor: pointer;
+			display: inline-block;
+			font-family: Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			padding: 10px 16px;
+			text-decoration: none;
+		}
+
+		button:hover, .catalogue-button:hover {
+			background: #8f3e2d;
+		}
+
+		.paragraph-demo {
+			display: grid;
+			gap: 14px;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.paragraph-demo p {
+			background: #dfece8;
+			border-radius: 6px;
+			color: #267d72;
+			padding: 18px;
+		}
+
+		.paragraph-demo .large-text {
+			background: #f9e8b7;
+			color: #8f3e2d;
+			font-size: 1.25rem;
+		}
+
+		#aligned-paragraph {
+			background: #20313a;
+			color: #f4f1ea;
+			text-align: center;
+		}
+
+		.catalogue {
+			display: grid;
+			gap: 18px;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.product-card {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+		}
+
+		.product-card p {
+			color: #52636a;
+		}
+
+		.product-card .price {
+			color: #b6533c;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 1.25rem;
+			font-weight: bold;
+		}
+
+		#featured-product {
+			background: #fff8e7;
+			border-color: #f6c453;
+		}
+
+		.catalogue-button {
+			align-self: flex-start;
+			margin-top: auto;
+		}
+
+		footer {
+			background: #dfece8;
+			color: #52636a;
+			padding: 22px 8vw;
+			text-align: center;
+		}
+
+		@media (max-width: 720px) {
+			.paragraph-demo, .catalogue {
+				grid-template-columns: 1fr;
+			}
+
+			header {
+				padding: 42px 7vw 38px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>CSS Selectors Lab</h1>
+		<p>Exp-6 practical: simple selectors applied to a student profile, college department, paragraph collection, and product catalogue.</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>1. Simple Selector Demonstration</h2>
+			<p class="section-intro">This page uses universal, element, class, ID, and grouping selectors.</p>
+			<p class="selector-note">* universal | h1, h2, h3 element and grouping | .class | #id</p>
+			<div class="profile-card">
+				<h3>Selector map</h3>
+				<p>Universal selectors set the base box model. Element selectors style common HTML elements. Classes reuse a style, while IDs identify one special element.</p>
+			</div>
+		</section>
+
+		<section>
+			<h2>2. Student Profile</h2>
+			<p class="section-intro">Element, ID, and class selectors style the profile information.</p>
+			<div class="profile-card">
+				<h2 id="student-name">Aarav Sharma</h2>
+				<p id="student-bio">B.Tech Computer Science student who enjoys web design, problem solving, and collaborative projects.</p>
+				<span class="tag">HTML</span>
+				<span class="tag">CSS</span>
+				<span class="tag">C Programming</span>
+			</div>
+		</section>
+
+		<section>
+			<h2>3. College Department</h2>
+			<p class="section-intro">Headings, paragraphs, lists, and buttons are formatted with simple CSS selectors.</p>
+			<div class="department-panel">
+				<h3>Department of Computer Science</h3>
+				<p>Our department combines strong computing foundations with practical projects that prepare students for the changing technology industry.</p>
+				<ul>
+					<li>Programming and data structures</li>
+					<li>Web and mobile application development</li>
+					<li>Database and cloud computing</li>
+				</ul>
+				<button type="button">Explore Department</button>
+			</div>
+		</section>
+
+		<section>
+			<h2>4. Class and ID Paragraph Styles</h2>
+			<p class="section-intro">The same element receives different visual treatments from classes and an ID.</p>
+			<div class="paragraph-demo">
+				<p>Class selector: this paragraph has a soft background and teal text.</p>
+				<p class="large-text">Class selector: this paragraph changes colour and font size.</p>
+				<p id="aligned-paragraph">ID selector: this paragraph has a dark background and centered alignment.</p>
+			</div>
+		</section>
+
+		<section>
+			<h2>5. Product Catalogue</h2>
+			<p class="section-intro">Universal, element, class, ID, and grouping selectors create a consistent catalogue.</p>
+			<div class="catalogue">
+				<article class="product-card" id="featured-product">
+					<h3>Focus Laptop</h3>
+					<p>Lightweight laptop for coding, research, and everyday study.</p>
+					<p class="price">Rs. 62,000</p>
+					<a class="catalogue-button" href="#featured-product">View product</a>
+				</article>
+				<article class="product-card">
+					<h3>ClearView Monitor</h3>
+					<p>Comfortable 24-inch display with sharp colours for long sessions.</p>
+					<p class="price">Rs. 14,500</p>
+					<a class="catalogue-button" href="#featured-product">View product</a>
+				</article>
+				<article class="product-card">
+					<h3>TypeKey Keyboard</h3>
+					<p>Quiet mechanical keyboard with a compact layout and USB connection.</p>
+					<p class="price">Rs. 3,200</p>
+					<a class="catalogue-button" href="#featured-product">View product</a>
+				</article>
+			</div>
+		</section>
+	</main>
+
+	<footer>Exp-6 | Web Technology Practical</footer>
+</body>
+</html>
