@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Information</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        text-align: center;
+      }
+
+      table {
+        width: 60%;
+        margin: 30px auto;
+        border-collapse: collapse;
+        background-color: white;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid black;
+        text-align: left;
+      }
+
+      th {
+        background-color: #ddd;
+      }
+
+      h1 {
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>STUDENT INFORMATION</h1>
+    <div id="output"></div>
+
+    <script>
+      // Accept student details
+      let name;
+      do {
+        name = prompt("Enter Student Name:");
+      } while (name === null || name.trim() === "");
+
+      const roll = prompt("Enter Roll Number:");
+      const branch = prompt("Enter Branch:");
+      const semester = prompt("Enter Semester:");
+
+      // Validate age
+      let age;
+      do {
+        age = Number(prompt("Enter Age (16 to 30):"));
+      } while (isNaN(age) || age < 16 || age > 30);
+
+      // Validate CGPA
+      let cgpa;
+      do {
+        cgpa = Number(prompt("Enter CGPA (0 to 10):"));
+      } while (isNaN(cgpa) || cgpa < 0 || cgpa > 10);
+
+      // Determine academic status
+      let status;
+      if (cgpa >= 9.0) {
+        status = "Excellent";
+      } else if (cgpa >= 8.0) {
+        status = "Very Good";
+      } else if (cgpa >= 7.0) {
+        status = "Good";
+      } else {
+        status = "Needs Improvement";
+      }
+
+      // Determine category
+      const category = age < 18 ? "Minor" : "Adult";
+
+      // Current date and time
+      const currentDate = new Date();
+
+      // Display information
+      document.getElementById("output").innerHTML = `
+        <h2>Welcome ${name}!</h2>
+        <table>
+          <tr>
+            <th>Student Detail</th>
+            <th>Information</th>
+          </tr>
+          <tr>
+            <td>Student Name</td>
+            <td>${name}</td>
+          </tr>
+          <tr>
+            <td>Roll Number</td>
+            <td>${roll}</td>
+          </tr>
+          <tr>
+            <td>Branch</td>
+            <td>${branch}</td>
+          </tr>
+          <tr>
+            <td>Semester</td>
+            <td>${semester}</td>
+          </tr>
+          <tr>
+            <td>Age</td>
+            <td>${age}</td>
+          </tr>
+          <tr>
+            <td>CGPA</td>
+            <td>${cgpa}</td>
+          </tr>
+          <tr>
+            <td>Academic Status</td>
+            <td>${status}</td>
+          </tr>
+          <tr>
+            <td>Category</td>
+            <td>${category}</td>
+          </tr>
+          <tr>
+            <td>Branch Selected</td>
+            <td>${branch}</td>
+          </tr>
+          <tr>
+            <td>Current Date and Time</td>
+            <td>${currentDate.toLocaleString()}</td>
+          </tr>
+        </table>
+      `;
+    </script>
+  </body>
+</html>

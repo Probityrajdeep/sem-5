@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Built-in Objects</title>
+  </head>
+
+  <body>
+    <h1>Open Chrome Console to see the output</h1>
+
+    <script>
+      // 1. STRING OBJECT
+      let str = "JavaScript Programming";
+
+      console.log("===== 1. STRING OBJECT =====");
+      console.log("Original String:", str);
+      console.log("Length:", str.length);
+      console.log("Uppercase:", str.toUpperCase());
+      console.log("Lowercase:", str.toLowerCase());
+      console.log("Character at index 0:", str.charAt(0));
+      console.log("Substring:", str.substring(0, 10));
+
+      // 2. MATH OBJECT
+      let num = 25.6;
+
+      console.log("===== 2. MATH OBJECT =====");
+      console.log("Number:", num);
+      console.log("Square Root:", Math.sqrt(num));
+      console.log("Rounded Value:", Math.round(num));
+      console.log("Ceiling Value:", Math.ceil(num));
+      console.log("Floor Value:", Math.floor(num));
+      console.log("Power (5²):", Math.pow(5, 2));
+
+      // 3. ARRAY OBJECT
+      let fruits = ["Apple", "Banana", "Mango"];
+
+      console.log("===== 3. ARRAY OBJECT =====");
+      console.log("Original Array:", fruits);
+      fruits.push("Orange");
+      console.log("After Adding Orange:", fruits);
+      console.log("First Element:", fruits[0]);
+      console.log("Array Length:", fruits.length);
+      fruits[1] = "Grapes";
+      console.log("After Modification:", fruits);
+
+      // 4. BOOLEAN OBJECT
+      let age = 20;
+      let isAdult = age >= 18;
+
+      console.log("===== 4. BOOLEAN OBJECT =====");
+      console.log("Age:", age);
+      console.log("Is Adult:", isAdult);
+
+      let hasPassed = true;
+      console.log("Passed:", hasPassed);
+
+      // 5. DATE OBJECT
+      let currentDate = new Date();
+
+      console.log("===== 5. DATE OBJECT =====");
+      console.log("Current Date and Time:", currentDate);
+      console.log("Date:", currentDate.getDate());
+      console.log("Month:", currentDate.getMonth() + 1);
+      console.log("Year:", currentDate.getFullYear());
+      console.log("Hours:", currentDate.getHours());
+      console.log("Minutes:", currentDate.getMinutes());
+    </script>
+  </body>
+</html>
