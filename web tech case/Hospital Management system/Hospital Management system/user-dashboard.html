@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+
+<title>User Dashboard - MedCare Hospital</title>
+
+<style>
+
+    body {
+        font-family: Arial;
+        margin: 0;
+        background-color: #f2f9ff;
+    }
+
+
+    /* Header */
+
+    header {
+        background-color: #008080;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+
+    /* Navigation */
+
+    nav {
+        background-color: #004d4d;
+        padding: 15px;
+        text-align: center;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 15px;
+    }
+
+
+    /* Dashboard */
+
+    .dashboard {
+        padding: 30px;
+    }
+
+    .dashboard h2 {
+        color: #008080;
+    }
+
+
+    /* Welcome Box */
+
+    .welcome {
+        background-color: white;
+        padding: 25px;
+        margin-bottom: 20px;
+    }
+
+
+    /* Cards */
+
+    .card {
+        display: inline-block;
+        background-color: white;
+        width: 220px;
+        padding: 20px;
+        margin: 10px;
+        vertical-align: top;
+        text-align: center;
+    }
+
+    .card h3 {
+        color: #008080;
+    }
+
+
+    /* Buttons */
+
+    button {
+        background-color: #008080;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #006666;
+    }
+
+
+    /* Appointment */
+
+    .appointment {
+        background-color: white;
+        padding: 25px;
+        margin-top: 20px;
+    }
+
+
+    /* Table */
+
+    table {
+        width: 100%;
+        background-color: white;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th {
+        background-color: #008080;
+        color: white;
+    }
+
+    th, td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+
+    /* Footer */
+
+    footer {
+        background-color: #004d4d;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <h1>MedCare Hospital</h1>
+
+    <p>User Dashboard</p>
+
+</header>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <a href="index.html">Home</a>
+
+    <a href="user-dashboard.html">Dashboard</a>
+
+    <a href="doctors.html">Doctors</a>
+
+    <a href="login.html">Logout</a>
+
+</nav>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<div class="dashboard">
+
+
+    <!-- Welcome -->
+
+    <div class="welcome">
+
+        <h2>Welcome, Patient!</h2>
+
+        <p>
+            Welcome to your MedCare Hospital dashboard.
+        </p>
+
+        <p>
+            From here you can manage your appointments,
+            patient records and prescriptions.
+        </p>
+
+    </div>
+
+
+    <!-- ================= DASHBOARD CARDS ================= -->
+
+    <h2>My Dashboard</h2>
+
+
+    <!-- Book Appointment -->
+
+    <div class="card">
+
+        <h3>Book Appointment</h3>
+
+        <p>
+            Book an appointment with a doctor.
+        </p>
+
+        <a href="doctors.html">
+
+            <button>
+                Book Now
+            </button>
+
+        </a>
+
+    </div>
+
+
+    <!-- My Appointments -->
+
+    <div class="card">
+
+        <h3>My Appointments</h3>
+
+        <p>
+            View your upcoming appointments.
+        </p>
+
+        <button>
+            View
+        </button>
+
+    </div>
+
+
+    <!-- Patient Records -->
+
+    <div class="card">
+
+        <h3>Patient Records</h3>
+
+        <p>
+            View your medical records.
+        </p>
+
+        <button>
+            View Records
+        </button>
+
+    </div>
+
+
+    <!-- Prescriptions -->
+
+    <div class="card">
+
+        <h3>Prescriptions</h3>
+
+        <p>
+            View your medicines and prescriptions.
+        </p>
+
+        <button>
+            View
+        </button>
+
+    </div>
+
+
+    <!-- ================= PROFILE ================= -->
+
+    <div class="appointment">
+
+        <h2>My Profile</h2>
+
+        <p>
+            <b>Name:</b> Patient Name
+        </p>
+
+        <p>
+            <b>Email:</b> patient@gmail.com
+        </p>
+
+        <p>
+            <b>Phone:</b> +91 98765 43210
+        </p>
+
+        <p>
+            <b>Gender:</b> Male
+        </p>
+
+        <p>
+            <b>Date of Birth:</b> 01 January 2000
+        </p>
+
+        <button>
+            Edit Profile
+        </button>
+
+    </div>
+
+
+    <!-- ================= UPCOMING APPOINTMENT ================= -->
+
+    <div class="appointment">
+
+        <h2>Upcoming Appointment</h2>
+
+        <p>
+            <b>Doctor:</b> Dr. Rajesh Kumar
+        </p>
+
+        <p>
+            <b>Department:</b> Cardiology
+        </p>
+
+        <p>
+            <b>Date:</b> 15 October 2026
+        </p>
+
+        <p>
+            <b>Time:</b> 10:30 AM
+        </p>
+
+        <p>
+            <b>Status:</b> Confirmed
+        </p>
+
+        <button>
+            Cancel Appointment
+        </button>
+
+    </div>
+
+
+    <!-- ================= APPOINTMENT HISTORY ================= -->
+
+    <div class="appointment">
+
+        <h2>Appointment History</h2>
+
+        <table>
+
+            <tr>
+
+                <th>Doctor</th>
+
+                <th>Department</th>
+
+                <th>Date</th>
+
+                <th>Status</th>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Dr. Priya Sharma</td>
+
+                <td>Neurology</td>
+
+                <td>10 September 2026</td>
+
+                <td>Completed</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Dr. Amit Patel</td>
+
+                <td>Orthopedics</td>
+
+                <td>20 August 2026</td>
+
+                <td>Completed</td>
+
+            </tr>
+
+
+        </table>
+
+    </div>
+
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 MedCare Hospital
+    </p>
+
+    <p>
+        All Rights Reserved.
+    </p>
+
+</footer>
+```
+
+</body>
+
+</html>

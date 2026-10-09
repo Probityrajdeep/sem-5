@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CGU SecureGate — Campus Security Demo</title>
+<style>
+  :root{
+    --bg:#eef3f8;
+    --panel:#ffffff;
+    --text:#122033;
+    --muted:#6b7787;
+    --line:#dce4ec;
+    --nav:#0f2742;
+    --nav2:#173958;
+    --accent:#2e7dd7;
+    --accent-soft:#e7f1ff;
+    --success:#18845b;
+    --success-soft:#e8f7f0;
+    --warning:#b77608;
+    --warning-soft:#fff5de;
+    --danger:#c63b3b;
+    --danger-soft:#fdeaea;
+    --shadow:0 12px 28px rgba(24,48,75,.08);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
+  button,input,select,textarea{font:inherit}
+  .app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
+  aside{
+    background:linear-gradient(180deg,var(--nav),#0a2036);
+    color:#fff;padding:24px 16px;position:sticky;top:0;height:100vh;
+  }
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:28px;padding:4px 8px}
+  .brand-mark{
+    width:42px;height:42px;border-radius:12px;background:#2d75bd;
+    display:grid;place-items:center;font-weight:800;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)
+  }
+  .brand h1{font-size:16px;margin:0}
+  .brand p{font-size:11px;color:#b7c9da;margin:3px 0 0}
+  nav{display:grid;gap:7px}
+  nav button{
+    width:100%;border:0;background:transparent;color:#c6d3df;text-align:left;
+    padding:12px 14px;border-radius:10px;cursor:pointer;font-weight:600
+  }
+  nav button:hover,nav button.active{background:rgba(255,255,255,.1);color:#fff}
+  .side-note{
+    position:absolute;left:16px;right:16px;bottom:18px;background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);padding:12px;border-radius:12px;font-size:11px;color:#b7c9da
+  }
+  main{padding:26px;min-width:0}
+  .topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:22px}
+  .topbar h2{margin:0;font-size:26px}
+  .topbar p{margin:6px 0 0;color:var(--muted)}
+  .live{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);padding:9px 12px;border-radius:12px;font-size:13px;font-weight:700}
+  .dot{width:9px;height:9px;border-radius:50%;background:#20a466;box-shadow:0 0 0 5px #def5e9}
+  .grid{display:grid;gap:18px}
+  .cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .card{padding:18px}
+  .card small{color:var(--muted);font-weight:700}
+  .metric{display:flex;justify-content:space-between;align-items:end;margin-top:10px}
+  .metric strong{font-size:30px}
+  .tag{font-size:11px;padding:5px 8px;border-radius:999px;font-weight:800}
+  .blue{background:var(--accent-soft);color:var(--accent)}
+  .green{background:var(--success-soft);color:var(--success)}
+  .yellow{background:var(--warning-soft);color:var(--warning)}
+  .red{background:var(--danger-soft);color:var(--danger)}
+  .two{grid-template-columns:1.3fr .9fr}
+  .panel{padding:20px}
+  .panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
+  .panel-head h3{margin:0;font-size:17px}
+  .panel-head span{color:var(--muted);font-size:12px}
+  .table{width:100%;border-collapse:collapse}
+  .table th,.table td{padding:11px 8px;border-bottom:1px solid #edf1f5;text-align:left;font-size:13px}
+  .table th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+  .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .field{display:grid;gap:6px}
+  .field label{font-size:12px;color:var(--muted);font-weight:700}
+  .field input,.field select,.field textarea{
+    width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 11px;background:#fbfcfe
+  }
+  .field textarea{min-height:82px;resize:vertical}
+  .full{grid-column:1/-1}
+  .actions{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{
+    border:0;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:800
+  }
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.secondary{background:#edf2f7;color:#23364b}
+  .btn.danger{background:var(--danger-soft);color:var(--danger)}
+  .btn.success{background:var(--success-soft);color:var(--success)}
+  .scanner{
+    border:1px dashed #a9bbcd;background:linear-gradient(180deg,#f8fbff,#edf5fc);border-radius:14px;padding:20px
+  }
+  .scan-box{display:flex;align-items:center;justify-content:center;gap:12px;min-height:140px;border-radius:12px;background:#102e49;color:#fff}
+  .scan-box .camera{font-size:34px}
+  .result{margin-top:15px;padding:14px;border-radius:12px;background:#fff;border:1px solid var(--line);display:none}
+  .result.show{display:block}
+  .result strong{display:block;margin-bottom:8px}
+  .status-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #edf1f5}
+  .status-row:last-child{border-bottom:0}
+  .section{display:none}
+  .section.active{display:block}
+  .hero{
+    display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-bottom:18px
+  }
+  .hero-box{background:linear-gradient(135deg,#0f2742,#214c73);color:#fff;border-radius:18px;padding:24px;box-shadow:var(--shadow)}
+  .hero-box h3{font-size:25px;margin:0 0 8px}
+  .hero-box p{color:#d2dfeb;line-height:1.55;margin:0}
+  .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+  .hero-badges span{font-size:11px;border:1px solid rgba(255,255,255,.18);padding:6px 9px;border-radius:999px}
+  .mini-card{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .mini{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+  .mini b{font-size:20px;display:block;margin-top:5px}
+  .footer-note{font-size:11px;color:var(--muted);margin-top:14px}
+  @media(max-width:1050px){.app{grid-template-columns:1fr} aside{height:auto;position:relative}.side-note{display:none}.cards{grid-template-columns:repeat(2,1fr)}.two,.hero{grid-template-columns:1fr}}
+  @media(max-width:700px){main{padding:16px}.cards{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.topbar{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="brand">
+      <div class="brand-mark">CGU</div>
+      <div>
+        <h1>SecureGate</h1>
+        <p>Campus Security Software</p>
+      </div>
+    </div>
+    <nav>
+      <button class="active" onclick="showSection('dashboard',this)">Dashboard</button>
+      <button onclick="showSection('entry',this)">Gate Control</button>
+      <button onclick="showSection('register',this)">Register Vehicle</button>
+      <button onclick="showSection('external',this)">External Vehicle</button>
+      <button onclick="showSection('incident',this)">Traffic Incident</button>
+      <button onclick="showSection('reports',this)">Reports & Queries</button>
+    </nav>
+    <div class="side-note">
+      <b>Demo Prototype</b><br><br>
+      Mock ANPR, gate and database interactions are simulated locally for presentation.
+    </div>
+  </aside>
+
+  <main>
+    <div class="topbar">
+      <div>
+        <h2 id="pageTitle">Security Dashboard</h2>
+        <p>CGU campus vehicle monitoring and access control</p>
+      </div>
+      <div class="live"><span class="dot"></span> System Online</div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="section active">
+      <div class="hero">
+        <div class="hero-box">
+          <h3>Campus Traffic Command Center</h3>
+          <p>Monitor registered vehicles, external visitors, traffic incidents and current campus occupancy from one interface.</p>
+          <div class="hero-badges">
+            <span>ANPR Enabled</span><span>Gate Automation</span><span>Cyber Secure</span><span>High Availability</span>
+          </div>
+        </div>
+        <div class="mini-card">
+          <div class="mini"><small>Vehicles Inside</small><b id="insideMetric">36</b><span class="tag green">Live</span></div>
+          <div class="mini"><small>External Today</small><b id="externalMetric">8</b><span class="tag blue">Today</span></div>
+          <div class="mini"><small>Open Incidents</small><b id="incidentMetric">3</b><span class="tag red">Review</span></div>
+          <div class="mini"><small>Availability</small><b>99.99%</b><span class="tag green">Healthy</span></div>
+        </div>
+      </div>
+
+      <div class="grid cards">
+        <div class="card"><small>Total Resident Vehicles</small><div class="metric"><strong>412</strong><span class="tag blue">Registered</span></div></div>
+        <div class="card"><small>Entries Today</small><div class="metric"><strong id="entryMetric">128</strong><span class="tag green">+8%</span></div></div>
+        <div class="card"><small>Exits Today</small><div class="metric"><strong id="exitMetric">101</strong><span class="tag green">Normal</span></div></div>
+        <div class="card"><small>Vehicles &gt; 8 Hours</small><div class="metric"><strong>2</strong><span class="tag yellow">Action</span></div></div>
+      </div>
+
+      <div class="grid two" style="margin-top:18px">
+        <div class="panel">
+          <div class="panel-head"><h3>Recent Gate Activity</h3><span>Latest events</span></div>
+          <table class="table">
+            <thead><tr><th>Time</th><th>Vehicle</th><th>Type</th><th>Status</th></tr></thead>
+            <tbody id="activityBody">
+              <tr><td>15:02</td><td>OD02 AB 2145</td><td>Campus</td><td><span class="tag green">Entry</span></td></tr>
+              <tr><td>14:56</td><td>OD33 X 9081</td><td>External</td><td><span class="tag blue">Entry</span></td></tr>
+              <tr><td>14:43</td><td>OD02 AC 7711</td><td>Campus</td><td><span class="tag green">Exit</span></td></tr>
+              <tr><td>14:31</td><td>OD05 Q 2240</td><td>External</td><td><span class="tag yellow">8h Review</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Operational Rules</h3><span>Case-study rules</span></div>
+          <div class="status-row"><span>Registered campus vehicle</span><span class="tag green">Auto Gate</span></div>
+          <div class="status-row"><span>External vehicle</span><span class="tag blue">Purpose + Photo</span></div>
+          <div class="status-row"><span>Stay &gt; 8 hours</span><span class="tag yellow">Question Driver</span></div>
+          <div class="status-row"><span>External bad response</span><span class="tag red">Entry Ban</span></div>
+          <div class="status-row"><span>Campus bad response</span><span class="tag red">Dean Letter</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENTRY -->
+    <section id="entry" class="section">
+      <div class="grid two">
+        <div class="panel">
+          <div class="panel-head"><h3>ANPR / Gate Simulation</h3><span>Camera mounted at check gate</span></div>
+          <div class="scanner">
+            <div class="scan-box">
+              <div class="camera">📷</div>
+              <div><div style="font-weight:800">Camera Ready</div><div style="font-size:12px;color:#bdd0e2">Detect registration number and vehicle model</div></div>
+            </div>
+            <div style="margin-top:14px" class="form-grid">
+              <div class="field"><label>Registration Number</label><input id="scanReg" value="OD02 AB 2145"></div>
+              <div class="field"><label>Vehicle Model</label><input id="scanModel" value="Maruti Brezza"></div>
+            </div>
+            <div class="actions" style="margin-top:14px">
+              <button class="btn primary" onclick="scanVehicle()">Run ANPR Check</button>
+              <button class="btn secondary" onclick="setDemo('external')">Use External Demo</button>
+            </div>
+            <div id="scanResult" class="result">
+              <strong id="scanTitle">Registered Campus Vehicle</strong>
+              <div id="scanText">Registration verified. Gate can open automatically.</div>
+              <div class="actions" style="margin-top:12px"><button class="btn success" onclick="openGate()">Open Gate</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Gate Status</h3><span>Live simulation</span></div>
+          <div style="padding:14px;border:1px solid var(--line);border-radius:14px">
+            <div style="font-size:12px;color:var(--muted)">Current state</div>
+            <div id="gateState" style="font-size:30px;font-weight:800;margin:5px 0 14px">CLOSED</div>
+            <div class="status-row"><span>Camera</span><span class="tag green">Online</span></div>
+            <div class="status-row"><span>ANPR</span><span class="tag green">Ready</span></div>
+            <div class="status-row"><span>Database</span><span class="tag green">Connected</span></div>
+            <div class="status-row"><span>Last Event</span><span id="lastEvent">—</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-note">Demo behavior only: no real camera, gate hardware or database is connected.</div>
+    </section>
+
+    <!-- REGISTER -->
+    <section id="register" class="section">
+      <div class="panel">
+        <div class="panel-head"><h3>Campus Vehicle Registration</h3><span>Faculty / Staff / Student</span></div>
+        <div class="form-grid">
+          <div class="field"><label>Owner Name</label><input id="ownerName" placeholder="e.g. Rahul Sharma"></div>
+          <div class="field"><label>Owner Type</label><select id="ownerType"><option>Student</option><option>Faculty</option><option>Staff</option></select></div>
+          <div class="field"><label>Registration Number</label><input id="regNo" placeholder="OD02 XX 0000"></div>
+          <div class="field"><label>Vehicle Model</label><input id="model" placeholder="e.g. Honda City"></div>
+          <div class="field"><label>Contact Number</label><input id="contact" placeholder="+91 XXXXX XXXXX"></div>
+          <div class="field"><label>Verification Status</label><select id="verification"><option>Due diligence completed</option><option>Pending verification</option></select></div>
+        </div>
+        <div class="actions" style="margin-top:16px">
+          <button class="btn primary" onclick="registerVehicle()">Register Vehicle</button>
+          <button class="btn secondary" onclick="clearForm('register')">Reset</button>
+        </div>
+        <div id="registerMsg" class="result"></div>
+      </div>
+
+      <div class="panel" style="margin-top:18px">
+        <div class="panel-head"><h3>Registered Vehicles</h3><span>Demo records</span></div>
+        <table class="table">
+          <thead><tr><th>Owner</th><th>Type</th><th>Registration</th><th>Model</th><th>Status</th></tr></thead>
+          <tbody id="vehicleBody">
+            <tr><td>Ananya</td><td>Student</td><td>OD02 AB 2145</td><td>Brezza</td><td><span class="tag green">Verified</span></td></tr>
+            <tr><td>Dr. Mehta</td><td>Faculty</td><td>OD02 AC 7711</td><td>Honda City</td><td><span class="tag green">Verified</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- EXTERNAL -->
+    <section id="external" class="section">
+      <div class="grid two">
+        <div class="panel">
+          <div class="panel-head"><h3>External Vehicle Entry</h3><span>Gate staff workflow</span></div>
+          <div class="form-grid">
+            <div class="field"><label>Driver Name</label><input id="driverName" placeholder="Visitor name"></div>
+            <div class="field"><label>Registration Number</label><input id="externalReg" value="OD33 X 9081"></div>
+            <div class="field"><label>Vehicle Model</label><input id="externalModel" value="Mahindra XUV"></div>
+            <div class="field"><label>Purpose of Entry</label><select id="purpose"><option>Meeting</option><option>Delivery</option><option>Service</option><option>Official Work</option><option>Other</option></select></div>
+            <div class="field full"><label>Remarks</label><textarea id="remarks" placeholder="Optional remarks"></textarea></div>
+          </div>
+          <div class="actions" style="margin-top:14px">
+            <button class="btn primary" onclick="externalEntry()">Record External Entry</button>
+          </div>
+          <div id="externalMsg" class="result"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>External Vehicle Rules</h3><span>Automated monitoring</span></div>
+          <div class="status-row"><span>Photo captured</span><span class="tag green">Yes</span></div>
+          <div class="status-row"><span>Purpose recorded</span><span class="tag green">Required</span></div>
+          <div class="status-row"><span>Exit time</span><span class="tag blue">Automatic</span></div>
+          <div class="status-row"><span>Stay &gt; 8 hours</span><span class="tag yellow">Question driver</span></div>
+          <div class="status-row"><span>Unsatisfactory response</span><span class="tag red">Bar future entry</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INCIDENT -->
+    <section id="incident" class="section">
+      <div class="grid two">
+        <div class="panel">
+          <div class="panel-head"><h3>Report Errant Vehicle</h3><span>Speeding / rough driving</span></div>
+          <div class="form-grid">
+            <div class="field"><label>Registration Number</label><input id="incidentReg" value="OD02 ZX 5521"></div>
+            <div class="field"><label>Traffic Point</label><input id="trafficPoint" value="North Gate Junction"></div>
+            <div class="field"><label>Date & Time</label><input id="incidentTime" type="datetime-local"></div>
+            <div class="field"><label>Nature of Offence</label><select id="offence"><option>Speeding</option><option>Rough Driving</option><option>Other</option></select></div>
+          </div>
+          <div class="actions" style="margin-top:14px">
+            <button class="btn danger" onclick="reportIncident()">Record Incident</button>
+          </div>
+          <div id="incidentMsg" class="result"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Incident Workflow</h3><span>Next exit</span></div>
+          <div class="status-row"><span>Incident recorded</span><span class="tag green">1</span></div>
+          <div class="status-row"><span>Driver questioned at exit</span><span class="tag yellow">Pending</span></div>
+          <div class="status-row"><span>External + bad response</span><span class="tag red">Entry ban</span></div>
+          <div class="status-row"><span>Campus + bad response</span><span class="tag red">Dean letter</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPORTS -->
+    <section id="reports" class="section">
+      <div class="grid cards">
+        <div class="card"><small>Daily Entries</small><div class="metric"><strong>128</strong><span class="tag green">Today</span></div></div>
+        <div class="card"><small>Monthly Entries</small><div class="metric"><strong>3,214</strong><span class="tag blue">Month</span></div></div>
+        <div class="card"><small>Yearly Entries</small><div class="metric"><strong>28,630</strong><span class="tag blue">Year</span></div></div>
+        <div class="card"><small>Resident Vehicles</small><div class="metric"><strong>412</strong><span class="tag green">Count</span></div></div>
+      </div>
+
+      <div class="grid two" style="margin-top:18px">
+        <div class="panel">
+          <div class="panel-head"><h3>Vehicle Status Query</h3><span>Security Officer</span></div>
+          <div class="form-grid">
+            <div class="field"><label>Registration Number</label><input id="queryReg" value="OD02 AB 2145"></div>
+            <div class="field"><label>Query</label><select id="queryType"><option>Currently inside?</option><option>Last exit time</option></select></div>
+          </div>
+          <div class="actions" style="margin-top:14px"><button class="btn primary" onclick="queryVehicle()">Run Query</button></div>
+          <div id="queryResult" class="result"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Security Health</h3><span>Non-functional requirements</span></div>
+          <div class="status-row"><span>Cybersecurity posture</span><span class="tag green">Protected</span></div>
+          <div class="status-row"><span>System availability</span><span class="tag green">99.99%</span></div>
+          <div class="status-row"><span>Maximum tolerated downtime</span><span class="tag yellow">&lt; 5 min</span></div>
+          <div class="status-row"><span>Gate integration</span><span class="tag green">Online</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const titles = {
+  dashboard:'Security Dashboard',
+  entry:'Gate Control',
+  register:'Register Campus Vehicle',
+  external:'External Vehicle',
+  incident:'Traffic Incident',
+  reports:'Reports & Queries'
+};
+
+function showSection(id, btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('pageTitle').textContent = titles[id];
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function nowTime(){
+  return new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+}
+
+function scanVehicle(){
+  const reg = document.getElementById('scanReg').value.trim().toUpperCase();
+  const known = ['OD02 AB 2145','OD02 AC 7711'];
+  const result = document.getElementById('scanResult');
+  const title = document.getElementById('scanTitle');
+  const text = document.getElementById('scanText');
+  result.classList.add('show');
+  document.getElementById('lastEvent').textContent = nowTime();
+  if(known.includes(reg)){
+    title.textContent = 'Registered Campus Vehicle';
+    text.textContent = 'Registration verified. Gate can open automatically.';
+    title.style.color = '#18845b';
+  }else{
+    title.textContent = 'External / Unregistered Vehicle';
+    text.textContent = 'Follow external-vehicle workflow: record purpose, photo and visitor details.';
+    title.style.color = '#b77608';
+  }
+}
+function setDemo(type){
+  if(type==='external'){
+    document.getElementById('scanReg').value = 'OD33 X 9081';
+    document.getElementById('scanModel').value = 'Mahindra XUV';
+  }
+}
+function openGate(){
+  const gate = document.getElementById('gateState');
+  gate.textContent = 'OPEN';
+  gate.style.color = '#18845b';
+  document.getElementById('lastEvent').textContent = 'Gate opened at '+nowTime();
+  setTimeout(()=>{gate.textContent='CLOSED'; gate.style.color='';},2500);
+}
+function registerVehicle(){
+  const owner = document.getElementById('ownerName').value.trim() || 'Demo Owner';
+  const type = document.getElementById('ownerType').value;
+  const reg = (document.getElementById('regNo').value.trim() || 'OD02 XX 0000').toUpperCase();
+  const model = document.getElementById('model').value.trim() || 'Demo Model';
+  const tbody = document.getElementById('vehicleBody');
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${owner}</td><td>${type}</td><td>${reg}</td><td>${model}</td><td><span class="tag green">Verified</span></td>`;
+  tbody.prepend(tr);
+  const msg = document.getElementById('registerMsg');
+  msg.className='result show';
+  msg.innerHTML = `<strong>Vehicle registered successfully</strong>${reg} has been added to the demo vehicle database.`;
+}
+function externalEntry(){
+  const reg = document.getElementById('externalReg').value.trim().toUpperCase();
+  const name = document.getElementById('driverName').value.trim() || 'External Driver';
+  const purpose = document.getElementById('purpose').value;
+  const msg = document.getElementById('externalMsg');
+  msg.className='result show';
+  msg.innerHTML = `<strong>External entry recorded</strong>${name} / ${reg} — Purpose: ${purpose}. Photo, model and entry time stored.`;
+  document.getElementById('externalMetric').textContent = parseInt(document.getElementById('externalMetric').textContent)+1;
+}
+function reportIncident(){
+  const reg = document.getElementById('incidentReg').value.trim().toUpperCase();
+  const point = document.getElementById('trafficPoint').value.trim() || 'Campus traffic point';
+  const offence = document.getElementById('offence').value;
+  const msg = document.getElementById('incidentMsg');
+  msg.className='result show';
+  msg.innerHTML = `<strong>Incident recorded</strong>${reg} reported for ${offence} at ${point}. Driver will be questioned at next exit.`;
+  document.getElementById('incidentMetric').textContent = parseInt(document.getElementById('incidentMetric').textContent)+1;
+}
+function queryVehicle(){
+  const reg = document.getElementById('queryReg').value.trim().toUpperCase();
+  const type = document.getElementById('queryType').value;
+  const box = document.getElementById('queryResult');
+  box.className='result show';
+  if(type.includes('inside')){
+    box.innerHTML = `<strong>${reg}</strong>Status: <span style="color:#18845b;font-weight:800">Currently inside campus</span>.`;
+  }else{
+    box.innerHTML = `<strong>${reg}</strong>Last exit time: <span style="font-weight:800">14:43 today</span>.`;
+  }
+}
+function clearForm(sectionId){
+  document.querySelectorAll(`#${sectionId} input, #${sectionId} textarea`).forEach(el=>{
+    if(el.type==='text' || el.type==='tel') el.value='';
+  });
+}
+document.getElementById('incidentTime').value = new Date().toISOString().slice(0,16);
+</script>
+</body>
+</html>

@@ -1,0 +1,545 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>MedCare Hospital</title>
+
+    <style>
+
+        /* Page */
+
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: #f2f9ff;
+        }
+
+
+        /* Header */
+
+        header {
+            background-color: #008080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+
+        /* Navigation */
+
+        nav {
+            background-color: #004d4d;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+
+        /* Login Button */
+
+        .login {
+            background-color: white;
+            color: #008080;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+
+        /* Home */
+
+        .home {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .home h1 {
+            color: #008080;
+        }
+
+        .home p {
+            font-size: 18px;
+        }
+
+
+        /* Button */
+
+        button {
+            background-color: #008080;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+
+        /* Section */
+
+        .section {
+            background-color: white;
+            margin: 20px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: #008080;
+        }
+
+
+        /* Cards */
+
+        .card {
+            display: inline-block;
+            background-color: #e8f7f7;
+            width: 200px;
+            padding: 20px;
+            margin: 10px;
+            vertical-align: top;
+        }
+
+
+        /* Clickable Cards */
+
+        .card-link {
+            text-decoration: none;
+            color: black;
+        }
+
+        .card:hover {
+            background-color: #cceeee;
+        }
+
+
+        /* Footer */
+
+        footer {
+            background-color: #004d4d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <h1>MedCare Hospital</h1>
+
+        <p>Your Health is Our Priority</p>
+
+    </header>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="#departments">Departments</a>
+
+        <a href="#services">Services</a>
+
+        <a href="#doctors">Doctors</a>
+
+        <a href="#about">About Us</a>
+
+        <a href="#contact">Contact</a>
+
+        <a href="login.html" class="login">
+            Login
+        </a>
+
+    </nav>
+
+
+    <!-- ================= HOME ================= -->
+
+    <div class="home">
+
+        <h1>Welcome to MedCare Hospital</h1>
+
+        <p>
+            Quality healthcare services for you and your family.
+        </p>
+
+        <a href="login.html">
+
+            <button>
+                Book an Appointment
+            </button>
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= DEPARTMENTS ================= -->
+
+    <div class="section" id="departments">
+
+        <h2>Our Departments</h2>
+
+        <p>
+            Choose a department according to your health needs.
+        </p>
+
+
+        <!-- Cardiology -->
+
+        <a href="cardiology.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Cardiology</h3>
+
+                <p>
+                    Treatment of heart and blood vessel problems.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Neurology -->
+
+        <a href="neurology.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Neurology</h3>
+
+                <p>
+                    Treatment of brain and nervous system problems.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Orthopedics -->
+
+        <a href="orthopedics.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Orthopedics</h3>
+
+                <p>
+                    Treatment of bones, joints and muscles.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Pediatrics -->
+
+        <a href="pediatrics.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Pediatrics</h3>
+
+                <p>
+                    Healthcare and treatment for children.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Dermatology -->
+
+        <a href="dermatology.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Dermatology</h3>
+
+                <p>
+                    Treatment of skin, hair and nail problems.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- General Medicine -->
+
+        <a href="general-medicine.html" class="card-link">
+
+            <div class="card">
+
+                <h3>General Medicine</h3>
+
+                <p>
+                    General health checkups and treatment.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Gynecology -->
+
+        <a href="gynecology.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Gynecology</h3>
+
+                <p>
+                    Healthcare related to women's health.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Ophthalmology -->
+
+        <a href="ophthalmology.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Ophthalmology</h3>
+
+                <p>
+                    Treatment of eye and vision problems.
+                </p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <div class="section" id="services">
+
+        <h2>Our Services</h2>
+
+
+        <!-- Appointment -->
+
+        <a href="login.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Book Appointment</h3>
+
+                <p>
+                    Book an appointment with our doctors.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Doctor Search -->
+
+        <a href="doctors.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Find a Doctor</h3>
+
+                <p>
+                    Find doctors according to specialization.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Patient Records -->
+
+        <a href="login.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Patient Records</h3>
+
+                <p>
+                    Manage your patient information.
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Emergency -->
+
+        <a href="emergency.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Emergency</h3>
+
+                <p>
+                    Get help during medical emergencies.
+                </p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= DOCTORS ================= -->
+
+    <div class="section" id="doctors">
+
+        <h2>Our Doctors</h2>
+
+
+        <!-- Doctor 1 -->
+
+        <a href="doctor-rajesh.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Dr. Rajesh Kumar</h3>
+
+                <p>Cardiologist</p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Doctor 2 -->
+
+        <a href="doctor-priya.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Dr. Priya Sharma</h3>
+
+                <p>Neurologist</p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Doctor 3 -->
+
+        <a href="doctor-amit.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Dr. Amit Patel</h3>
+
+                <p>Orthopedic Doctor</p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Doctor 4 -->
+
+        <a href="doctor-sneha.html" class="card-link">
+
+            <div class="card">
+
+                <h3>Dr. Sneha Das</h3>
+
+                <p>Pediatrician</p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <div class="section" id="about">
+
+        <h2>About Us</h2>
+
+        <p>
+            MedCare Hospital is a hospital appointment and
+            patient management system.
+        </p>
+
+        <p>
+            Patients can find doctors, select departments
+            and book appointments easily.
+        </p>
+
+    </div>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <div class="section" id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>
+            Address: Bhubaneswar, Odisha
+        </p>
+
+        <p>
+            Phone: +91 1800 123 4567
+        </p>
+
+        <p>
+            Email: medcare@gmail.com
+        </p>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 MedCare Hospital
+        </p>
+
+        <p>
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+```
